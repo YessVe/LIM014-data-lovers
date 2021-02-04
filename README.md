@@ -137,42 +137,81 @@ el problema (o problemas) que tiene tu usuario.
   Quiero ver a todos los deportistas
   Para tener una vista general de los que participaron
 
- ----> Criterio de aceptación:
+    --> Criterio de aceptación:
 
-  (qué haremos con nuestra página para)
-  (al ingresar a nuestra plataforma se verá todos los deportistas)
+        Al ingresar a nuestra plataforma se verá todos los deportistas en cards.
+        En esta card, al dar click, se podrá visualizar sus datos como peso, estatura, edad, nacionalidad, premio y disciplina en la que participaron.
+        Tendrán un ícono según su género (masculino y femenino).
 
- ----> Definición de lo terminado:
+    --> Definición de lo terminado:
 
+(esto lo tendremos cuando corramos el test)
 
 * [ ] Usuario 2:
   Yo como fanática de los juegos olímpicos
   Quiero filtrar a los deportistas
-  Para conocerlos según las disciplinas y país
+  Para conocerlos según las disciplinas
 
-  (tener la opción de elegir disciplina o país y ver a todos los deportistas)
+    --> Criterio de aceptación:
+
+        En la página principal, habrá un seleccionador de disciplinas (por íconos). Este mostrará todas las que se dieron en los juegos. Así, el usuario podrá elegir uno de ellos y mostrará los atletas que participaron en él.
+
+    --> Definición de lo terminado:
+
+(esto lo tendremos cuando corramos el test)
 
 * [ ] Usuario 3:
   Yo como fanática de los juegos olímpicos
-  Quiero conocer cuántas medallas han ganado cada atleta
-  Para comparar con otros países
+  Quiero filtrar a los deportistas
+  Para conocerlos según las país
 
-  ()
+  --> Criterio de aceptación:
+
+        En la página principal, habrá un seleccionador de países (por íconos de bandera). Este mostrará todas los países que participaron en los juegos. Así, el usuario podrá elegir uno de ellos y mostrará los atletas según su nacionalidad.
+
+  --> Definición de lo terminado:
+
+  (esto lo tendremos cuando corramos el test)
 
 * [ ] Usuario 4:
   Yo como fanática de los juegos olímpicos
-  Quiero saber qué atletas ganaron más medallas
-  Para compararlos según país
+  Quiero saber cuáles son los top 10 atletas que ganaron medallas de oro, de plata o de bronce
+  Para tener un conocimiento de los mejores
+
+  --> Criterio de aceptación:
+
+        En la página principal, habrá una opción "Medallero" y se abrirá una ventana donde se visualice los íconos de oro, plata y bronce. Al costado, habrá la opción de conocer el top 10 según la medalla escogida. 
+
+  --> Definición de lo terminado:
+
+(esto lo tendremos cuando corramos el test)
 
 * [ ] Usuario 5:
   Yo como fanática de los juegos olímpicos
-  Quiero ordenar a los atletas según su edad
-  Para conocer quiénes son mayores y/o menores
+  Quiero ordenar los nombres de los atletas alfabéticamente
+  Para tener una visualización más ordenada
+
+ --> Criterio de aceptación:
+
+        Al inicio, habrá una opción desplegable para ordenar los nombres de los atletas de la A - Z o viceversa. Cuando se haya escogido, los cards con la información de los atletas se reorganizará. 
+
+  --> Definición de lo terminado:
+
+(esto lo tendremos cuando corramos el test)
 
 * [ ] Usuario 6:
   Yo como fanática de los juegos olímpicos
   Quiero buscar a un atleta
-  Para saber sus datos 
+  Para saber sus datos y si participó en los juegos.
+
+ --> Criterio de aceptación:
+
+        En la página principal, habrá un "buscador por nombre de atleta". Estará ubicado en la esquina superior y solo aceptará nombres. Cuando el usuario haya escrito y dado enter o click en la lupa, aparecerá el card del atleta o un mensaje que diga "Atleta no encontrad@".
+
+  --> Definición de lo terminado:
+
+(esto lo tendremos cuando corramos el test)
+
 
 Una vez que entiendas las necesidades de tus usuarios, escribe las [Historias
 de Usuario](https://es.wikipedia.org/wiki/Historias_de_usuario) que representen
