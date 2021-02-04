@@ -154,7 +154,9 @@ el problema (o problemas) que tiene tu usuario.
 
     --> Criterio de aceptación:
 
-        En la página principal, habrá un seleccionador de disciplinas (por íconos). Este mostrará todas las que se dieron en los juegos. Así, el usuario podrá elegir uno de ellos y mostrará los atletas que participaron en él.
+        En la página principal, habrá un seleccionador de disciplinas (por íconos). Este mostrará 
+        todas las que se dieron en los juegos. Así, el usuario podrá elegir uno de ellos y mostrará 
+        los atletas que participaron en él.
 
     --> Definición de lo terminado:
 
@@ -167,7 +169,9 @@ el problema (o problemas) que tiene tu usuario.
 
   --> Criterio de aceptación:
 
-        En la página principal, habrá un seleccionador de países (por íconos de bandera). Este mostrará todas los países que participaron en los juegos. Así, el usuario podrá elegir uno de ellos y mostrará los atletas según su nacionalidad.
+        En la página principal, habrá un seleccionador de países (por íconos de bandera). 
+        Este mostrará todas los países que participaron en los juegos. Así, el usuario podrá elegir
+        uno de ellos y mostrará los atletas según su nacionalidad.
 
   --> Definición de lo terminado:
 
@@ -180,7 +184,9 @@ el problema (o problemas) que tiene tu usuario.
 
   --> Criterio de aceptación:
 
-        En la página principal, habrá una opción "Medallero" y se abrirá una ventana donde se visualice los íconos de oro, plata y bronce. Al costado, habrá la opción de conocer el top 10 según la medalla escogida. 
+        En la página principal, habrá una opción "Medallero" y se abrirá una ventana donde se 
+        visualice los íconos de oro, plata y bronce. Al costado, habrá la opción de conocer el top 
+        10 según la medalla escogida. 
 
   --> Definición de lo terminado:
 
@@ -193,7 +199,9 @@ el problema (o problemas) que tiene tu usuario.
 
  --> Criterio de aceptación:
 
-        Al inicio, habrá una opción desplegable para ordenar los nombres de los atletas de la A - Z o viceversa. Cuando se haya escogido, los cards con la información de los atletas se reorganizará. 
+        Al inicio, habrá una opción desplegable para ordenar los nombres de los atletas de la 
+        A - Z o viceversa. Cuando se haya escogido, los cards con la información de los atletas 
+        se reorganizará. 
 
   --> Definición de lo terminado:
 
@@ -206,7 +214,9 @@ el problema (o problemas) que tiene tu usuario.
 
  --> Criterio de aceptación:
 
-        En la página principal, habrá un "buscador por nombre de atleta". Estará ubicado en la esquina superior y solo aceptará nombres. Cuando el usuario haya escrito y dado enter o click en la lupa, aparecerá el card del atleta o un mensaje que diga "Atleta no encontrad@".
+        En la página principal, habrá un "buscador por nombre de atleta". Estará ubicado en la 
+        esquina superior y solo aceptará nombres. Cuando el usuario haya escrito y dado enter o 
+        click en la lupa, aparecerá el card del atleta o un mensaje que diga "Atleta no encontrad@".
 
   --> Definición de lo terminado:
 
@@ -228,7 +238,7 @@ a la siguiente (Cumple con Definición de Terminado + Criterios de Aceptación).
 
 #### Prototipo de baja fidelidad
 
-El primer prototipo de baja fidelidad donde se muestra la página inicial del aplicativo.
+El primer prototipo de baja fidelidad donde se muestra la página inicial del aplicativo es como sigue:
 
 ![Prototipo de baja fidelidad](https://user-images.githubusercontent.com/77126999/106932071-453b7300-66e5-11eb-8c74-684eff2cd697.jpeg)
 
