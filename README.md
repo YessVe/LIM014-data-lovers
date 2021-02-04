@@ -228,6 +228,12 @@ a la siguiente (Cumple con Definición de Terminado + Criterios de Aceptación).
 
 #### Prototipo de baja fidelidad
 
+El primer prototipo de baja fidelidad donde se muestra la página inicial del aplicativo.
+
+![Prototipo de baja fidelidad](https://user-images.githubusercontent.com/77126999/106932071-453b7300-66e5-11eb-8c74-684eff2cd697.jpeg)
+
+
+
 Durante tu trabajo deberás haber hecho e iterado bocetos (_sketches_) de tu
 solución usando papel y lápiz. Te recomendamos tomar fotos de todas las
 iteraciones que hagas, que las subas a tu repositorio y las menciones en tu
