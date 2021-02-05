@@ -1,9 +1,9 @@
+# Juego Olímpicos de Rio de Janeiro
 # Data Lovers
-Proyecto de Juegos olímpicos 
+
 ## Índice
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
+* [1. Resumen del proyecto](#2-resumen-del-proyecto)
 * [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
 * [4. Consideraciones generales](#4-consideraciones-generales)
 * [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
@@ -14,25 +14,7 @@ Proyecto de Juegos olímpicos
 
 ***
 
-## 1. Preámbulo
-
-Según [Forbes](https://www.forbes.com/sites/bernardmarr/2018/05/21/how-much-data-do-we-create-every-day-the-mind-blowing-stats-everyone-should-read),
-el 90% de la data que existe hoy ha sido creada durante los últimos dos años.
-Cada día generamos 2.5 millones de terabytes de datos, una cifra sin
-precedentes.
-
-No obstante, los datos por sí mismos son de poca utilidad. Para que esas
-grandes cantidades de datos se conviertan en **información** fácil de leer para
-los usuarios, necesitamos entender y procesar estos datos. Una manera simple de
-hacerlo es creando _interfaces_ y _visualizaciones_.
-
-En la siguiente imagen, podrás ver cómo con la data que que se ve en la parte
-izquierda se puede construir una interfaz amigable y entendible por el usuario
-al lado derecho.
-
-![json-interfaz](https://lh4.googleusercontent.com/Tn-RPXS26pVvOTdUzRT1KVaJ-_QbFs9SpcGLxSPE43fgbHaXtFgMUInuDt7kV41DkT1j8Tt29V0LxQW7SMtC6digOIhfTXSBKdwI08wUwhD3RAqlwy0hjfmhZ2BFe91mtmCSEqysfgk)
-
-## 2. Resumen del proyecto
+## 1. Resumen del proyecto
 
 En este proyecto **construirás una _página web_ para visualizar un
 _conjunto (set) de datos_** que se adecúe a lo que descubras que tu usuario
@@ -150,6 +132,97 @@ el problema (o problemas) que tiene tu usuario.
 
 ### Historias de usuario
 
+* [ ] Usuario 1:
+  Yo como fanática de los juegos olímpicos
+  Quiero ver a todos los deportistas
+  Para tener una vista general de los que participaron
+
+    --> Criterio de aceptación:
+
+        Al ingresar a nuestra plataforma se verá todos los deportistas en cards.
+        En esta card, al dar click, se podrá visualizar sus datos como peso, estatura, edad, nacionalidad, premio y disciplina en la que participaron.
+        Tendrán un ícono según su género (masculino y femenino).
+
+    --> Definición de lo terminado:
+
+(esto lo tendremos cuando corramos el test)
+
+* [ ] Usuario 2:
+  Yo como fanática de los juegos olímpicos
+  Quiero filtrar a los deportistas
+  Para conocerlos según las disciplinas
+
+    --> Criterio de aceptación:
+
+        En la página principal, habrá un seleccionador de disciplinas (por íconos). Este mostrará 
+        todas las que se dieron en los juegos. Así, el usuario podrá elegir uno de ellos y mostrará 
+        los atletas que participaron en él.
+
+    --> Definición de lo terminado:
+
+(esto lo tendremos cuando corramos el test)
+
+* [ ] Usuario 3:
+  Yo como fanática de los juegos olímpicos
+  Quiero filtrar a los deportistas
+  Para conocerlos según las país
+
+  --> Criterio de aceptación:
+
+        En la página principal, habrá un seleccionador de países (por íconos de bandera). 
+        Este mostrará todas los países que participaron en los juegos. Así, el usuario podrá elegir
+        uno de ellos y mostrará los atletas según su nacionalidad.
+
+  --> Definición de lo terminado:
+
+  (esto lo tendremos cuando corramos el test)
+
+* [ ] Usuario 4:
+  Yo como fanática de los juegos olímpicos
+  Quiero saber cuáles son los top 10 atletas que ganaron medallas de oro, de plata o de bronce
+  Para tener un conocimiento de los mejores
+
+  --> Criterio de aceptación:
+
+        En la página principal, habrá una opción "Medallero" y se abrirá una ventana donde se 
+        visualice los íconos de oro, plata y bronce. Al costado, habrá la opción de conocer el top 
+        10 según la medalla escogida. 
+
+  --> Definición de lo terminado:
+
+(esto lo tendremos cuando corramos el test)
+
+* [ ] Usuario 5:
+  Yo como fanática de los juegos olímpicos
+  Quiero ordenar los nombres de los atletas alfabéticamente
+  Para tener una visualización más ordenada
+
+ --> Criterio de aceptación:
+
+        Al inicio, habrá una opción desplegable para ordenar los nombres de los atletas de la 
+        A - Z o viceversa. Cuando se haya escogido, los cards con la información de los atletas 
+        se reorganizará. 
+
+  --> Definición de lo terminado:
+
+(esto lo tendremos cuando corramos el test)
+
+* [ ] Usuario 6:
+  Yo como fanática de los juegos olímpicos
+  Quiero buscar a un atleta
+  Para saber sus datos y si participó en los juegos.
+
+ --> Criterio de aceptación:
+
+        En la página principal, habrá un "buscador por nombre de atleta". Estará ubicado en la 
+        esquina superior y solo aceptará nombres. Cuando el usuario haya escrito y dado enter o 
+        click en la lupa, aparecerá el card del atleta o un mensaje que diga "Atleta no encontrad@".
+
+  --> Definición de lo terminado:
+
+(esto lo tendremos cuando corramos el test)
+
+
 Una vez que entiendas las necesidades de tus usuarios, escribe las [Historias
 de Usuario](https://es.wikipedia.org/wiki/Historias_de_usuario) que representen
 todo lo que el usuario necesita hacer/ver. Las **Historias de Usuario** deben
@@ -164,6 +237,12 @@ a la siguiente (Cumple con Definición de Terminado + Criterios de Aceptación).
 ### Diseño de la Interfaz de Usuario
 
 #### Prototipo de baja fidelidad
+
+El primer prototipo de baja fidelidad donde se muestra la página inicial del aplicativo es como sigue:
+
+![Prototipo de baja fidelidad](https://user-images.githubusercontent.com/77126999/106932071-453b7300-66e5-11eb-8c74-684eff2cd697.jpeg)
+
+
 
 Durante tu trabajo deberás haber hecho e iterado bocetos (_sketches_) de tu
 solución usando papel y lápiz. Te recomendamos tomar fotos de todas las
