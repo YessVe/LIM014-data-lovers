@@ -223,37 +223,44 @@ a la siguiente (Cumple con Definición de Terminado + Criterios de Aceptación).
 
 #### Prototipo de baja fidelidad
 
-##### 1er Prototipo de baja fidelidad
+* [ ] *1er Prototipo de baja fidelidad
 
 ![2021-02-03 (3)](https://user-images.githubusercontent.com/77126999/107105312-946fc980-67f3-11eb-810e-6960e47caef9.png)
 
 
-##### 2do Prototipo de baja fidelidad
+* [ ] 2do Prototipo de baja fidelidad
 
 ![Prototipo de baja fidelidad](https://user-images.githubusercontent.com/77126999/106932071-453b7300-66e5-11eb-8c74-684eff2cd697.jpeg)
 
 #### Prototipo de alta fidelidad
 
-##### 1er Prototipo de alta fidelidad
+* [ ] 1er Prototipo de alta fidelidad
 
-El 1er prototipo de alta fue como sigue:
+  El 1er prototipo de alta fue como sigue:
 
-![2021-02-05 (3)](https://user-images.githubusercontent.com/77126999/107122742-8196dc80-6867-11eb-99e0-f3dc08b28c53.png)
+  ![2021-02-05 (3)](https://user-images.githubusercontent.com/77126999/107122742-8196dc80-6867-11eb-99e0-f3dc08b28c53.png)
 
-El feedback de 3 usuarios para este prototipo fue que los navegadores y opciones 
-de filtro deben estar mejor ordenados: todos a la derecha y mismo tamaño. Así, 
-también, permitirá ver mejor la imagen principal del aplicativo.
+  El feedback de 3 usuarios para este prototipo fue que los navegadores y opciones 
+  de filtro deben estar mejor ordenados: todos a la derecha y mismo tamaño. Así, 
+  también, permitirá ver mejor la imagen principal del aplicativo.
 
-##### 2do Prototipo de alta fidelidad
+* [ ] 2do Prototipo de alta fidelidad
 
-Se tomó en consideración la opinión de potenciales usuarios para reorganizar los 
-navegadores y opciones de filtro. El segundo prototipo que se tiene es el siguiente:
+  Se tomó en consideración la opinión de potenciales usuarios para reorganizar los 
+  navegadores y opciones de filtro. El segundo prototipo que se tiene es el siguiente:
 
-(aquí va la imagen)
+  ![Prototipo de alta fidelidad](https://user-images.githubusercontent.com/77126999/107132696-39031180-68af-11eb-9585-c5969a2d9ad6.jpeg)
 
-El feedback de otros 2 usuarios es que entienden de qué se trata la página. También, 
-opinan que tiene un aspecto de álbum y las tarjetas con la información de los atletas 
-deberían ser más pequeñas. Otro punto de vista es que las opciones de filtro deben ser más pequeñas. 
+  El feedback de otros 2 usuarios es que entienden de qué se trata la página. También, 
+  opinan que tiene un aspecto de álbum y las tarjetas con la información de los atletas 
+  deberían ser más pequeñas. Otro punto de vista es que las opciones de filtro deben 
+  ser más reducidas y estar hacia el lado izquierdo. 
+
+* [ ] Prototipo final de alta fidelidad
+  
+  
+  
+
 
 #### Testeos de usabilidad
 
