@@ -260,7 +260,7 @@ a la siguiente (Cumple con Definición de Terminado + Criterios de Aceptación).
   
 ![screen](https://user-images.githubusercontent.com/77282012/107133915-2989c580-68bb-11eb-88af-b39ae4a623db.jpg)
   
-
+chala chala
 
 #### Testeos de usabilidad
 
