@@ -258,7 +258,7 @@ a la siguiente (Cumple con Definición de Terminado + Criterios de Aceptación).
 
 * [ ] Prototipo final de alta fidelidad
   
-  
+  lalalalalalalalalalala
   
 
 
