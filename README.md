@@ -1,4 +1,6 @@
 # Juego Olímpicos de Rio de Janeiro
+
+
 # Data Lovers
 
 ## Índice
@@ -36,22 +38,6 @@ y qué necesita saber o ver exactamente; luego podrás construir la interfaz que
 le ayude a interactuar y entender mejor esos datos.
 
 Estos son datos que te proponemos:
-
-* [Pokémon](src/data/pokemon/pokemon.json):
-  En este set encontrarás una lista con los 251 Pokémon de la región de Kanto
-  y Johto, junto con sus respectivas estadísticas usadas en el juego
-  [Pokémon GO](http://pokemongolive.com).
-  - [Investigación con jugadores de Pokémon Go](src/data/pokemon/README.md)
-
-* [League of Legends - Challenger leaderboard](src/data/lol/lol.json):
-  Este set de datos muestra la lista de campeones en una liga del
-  juego League of Legends (LoL).
-  - [Investigación con jugadores de LoL](src/data/lol/README.md)
-
-* [Rick and Morty](src/data/rickandmorty/rickandmorty.json).
-  Este set nos proporciona la lista de los personajes de la serie Rick and
-  Morty. [API Rick and Morty](https://rickandmortyapi.com).
-  - [Investigación con seguidores de Rick and Morty](src/data/rickandmorty/README.md)
 
 * [Juegos Olímpicos de Río de Janeiro](src/data/athletes/athletes.json).
   Este set nos proporciona la lista de los atletas que ganaron medallas en las
@@ -140,7 +126,8 @@ el problema (o problemas) que tiene tu usuario.
     --> Criterio de aceptación:
 
         Al ingresar a nuestra plataforma se verá todos los deportistas en cards.
-        En esta card, al dar click, se podrá visualizar sus datos como peso, estatura, edad, nacionalidad, premio y disciplina en la que participaron.
+        En esta card, al dar click, se podrá visualizar sus datos como peso, estatura, 
+        edad, nacionalidad, premio y disciplina en la que participaron.
         Tendrán un ícono según su género (masculino y femenino).
 
     --> Definición de lo terminado:
@@ -154,9 +141,9 @@ el problema (o problemas) que tiene tu usuario.
 
     --> Criterio de aceptación:
 
-        En la página principal, habrá un seleccionador de disciplinas (por íconos). Este mostrará 
-        todas las que se dieron en los juegos. Así, el usuario podrá elegir uno de ellos y mostrará 
-        los atletas que participaron en él.
+        En la página principal, habrá un seleccionador de disciplinas (por íconos). 
+        Este mostrará todas las que se dieron en los juegos. Así, el usuario podrá 
+        elegir uno de ellos y mostrará los atletas que participaron en él.
 
     --> Definición de lo terminado:
 
@@ -170,8 +157,8 @@ el problema (o problemas) que tiene tu usuario.
   --> Criterio de aceptación:
 
         En la página principal, habrá un seleccionador de países (por íconos de bandera). 
-        Este mostrará todas los países que participaron en los juegos. Así, el usuario podrá elegir
-        uno de ellos y mostrará los atletas según su nacionalidad.
+        Este mostrará todas los países que participaron en los juegos. Así, el usuario 
+        podrá elegir uno de ellos y mostrará los atletas según su nacionalidad.
 
   --> Definición de lo terminado:
 
@@ -238,16 +225,47 @@ a la siguiente (Cumple con Definición de Terminado + Criterios de Aceptación).
 
 #### Prototipo de baja fidelidad
 
-El primer prototipo de baja fidelidad donde se muestra la página inicial del aplicativo es como sigue:
+* [ ] *1er Prototipo de baja fidelidad
+
+![2021-02-03 (3)](https://user-images.githubusercontent.com/77126999/107105312-946fc980-67f3-11eb-810e-6960e47caef9.png)
+
+
+* [ ] 2do Prototipo de baja fidelidad
 
 ![Prototipo de baja fidelidad](https://user-images.githubusercontent.com/77126999/106932071-453b7300-66e5-11eb-8c74-684eff2cd697.jpeg)
 
+#### Prototipo de alta fidelidad
 
+* [ ] 1er Prototipo de alta fidelidad
 
-Durante tu trabajo deberás haber hecho e iterado bocetos (_sketches_) de tu
-solución usando papel y lápiz. Te recomendamos tomar fotos de todas las
-iteraciones que hagas, que las subas a tu repositorio y las menciones en tu
-`README.md`.
+  El 1er prototipo de alta fue como sigue:
+
+  ![2021-02-05 (3)](https://user-images.githubusercontent.com/77126999/107122742-8196dc80-6867-11eb-99e0-f3dc08b28c53.png)
+
+  El feedback de 3 usuarios para este prototipo fue que los navegadores y opciones 
+  de filtro deben estar mejor ordenados: todos a la derecha y mismo tamaño. Así, 
+  también, permitirá ver mejor la imagen principal del aplicativo.
+
+* [ ] 2do Prototipo de alta fidelidad
+
+  Se tomó en consideración la opinión de potenciales usuarios para reorganizar los 
+  navegadores y opciones de filtro. El segundo prototipo que se tiene es el siguiente:
+
+  ![Prototipo de alta fidelidad](https://user-images.githubusercontent.com/77126999/107132696-39031180-68af-11eb-9585-c5969a2d9ad6.jpeg)
+
+  El feedback de otros 2 usuarios es que entienden de qué se trata la página. También, 
+  opinan que tiene un aspecto de álbum y las tarjetas con la información de los atletas 
+  deberían ser más pequeñas. Otro punto de vista es que las opciones de filtro deben 
+  ser más reducidas y estar hacia el lado izquierdo. 
+
+* [ ] Prototipo final de alta fidelidad
+
+  Luego de tener una última retroalimentación de los potenciales usuarios, se llegó al siguiente prototipo final.
+
+  ![Prototipo de alta fidelidad final](https://user-images.githubusercontent.com/77126999/107290635-e6ebf880-6a34-11eb-9bc7-4eed0f0c883b.png)
+
+  
+
 
 #### Testeos de usabilidad
 
