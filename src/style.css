@@ -35,17 +35,15 @@ border-radius: 400px;
     overflow: hidden;
     flex-wrap: wrap;
     width: 65%;
-      
 }
 
 .card{
-    font-size:12px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: rgb(255, 255, 255);
     text-align: center;
-    width: 116px;
-    height: 140px;
-    background-color: darkgoldenrod;
+    height: 340px;
+    width: 250px;
+    background-image: url("images/card.png");
     border-radius:0.3em;
     object-fit: cover;
     flex-direction: column;
@@ -53,10 +51,20 @@ border-radius: 400px;
     margin: 4px;
 }
 
+.card h1{
+    font-size: 20.28px;
+    font-style: italic;
+    width: 130px;
+    position: relative;
+    top: 10.3em;
+    left: 4.4em;
+    letter-spacing: 0em;
+    text-align: right;
+}
+
 /* La organización de FLEXBOX para todos los filtros */
 .box{
     display: flex;
-    /*text-align: center;*/
     flex-direction: column;
 }
 
@@ -81,7 +89,7 @@ border-radius: 400px;
 
 }
 
-
+/* Historia 5 - Yess */
 .boxBuscar{
     height: 182px;
     width: 501px;
@@ -90,6 +98,8 @@ border-radius: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
+    
 }
 
 
