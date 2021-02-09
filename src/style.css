@@ -1,3 +1,4 @@
+
 .rioImage{
     height: 183px;
     width: 156px;
@@ -7,18 +8,123 @@
 }
 
 .cabecera h1{
-    font-family: Roboto;
+    font-family: sans-serif;
     font-size: 30px;
     font-style: normal;
-  
     letter-spacing: 0em;
     text-align: left;
+}
 
+.cabecera h1{
+    font-family: sans-serif;
 }
 
 .imageAtleta{
-left: 399px;
-top: -110px;
-border-radius: 1500px;
+border-radius: 400px;
+}
 
+.general{
+    display: flex;
+    flex-direction: row-reverse;
+}
+/*Cards deportivas*/
+.contenedor{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    overflow: hidden;
+    flex-wrap: wrap;
+    width: 65%;
+      
+}
+
+.card{
+    font-size:12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    width: 116px;
+    height: 140px;
+    background-color: darkgoldenrod;
+    border-radius:0.3em;
+    object-fit: cover;
+    flex-direction: column;
+    position: relative;
+    margin: 4px;
+}
+
+/* La organización de FLEXBOX para todos los filtros */
+.box{
+    display: flex;
+    /*text-align: center;*/
+    flex-direction: column;
+}
+
+.box h2 {
+    font-family: sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    text-align: left;
+    color: lavender;
+    background: #10415bbd;
+    border: 2px solid #FFFFFF;
+    border-radius: 10px;
+    height: 45px;
+    width: 310px;
+    left: 68px;
+    margin: 1em;
+}
+
+.seleccion {
+    background:rgba(255, 255, 255, 0.7);
+    border: 2px solid rgba(255, 255, 255, 1)
+
+}
+
+
+.boxBuscar{
+    height: 182px;
+    width: 501px;
+    background: #DD4040;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+
+
+.boxGenero{
+    background: #40D861 ;
+    border-radius: 20px;
+    height: 182px;
+    width: 501px;
+    left: 28px; 
+    opacity: 0.73;
+}
+
+
+
+.boxPais{
+    width: 501px;
+    background: #40A7DD;
+    opacity: 0.73;
+    border-radius: 20px;
+
+}
+
+.boxDeporte{
+    width: 501px;
+    background: #C9DF1F;
+    opacity: 0.73;
+    border-radius: 20px;
+}
+
+
+.boxMedallero{
+    width: 501px;
+    background: #FFE351;
+    opacity: 0.73;
+    border-radius: 20px;
 }
