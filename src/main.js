@@ -12,15 +12,19 @@ const data = Object.values(dataAthletes);
 const showData = (parametro) => { 
     let show ='';
     parametro.forEach((element) => {
-        const deportistas = `
-        <div class="card">
+        const deportistas =
 
+        `<div class="card">
+            <div> </div>
             <h1>
                 ${element.name}
             </h1>
+            
             <p> ${element.noc}</p>
         </div>
         `;
+    
+
         show += deportistas;
     });
     contenedor.innerHTML = show;
