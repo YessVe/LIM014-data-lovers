@@ -1,4 +1,6 @@
 # Juego Olímpicos de Rio de Janeiro
+
+
 # Data Lovers
 
 ## Índice
@@ -257,8 +259,11 @@ a la siguiente (Cumple con Definición de Terminado + Criterios de Aceptación).
   ser más reducidas y estar hacia el lado izquierdo. 
 
 * [ ] Prototipo final de alta fidelidad
-  
-![screen](https://user-images.githubusercontent.com/77282012/107133915-2989c580-68bb-11eb-88af-b39ae4a623db.jpg)
+
+  Luego de tener una última retroalimentación de los potenciales usuarios, se llegó al siguiente prototipo final.
+
+  ![Prototipo de alta fidelidad final](https://user-images.githubusercontent.com/77126999/107290635-e6ebf880-6a34-11eb-9bc7-4eed0f0c883b.png)
+
   
 chala chala
 
