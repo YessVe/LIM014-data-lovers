@@ -29,6 +29,7 @@ const showData = (parametro) => {
             <p> ${element.noc}</p>
         </div>
         `;
+    
 
         show += deportistas;
     });
