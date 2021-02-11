@@ -1,3 +1,7 @@
+/*body{
+background-image: url("images/mascota_rio.jpeg");
+object-position: -20%  50%;
+}*/
 
 .rioImage{
     height: 183px;
@@ -44,11 +48,12 @@ border-radius: 400px;
     height: 340px;
     width: 250px;
     background-image: url("images/card.png");
-    border-radius:0.3em;
+    border-radius:0.6em;
     object-fit: cover;
     flex-direction: column;
     position: relative;
     margin: 4px;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.301);
 }
 
 .card h1{
@@ -99,11 +104,7 @@ border-radius: 400px;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    
 }
-
-
-
 
 .boxGenero{
     background: #40D861 ;
