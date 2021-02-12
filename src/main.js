@@ -10,8 +10,7 @@ console.log(example,copyAthletes);
 // creo la variable que va a llamar desde el archivo donde
 //está la info, la propiedad solo de 'athletes'
 const dataAthletes = (copyAthletes.athletes);
-
-//const data = Object.values(dataAthletes);
+const contenedor = document.getElementById ("contenedor");
 
 //esta var me va a reconocer todos los valores
 const data = Object.values(dataAthletes);
@@ -34,20 +33,24 @@ const mostrarData = (parametro) => {
         //Inserto ${ } al h1 y a los img para jalar el valor del 
         //nombre, gender y noc, según corresponda a la condicional.
 
-        `<div class="card">
-        <h1>
-        ${element.name}
-        </h1>
-        <section class="">
-        <img class="avatar" src = ${element.gender === 'F'
-        //Operador condicional (ternario)//
-        ? './images/chica_dos.png'
-        : './images/chico_uno.png'}>
-        <section>
-        
-        <img width= 54 height= 30.9
-        src="https://restcountries.eu/data/${element.noc.toLowerCase()}.svg" alt="">
-        </div>
+        `   <div class=wrap>
+            <div class=card-wrap>
+                <div class="card">
+                <section class="contraCara"></section>
+                <section class="cara">
+                    <h1>
+                    ${element.name}
+                    </h1>
+                    <img class="avatar" src = ${element.gender === 'F'
+                    //Operador condicional (ternario)//
+                    ? './images/chica_dos.png'
+                    : './images/chico_uno.png'}>       
+                    <img class="bandera" width= 54 height= 30.9
+                    src="https://restcountries.eu/data/${element.noc.toLowerCase()}.svg" alt="">
+                </section>
+                </div>
+            </div>
+            </div>
         `;
         
         //La variable vacia "mostrar" se insertará todos los valores de 
@@ -80,4 +83,3 @@ let mostrar ="";
          contenedor.innerHTML = mostrar;
     };
  */
- 
