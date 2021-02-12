@@ -5,87 +5,74 @@
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body >
     
     <header class="cabecera">
 
-      <img src="images/logo_rio.jpeg" alt="Logo_Rio_2016" class= "rioImage">
+      <img src="images/logo_rio.png" alt="Logo_Rio_2016" class= "rioImage">
       <img src="images/mujeres_atletas.jpeg" alt="Mujeres_Atletas" class="imageAtleta">
-
       <h1>Atletas de los Juegos Olímpicos</h1>
-
       <p>Aquí, podrás encontrar a los atletas que ganaron una o más medallas en los Juegos Olímpicos en las distintas disciplinas.</p>
-
+    
     </header>
 
-    <section>
-      <input type="search" id="search" class="search" placeholder="_Buscar atleta  🔍">
-      <select name="athletes">
-        <option>--Selecciona una opción--</option>
-        <option>Ordena de la A - Z</option>
-        <option>Ordena de la Z - A</option>
-      </select>  
-    </section>
-    
-    <section>
-      <h2>Género</h2>
-      <img src="images/Ícono_género.png" alt="Ícono género">
-      <form>
-        <input type="radio" name="gender" value="female">
-        <label for="female">Femenino</label>
-        <input type="radio" name="gender" value="male">
-        <label for="male">Masculino</label>
-      </form>
-    </section>
+  <article class="general">
 
-    <section>
-      <h2>País</h2>
-      <select name="athletes">
-        <option>--Selecciona una opción--</option>
-        <option>--información de JSON--</option>
-      </select>  
-    </section>
+    <section id="contenedor" class="contenedor"></section>
 
-    <section>
-      <h2>Género</h2>
-      <img src="images/Ícono_género.png" alt="Ícono género">
-      <form>
-        <input type="radio" name="gender" value="female">
-        <label for="female">Femenino</label>
-        <input type="radio" name="gender" value="male">
-        <label for="male">Masculino</label>
-      </form>
-    </section>
+    <section class="box"> <!--contiene a todos los filtros-->
+      <section class="boxBuscar">
+        <section>
+          <input type="search" id="search" class="search" placeholder="_Buscar atleta"> <!--🔍-->
+          <img src="images/icono_lupa.png" alt="Ícono Lupa">
+        </section>
+        <select name="athletes" class="seleccion">
+          <option>--Selecciona una opción--</option>
+          <option>Ordena de la A - Z</option>
+          <option>Ordena de la Z - A</option>
+        </select>  
+      </section>
+      
+      <section class="boxGenero">
+        <h2>Género ⚥</h2>
+        <form>
+          <input type="radio" name="gender" value="female">
+          <label for="female">Femenino</label>
+          <input type="radio" name="gender" value="male">
+          <label for="male">Masculino</label>
+        </form>
+      </section>
 
-    <section>
-      <h2>País</h2>
-      <img src="images/ícono_país.png" alt="Ícono país">
-      <select name="athletes">
-        <option>--Selecciona una opción--</option>
-        <option>--información de JSON--</option>
-      </select>  
-    </section>
+      <section class="boxPais">
+        <h2>País</h2>
+        <select name="athletes" class="seleccion">
+          <option>--Selecciona una opción--</option>
+          <option>--información de JSON--</option>
+        </select>  
+      </section>
 
-    <section>
-      <h2>Deporte</h2>
-      <img src="images/ícono_olimpiada.png" alt="Ícono olimpiada">
-      <select name="athletes">
-        <option>--Selecciona una opción--</option>
-        <option>--información de JSON--</option>
-      </select>  
-    </section>
+      <section class="boxDeporte">
+        <h2>Deporte</h2>
+        <img src="images/ícono_olimpiada.png" alt="Ícono olimpiada">
+        <select name="athletes" class="seleccion">
+          <option>--Selecciona una opción--</option>
+          <option>--información de JSON--</option>
+        </select>  
+      </section>
 
-    <section>
-      <h2>Medallero</h2>
-      <img src="images/ícono_medalla.png" alt="Ícono medalla">
-      <select name="athletes">
-        <option>--Selecciona una opción--</option>
-        <option>Top 10 medallistas de oro</option>
-        <option>Top 10 medallistas de plata</option>
-        <option>Top 10 medallistas de bronce</option>
-      </select>  
-    </section>
-    
+      <section class="boxMedallero">
+        <h2>Medallero</h2>
+        <img src="images/ícono_medalla.png" alt="Ícono medalla">
+        <select name="athletes" class="seleccion">
+          <option>--Selecciona una opción--</option>
+          <option>Top 10 medallistas de oro</option>
+          <option>Top 10 medallistas de plata</option>
+          <option>Top 10 medallistas de bronce</option>
+        </select>  
+      </section>
+      
+    </section> <!--fin de la sección que agrupa a todos los filtros-->
+  </article>
     <div id="root"></div>
     <script src="main.js" type="module"></script>
   </body>
