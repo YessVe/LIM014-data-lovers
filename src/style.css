@@ -7,38 +7,123 @@ object-position: -20%  50%;
     padding: 0;
     box-sizing: border-box;
 }
+
+/*Header*/
+header{
+    height: 550px;
+    background-repeat: no-repeat;
+    padding: 0;
+}
+
+.imagenes {
+    padding: 0;
+    position: absolute;
+    width: 75%;
+    margin-right: -1.11605%;
+    margin-left: -1.11605%;
+    overflow: hidden;
+    border-radius: 300px 0 0 300px;
+}
+
+.imagenes ul{
+    
+    display: flex;
+    padding: 0;
+    width: 400%;
+    animation: cambio 20s infinite;
+    animation-timing-function: ease-out;
+}
+
+.imagenes li{
+    width: 100%;
+    list-style: none;
+}
+
+.imagenes img{
+    width: 100%;
+}
+
+@keyframes cambio {
+    0% {margin-left: 0;}
+    20% {margin-left: 0;}
+
+    25% {margin-left: -100%;}
+    45% {margin-left: -100%;}
+
+    50% {margin-left: -200%;}
+    70% {margin-left: -200%;}
+
+    75% {margin-left: -300%;}
+    100% {margin-left: -300%;}
+}
+
+.contentHeader{
+    min-width: 100px;
+    margin: auto;
+    padding: 30px 0;
+    color: rgb(61, 61, 61);
+    position: relative;
+    left: -16em;
+
+}
+
+.contentHeader h1{
+    font-size: 30px;
+}
+
+.conte {
+width: 10em;;
+}
+
+
+.conte p{
+    font-size: 15px;
+    margin: 1em 0;
+}
+
+.conte a{
+    color: white;
+    text-decoration: none;
+    background-color: yellowgreen;
+    padding: 4px 20px ;
+    border-radius: 20px;
+    font-size: 15px;
+    margin: 10px;
+}
+
+
 .rioImage{
     height: 183px;
     width: 156px;
-    left: 36px;
-    top: 73px;
     border-radius: 0px; 
+    display: flex;
+    position: relative;
 }
 
-.cabecera h1{
+.cabecera {
     font-family: sans-serif;
     font-size: 30px;
     font-style: normal;
     letter-spacing: 0em;
     text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse
 }
+/*Fin de Header*/
 
 .cabecera h1{
     font-family: sans-serif;
 }
 
-.imageAtleta{
-border-radius: 400px;
-}
-
 .general{
     display: flex;
     flex-direction: row-reverse;
+    margin-top: 2em;
 }
 /*Cards deportivas*/
 
 .contenedor{
-    margin:auto;
     display: flex;
     justify-content: center;
     overflow: hidden;
@@ -71,7 +156,6 @@ border-radius: 400px;
     width: 13.5em;
     border-radius: 1em;
     object-fit: cover;
-    flex-direction: column;
     margin: 2px;
     position: relative;
     -webkit-transform-style: preserve-3d;
@@ -91,7 +175,7 @@ border-radius: 400px;
 	left: 0;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
-    background-color: cornsilk;
+    background-color: rgb(255, 255, 255);
 }
 
 .contraCara{
@@ -113,13 +197,9 @@ border-radius: 400px;
 	-ms-flex-pack: center;
 	justify-content: center;
 	-webkit-box-align: center;
-	-webkit-align-items: center;
-	-ms-flex-align: center;
-	align-items: center;
-	text-align: center;
 	color: #fff;
 	font-family: "open sans";
-    background-size: cover;
+
 }
 
 .card-wrap:hover .card{
@@ -128,91 +208,195 @@ border-radius: 400px;
 }
 
 .cara h1{
+
     font-size: 20.28px;
     font-style: italic;
-    width: 130px;
-    position: relative;
-    top: 5.3em;
-    left: 4.4em;
+    color: black;
+    left: 0.0em;
     letter-spacing: 0em;
     text-align: right;
+}
+
+
+.bandera{
+ position: relative;
+ width: 54px;
+height: 30.9px;
+}
+
+
+.avatar{
+padding-left: 0%;
+position: fixed;
 }
 
 /* La organización de FLEXBOX para todos los filtros */
 .box{
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
+    width: 450px;
+=======
     
+>>>>>>> 1aabb5d77f8ad47785b0ff2f1995c92af32b115d
 }
 
 .box h2 {
     font-family: sans-serif;
+    font-size: 20px;
     font-style: italic;
     font-weight: 400;
     text-align: left;
-    color: lavender;
+    color: rgb(255, 255, 255);
     background: #10415bbd;
     border: 2px solid #FFFFFF;
     border-radius: 10px;
-    height: 45px;
+    height: 35px;
     width: 310px;
     left: 68px;
-    margin: 1em;
+    margin: 0.5em;
+}
+
+.icono{
+    margin: -0.2em 0.4em;
+}
+
+.iconoGender{
+    margin: -0.9em 0.4em;
+}
+
+.opciones{
+    position: relative;
+    left: 4em;
+    top: -2.2em;
 }
 
 .seleccion {
     background:rgba(255, 255, 255, 0.7);
-    border: 2px solid rgba(255, 255, 255, 1)
+    border: 2px solid rgba(255, 255, 255, 1);
+    width: 200px;
+    position: relative;
+    left: 2em;
+    margin: 0.5em ;
 
 }
 
 
 .boxBuscar{
+<<<<<<< HEAD
+    height: 150px;
+=======
     height: 182px;
     /* width: 501px; */
+>>>>>>> 1aabb5d77f8ad47785b0ff2f1995c92af32b115d
     background: #DD4040;
+    opacity: 0.73;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin: 2px;
+    margin: 0.2em;
+    position: relative;
+    left:auto;
 }
 
 .boxGenero{
     background: #40D861 ;
     border-radius: 20px;
+<<<<<<< HEAD
+    height:110px;
+=======
     height: 182px;
     /* width: 501px; */
+>>>>>>> 1aabb5d77f8ad47785b0ff2f1995c92af32b115d
     left: 28px; 
     opacity: 0.73;
-    margin: 2px;
+    margin: 0.2em;
 }
 
-
-
 .boxPais{
+<<<<<<< HEAD
+=======
     /* width: 501px; */
+>>>>>>> 1aabb5d77f8ad47785b0ff2f1995c92af32b115d
     background: #40A7DD;
     opacity: 0.73;
     border-radius: 20px;
-    margin: 2px;
-
+    margin: 0.2em;
 }
 
 .boxDeporte{
+<<<<<<< HEAD
+=======
    /*  width: 501px; */
+>>>>>>> 1aabb5d77f8ad47785b0ff2f1995c92af32b115d
     background: #C9DF1F;
     opacity: 0.73;
     border-radius: 20px;
-    margin: 2px;
+    margin: 0.2em;
 }
 
 
 .boxMedallero{
+<<<<<<< HEAD
+=======
     /* width: 501px; */
+>>>>>>> 1aabb5d77f8ad47785b0ff2f1995c92af32b115d
     background: #FFE351;
     opacity: 0.73;
     border-radius: 20px;
-    margin: 2px;
+    margin: 0.em;
 }
+
+.container-fluid{
+    margin:auto;
+    text-align:center;
+}
+
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;   
+}
+
+ul.pagination li {
+    display: inline;}
+
+ul.pagination li a {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+ul.pagination li a.active {
+    background-color: #6092dd;
+    color: white;
+}
+
+ul.pagination li a:hover:not(.active) {
+    background-color: #ddd;}
+
+ul.pagination li a {
+    transition: background-color .3s;
+}
+
+/* footer*/
+
+.footer {
+	background: #6092dd;
+	color: white;
+	text-align: center;
+	padding: 20px;
+	margin-top: 40px;
+}
+	.footer p {
+		margin: 0;
+        font-family:'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	}
+	
+	.footer a {
+		color: white;
+        font-family:'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	}
