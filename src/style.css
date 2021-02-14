@@ -142,6 +142,7 @@ border-radius: 400px;
 .box{
     display: flex;
     flex-direction: column;
+    
 }
 
 .box h2 {
@@ -165,10 +166,10 @@ border-radius: 400px;
 
 }
 
-/* Historia 5 - Yess */
+
 .boxBuscar{
     height: 182px;
-    width: 501px;
+    /* width: 501px; */
     background: #DD4040;
     border-radius: 20px;
     display: flex;
@@ -182,7 +183,7 @@ border-radius: 400px;
     background: #40D861 ;
     border-radius: 20px;
     height: 182px;
-    width: 501px;
+    /* width: 501px; */
     left: 28px; 
     opacity: 0.73;
     margin: 2px;
@@ -191,7 +192,7 @@ border-radius: 400px;
 
 
 .boxPais{
-    width: 501px;
+    /* width: 501px; */
     background: #40A7DD;
     opacity: 0.73;
     border-radius: 20px;
@@ -200,7 +201,7 @@ border-radius: 400px;
 }
 
 .boxDeporte{
-    width: 501px;
+   /*  width: 501px; */
     background: #C9DF1F;
     opacity: 0.73;
     border-radius: 20px;
@@ -209,7 +210,7 @@ border-radius: 400px;
 
 
 .boxMedallero{
-    width: 501px;
+    /* width: 501px; */
     background: #FFE351;
     opacity: 0.73;
     border-radius: 20px;
