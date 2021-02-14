@@ -15,8 +15,8 @@ const contenedor = document.getElementById ("contenedor");
 const data = Object.values(dataAthletes);
 
 //array para las imágenes de femenino o masculino
-let avatarHombre = ["./images/card_boy_1.png", "./images/card_boy_2.png"];
-let avatarMujer = ["./images/card_girl_1.png","./images/card_girl_2.png"];
+let avatarHombre = ["./images/card_boy_1.png", "./images/card_boy_2.png", "./images/card_boy_3.png"];
+let avatarMujer = ["./images/card_girl_1.png","./images/card_girl_2.png","./images/card_girl_3.png","./images/card_girl_4.png"];
 
 //Creando una función para mostrar la data
 //Parametro de lo que se va a jalar de lo que contiene athletes... es mi condición
@@ -42,12 +42,14 @@ const mostrarData = (parametro) => {
                     <h1>
                     ${element.name}
                     </h1>
+                    <img class="bandera" 
+                    src="https://restcountries.eu/data/${element.noc.toLowerCase()}.svg" alt="">
+                    <section>
                     <img class="avatar" src = ${element.gender === 'F'
                     //Operador condicional (ternario)//
-                    ? ''+avatarMujer[Math.abs(Math.round((Math.random() * avatarMujer.length-2)+1))]+''
-                    : ''+avatarHombre[Math.abs(Math.round((Math.random() * avatarHombre.length-2)+1))]+''} style="height: 18.2em; width: 13.5em;">      
-                    <img class="bandera" width= 54 height= 30.9
-                    src="https://restcountries.eu/data/${element.noc.toLowerCase()}.svg" alt="">
+                    ? ''+avatarMujer[Math.abs(Math.round((Math.random() * avatarMujer.length-4)+1))]+''
+                    : ''+avatarHombre[Math.abs(Math.round((Math.random() * avatarHombre.length-3)+1))]+''} style="height: 17.5em; width: 13.5em;">
+                    </section>  
                 </section>
                 </div>
             </div>
