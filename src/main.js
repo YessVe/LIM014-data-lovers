@@ -1,10 +1,12 @@
 //Importaré la data
-import { example } from './data.js';
-import athletes from './data/athletes/athletes.js';
+//import { example } from './data.js';
+//import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
+
 
 debugger;
 console.log(example,copyAthletes);
+
 // creo la variable que va a llamar desde el archivo donde
 //está la info, la propiedad solo de 'athletes'
 const dataAthletes = (copyAthletes.athletes);
@@ -40,7 +42,7 @@ const mostrarData = (parametro) => {
                     </h1>
                     <img class="avatar" src = ${element.gender === 'F'
                     ? ''+avatarMujer[Math.abs(Math.round((Math.random() * avatarMujer.length-2)+1))]+''
-                    : ''+avatarHombre[Math.abs(Math.round((Math.random() * avatarHombre.length-2)+1))]+''}>      
+                    : ''+avatarHombre[Math.abs(Math.round((Math.random() * avatarHombre.length-2)+1))]+''} style="height: 18.2em; width: 13.5em;">      
                     <img class="bandera" width= 54 height= 30.9
                     src="https://restcountries.eu/data/${element.noc.toLowerCase()}.svg" alt="">
                 </section>
@@ -52,6 +54,7 @@ const mostrarData = (parametro) => {
     });
     contenedor.innerHTML = mostrar;
 };
+
 mostrarData(data); 
 
 //

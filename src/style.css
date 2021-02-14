@@ -29,6 +29,11 @@ object-position: -20%  50%;
 
 .imageAtleta{
 border-radius: 400px;
+background-image: url(./img/background.jpg);
+height: calc(100vh - 16px);
+background-position: center;
+background-size: cover;
+position: relative;
 }
 
 .general{
@@ -91,7 +96,7 @@ border-radius: 400px;
 	left: 0;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
-    background-color: cornsilk;
+    background-color: rgb(255, 255, 255);
 }
 
 .contraCara{
@@ -119,7 +124,7 @@ border-radius: 400px;
 	text-align: center;
 	color: #fff;
 	font-family: "open sans";
-    background-size: cover;
+
 }
 
 .card-wrap:hover .card{
@@ -150,7 +155,7 @@ border-radius: 400px;
     font-style: italic;
     font-weight: 400;
     text-align: left;
-    color: lavender;
+    color: rgb(255, 255, 255);
     background: #10415bbd;
     border: 2px solid #FFFFFF;
     border-radius: 10px;
@@ -215,4 +220,37 @@ border-radius: 400px;
     opacity: 0.73;
     border-radius: 20px;
     margin: 2px;
+}
+
+.container-fluid{
+    margin:auto;
+    text-align:center;
+}
+
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;   
+}
+
+ul.pagination li {
+    display: inline;}
+
+ul.pagination li a {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+ul.pagination li a.active {
+    background-color: #6092dd;
+    color: white;
+}
+
+ul.pagination li a:hover:not(.active) {
+    background-color: #ddd;}
+
+ul.pagination li a {
+    transition: background-color .3s;
 }
