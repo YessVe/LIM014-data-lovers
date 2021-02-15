@@ -17,32 +17,47 @@ function fnCargaGeneral(dataAthletes) {
     const mostrarData = (parametro) => {
         //Parametro de lo que se va a jalar de lo que contiene athletes... es mi condición
         let mostrar ='';
-        let avatarHombre = ["./images/card_boy_1.png", "./images/card_boy_2.png", "./images/card_boy_3.png"];
-        let avatarMujer = ["./images/card_girl_1.png","./images/card_girl_2.png","./images/card_girl_3.png","./images/card_girl_4.png"];
+        let avatarHombre = ["./images/card_M_1.png", "./images/card_M_2.png", "./images/card_M_3.png"];
+        let avatarMujer = ["./images/card_F_1.png","./images/card_F_2.png","../images/card_F_3.png","./images/card_F_4.png"];
         //Quiero mostrar cada objeto de la siguiente manera
         parametro.forEach((element) => {
             //Contenido de cada card de cada deportista
             const deportista =
-            `   <div class=wrap>
-                <div class=card-wrap>
-                    <div class="card">
-                    <section class="contraCara"></section>
-                    <section class="cara">
-                        <h1>
-                        ${element.name}
-                        </h1>
-                        <img class="bandera" 
-                        src="https://restcountries.eu/data/${element.noc.toLowerCase()}.svg" alt="">
-                        <section>
-                        <img class="avatar" src = ${element.gender === 'F'
-                        //Operador condicional (ternario)//
-                        ? ''+avatarMujer[Math.abs(Math.round((Math.random() * avatarMujer.length-4)+1))]+''
-                        : ''+avatarHombre[Math.abs(Math.round((Math.random() * avatarHombre.length-3)+1))]+''} style="height: 17.5em; width: 13.5em;">
-                        </section>  
-                    </section>
+        `   <div class=wrap>
+              <div class=card-wrap>
+                <div class="card">
+                  <section class="cara">
+                    <div class="caraNombre">
+                      <h1>
+                      ${element.name.toUpperCase()}
+                      </h1>
                     </div>
-                </div>
-                </div>
+                    <section>
+                      <img class="avatar" src = ${element.gender === 'F'
+                      //Operador condicional (ternario)//
+                      ? ''+avatarMujer[Math.abs(Math.round((Math.random() * avatarMujer.length-4)+1))]+''
+                      : ''+avatarHombre[Math.abs(Math.round((Math.random() * avatarHombre.length-3)+1))]+''} width= 180px>
+                      <img class="bandera" 
+                      src="https://restcountries.eu/data/${element.noc.toLowerCase()}.svg" alt="">
+                    </section>
+                  </section>
+
+                  <section class="contraCara">
+                    <section class="contraCaraContent">
+                        <p>
+                        Nombre: ${element.name}
+                        </p>
+                        <p>
+                        Género: ${element.gender}
+                        </p>
+                        <p>
+                        País: ${element.team}
+                        </p>
+                    </section>
+                  </section>
+                </div> <!--cierra el div de class "card">
+              </div> <!--cierra el div class "card-wrap">
+            </div> <!--cierra el div class "wrap">
             `;
             mostrar = mostrar + deportista;
         });
