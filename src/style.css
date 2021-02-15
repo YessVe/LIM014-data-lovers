@@ -234,11 +234,7 @@ position: fixed;
 .box{
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
     width: 450px;
-=======
-    
->>>>>>> 1aabb5d77f8ad47785b0ff2f1995c92af32b115d
 }
 
 .box h2 {
@@ -283,12 +279,7 @@ position: fixed;
 
 
 .boxBuscar{
-<<<<<<< HEAD
     height: 150px;
-=======
-    height: 182px;
-    /* width: 501px; */
->>>>>>> 1aabb5d77f8ad47785b0ff2f1995c92af32b115d
     background: #DD4040;
     opacity: 0.73;
     border-radius: 20px;
@@ -304,22 +295,13 @@ position: fixed;
 .boxGenero{
     background: #40D861 ;
     border-radius: 20px;
-<<<<<<< HEAD
     height:110px;
-=======
-    height: 182px;
-    /* width: 501px; */
->>>>>>> 1aabb5d77f8ad47785b0ff2f1995c92af32b115d
     left: 28px; 
     opacity: 0.73;
     margin: 0.2em;
 }
 
 .boxPais{
-<<<<<<< HEAD
-=======
-    /* width: 501px; */
->>>>>>> 1aabb5d77f8ad47785b0ff2f1995c92af32b115d
     background: #40A7DD;
     opacity: 0.73;
     border-radius: 20px;
@@ -327,10 +309,6 @@ position: fixed;
 }
 
 .boxDeporte{
-<<<<<<< HEAD
-=======
-   /*  width: 501px; */
->>>>>>> 1aabb5d77f8ad47785b0ff2f1995c92af32b115d
     background: #C9DF1F;
     opacity: 0.73;
     border-radius: 20px;
@@ -339,10 +317,6 @@ position: fixed;
 
 
 .boxMedallero{
-<<<<<<< HEAD
-=======
-    /* width: 501px; */
->>>>>>> 1aabb5d77f8ad47785b0ff2f1995c92af32b115d
     background: #FFE351;
     opacity: 0.73;
     border-radius: 20px;
