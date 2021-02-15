@@ -20,6 +20,7 @@ function fnCargaGeneral(dataAthletes) {
         let avatarHombre = ["./images/card_boy_1.png", "./images/card_boy_2.png", "./images/card_boy_3.png"];
         let avatarMujer = ["./images/card_girl_1.png","./images/card_girl_2.png","./images/card_girl_3.png","./images/card_girl_4.png"];
         //Quiero mostrar cada objeto de la siguiente manera
+        //funciona similar al array reduce para quitar los duplicados - antes de devolver el array
         parametro.forEach((element) => {
             //Contenido de cada card de cada deportista
             const deportista =
@@ -74,3 +75,11 @@ console.log (filtrarDataAthletes); */
 
 // usar un map para llenar un vacio que contenga solo los nombres
 // y ese map se encarga de quitar los duplicados
+
+//
+//es IRI, so reemplaza
+//switch case para las nacionalidades
+//buscame la bandera de tal y el api te lo devuelve
+
+//duplicados
+//los array tiene un método que se llama reduce, ejem: map, sort
