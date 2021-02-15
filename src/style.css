@@ -105,7 +105,6 @@ width: 10em;;
     font-size: 30px;
     font-style: normal;
     letter-spacing: 0em;
-    text-align: left;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse
@@ -151,7 +150,6 @@ width: 10em;;
 .card{
     font-family: sans-serif;
     color: rgb(255, 255, 255);
-    text-align: center;
     height: 18.2em;
     width: 13.5em;
     border-radius: 1em;
@@ -166,13 +164,12 @@ width: 10em;;
 	box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.65);
 }
 
-.contraCara, .cara{
+.cara, .contraCara{
 	width: 100%;
 	height: 100%;
     border-radius: 1em;
 	position: absolute;
 	top: 0;
-	left: 0;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
     background-color: rgb(255, 255, 255);
@@ -182,24 +179,29 @@ width: 10em;;
 	width: 100%;
     background-image: url(./images/contra_cara.png);
     background-size: cover;
-}
-
-.cara{
-	-webkit-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
 	transform: rotateY(180deg);
-	padding: 15px;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
+}
+
+.contraCaraContent{
+    color: black;
+    margin: 1em 1em 1em 1em;
+    width:11em;
+    height:16em;
+    background-color: rgba(255, 255, 255, 0.514);
+}
+
+.cara{
 	display: flex;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
 	color: #fff;
 	font-family: "open sans";
-
+    width: 100%;
+    background-image: url(./images/cara.png);
+    background-size: cover;
+    position: relative;
 }
 
 .card-wrap:hover .card{
@@ -207,38 +209,43 @@ width: 10em;;
 	transform: rotateY(180deg);
 }
 
-.cara h1{
-
-    font-size: 20.28px;
-    font-style: italic;
-    color: black;
-    left: 0.0em;
-    letter-spacing: 0em;
-    text-align: right;
-}
-
 
 .bandera{
- position: relative;
- width: 54px;
-height: 30.9px;
+    position: absolute;
+    top: 2.5em;
+    left: 8.5em;
+    width: 54px;
+    height: 30.9px;
+   }
+
+.caraNombre{
+    width: 8em;
+    position: absolute;
+    left:3.8em;
+    top: 12.8em;
 }
 
+.caraNombre h1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    color: rgb(255, 255, 255);
+    letter-spacing: 0em;
+    text-align:right;
+    
+}
 
 .avatar{
-padding-left: 0%;
-position: fixed;
+position: relative;
+left: 1em;
+top: 2em;
 }
 
 /* La organización de FLEXBOX para todos los filtros */
 .box{
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
     width: 450px;
-=======
-    
->>>>>>> 1aabb5d77f8ad47785b0ff2f1995c92af32b115d
 }
 
 .box h2 {
@@ -281,14 +288,9 @@ position: fixed;
 
 }
 
-
+/* Historia 5 - Yess */
 .boxBuscar{
-<<<<<<< HEAD
     height: 150px;
-=======
-    height: 182px;
-    /* width: 501px; */
->>>>>>> 1aabb5d77f8ad47785b0ff2f1995c92af32b115d
     background: #DD4040;
     opacity: 0.73;
     border-radius: 20px;
@@ -304,22 +306,14 @@ position: fixed;
 .boxGenero{
     background: #40D861 ;
     border-radius: 20px;
-<<<<<<< HEAD
     height:110px;
-=======
-    height: 182px;
-    /* width: 501px; */
->>>>>>> 1aabb5d77f8ad47785b0ff2f1995c92af32b115d
     left: 28px; 
     opacity: 0.73;
     margin: 0.2em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .boxPais{
-<<<<<<< HEAD
-=======
-    /* width: 501px; */
->>>>>>> 1aabb5d77f8ad47785b0ff2f1995c92af32b115d
     background: #40A7DD;
     opacity: 0.73;
     border-radius: 20px;
@@ -327,10 +321,6 @@ position: fixed;
 }
 
 .boxDeporte{
-<<<<<<< HEAD
-=======
-   /*  width: 501px; */
->>>>>>> 1aabb5d77f8ad47785b0ff2f1995c92af32b115d
     background: #C9DF1F;
     opacity: 0.73;
     border-radius: 20px;
@@ -339,10 +329,6 @@ position: fixed;
 
 
 .boxMedallero{
-<<<<<<< HEAD
-=======
-    /* width: 501px; */
->>>>>>> 1aabb5d77f8ad47785b0ff2f1995c92af32b115d
     background: #FFE351;
     opacity: 0.73;
     border-radius: 20px;
