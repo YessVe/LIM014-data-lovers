@@ -1,5 +1,5 @@
 //Importaré la data
-//import { example } from './data.js';
+//import { athletesOrdenados} from './data.js';
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
@@ -93,7 +93,15 @@ function fnCargaGeneral(dataAthletes) {
                                 </section>  
                             </section><!--Fin de class "cara"-->
 
-                            <section class="contraCara"></section>
+                            <section class="contraCara">
+                            <section class=contraCaraContent>
+                                <p>Nombre:${element.name}</p>
+                                <p>Estatura:${element.height}cm</p>
+                                <p>Peso:${element.weight}kg </p>
+                                <p>Dinamica:${element.sport}</p>
+                                <p>Evento:${element.event} Medalla:${element.medal}</p>
+                            </section>
+                            </section>
                         </div> <!--Fin class "card"-->
                     </div>
                 </div>
@@ -117,4 +125,5 @@ btnBuscar.addEventListener('click', function() {
       };    
       fnCargaGeneral(showFilter);
 });
+
 
