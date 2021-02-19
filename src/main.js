@@ -1,5 +1,5 @@
 //Importaré la data
-//import { example } from './data.js';
+//import { athletesOrdenados} from './data.js';
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
@@ -41,11 +41,19 @@ function fnCargaGeneral(dataAthletes) {
                                     ? ''+avatarMujer[Math.abs(Math.round((Math.random() * avatarMujer.length-4)+1))]+''
                                     : ''+avatarHombre[Math.abs(Math.round((Math.random() * avatarHombre.length-3)+1))]+''} width= 180px>
                                     <img class="bandera" 
-                                    src="https://restcountries.eu/data/${element.noc.toLowerCase()}.svg" alt="">
+                                    src="https://www.fiba.basketball/api/img/team/logoflag/0?sizeType=Medium&backgroundType=Light&patternType=default_medium&eventId=10628&iocCode=${element.noc}" alt="">
                                 </section>  
                             </section><!--Fin de class "cara"-->
 
-                            <section class="contraCara"></section>
+                            <section class="contraCara">
+                            <section class=contraCaraContent>
+                                <p>Nombre:${element.name}</p>
+                                <p>Estatura:${element.height}cm</p>
+                                <p>Peso:${element.weight}kg </p>
+                                <p>Dinamica:${element.sport}</p>
+                                <p>Evento:${element.event} Medalla:${element.medal}</p>
+                            </section>
+                            </section>
                         </div> <!--Fin class "card"-->
                     </div>
                 </div>
@@ -63,13 +71,14 @@ btnBuscar.addEventListener('click', function() {
     const nameAthlete = document.getElementById("search").value;
     const showFilter = filterItems(nameAthlete);
     function filterItems(query){
-        console.log(query)
         return dataAthletes.filter(function(el) {
             return el.name.toLowerCase().indexOf(query.toLowerCase()) > -1;
         })
-      };
+      }
     fnCargaGeneral(showFilter);
 });
+
+
 
 // usar un map para llenar un vacio que contenga solo los nombres
 // y ese map se encarga de quitar los duplicados
@@ -81,3 +90,21 @@ btnBuscar.addEventListener('click', function() {
 
 //duplicados
 //los array tiene un método que se llama reduce, ejem: map, sort
+
+
+
+//const indexed = array.forEach(( acc, el) => {
+//if (condition) {
+//    acc[el.name] === acc[el.name] 
+//  ? {'name':el.name,
+//  'gender':el.gender, 
+//  'height':el.height, 
+//  'weight':el.weight,
+//  'sport': el.sport,
+//  'team':el.team,
+//  "noc": el.noc,
+//  "age": el.age,
+//  'events':[]}
+//}
+//  acc[el.name][0].events.push({'event':el.event, 'medal':el.medal});
+//  return acc;}, {})
