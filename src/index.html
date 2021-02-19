@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="./images/logo_rio.png">
-    <title>Data Lovers</title>
+    <title>Juegos Olímpicos</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body >
@@ -36,10 +36,10 @@
           <input type="search" id="search" class="search" placeholder="_Buscar atleta"> <!--🔍-->
           <button id="btnBuscar"><img src="images/icono_lupa.png" alt="Ícono Lupa"></button>
         </section>
-        <select name="athletes" class="seleccion">
+        <select name="athletes" class="seleccion" id="ordenar">
           <option value="" disabled="" selected="">--Selecciona una opción--</option>
-          <option>Ordena de la A - Z</option>
-          <option>Ordena de la Z - A</option>
+          <option id="az">Ordena de la A - Z</option>
+          <option id="za">Ordena de la Z - A</option>
         </select>  
       </section>
       
@@ -94,6 +94,7 @@
       <li><a href="#">6</a></li>
       <li><a href="#">7</a></li>
       <li><a href="#">»</a></li>
+    </ul>
   </div>
     <div id="root"></div>
     <script src="main.js" type="module"></script>
