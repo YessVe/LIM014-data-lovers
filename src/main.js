@@ -8,6 +8,54 @@ import copyAthletes from './data/athletes/athletes.js';
 const dataAthletes = (copyAthletes.athletes);
 const contenedor = document.getElementById ("contenedor");
 
+//FUNCIÓN PARA OBTENER ATLETAS SIN DUPLICAR
+    //1ro obtengo los nombres de toda la data
+    const todosLosNombres =[];
+    for (let i = 0; i < dataAthletes.length; i++) {
+    todosLosNombres.push(dataAthletes[i].name);
+    }
+    /* console.log(todosLosNombres); */
+
+     //2do voy a sacar los nombres sin que se repita
+    const nombresUnicos=[];
+    for (let i = 0; i < todosLosNombres.length; i++) {
+        let nombre= todosLosNombres[i];
+        if (nombresUnicos.indexOf(nombre) < 0) {
+            nombresUnicos.push(nombre);
+        }
+    }
+    /* console.log(nombresUnicos); */
+
+    //3ro voy a crear la data para los nombres de atletas que son únicos
+    const dataLimpia=[];
+    for (let i = 0; i < nombresUnicos.length; i++) {
+        let nombrePU = nombresUnicos[i];
+        let todosEventos = "";
+        let todasMedallas = "";
+
+        for (let j = 0; j < dataAthletes.length; j++) {
+            if (nombrePU == dataAthletes[j].name) {
+                
+                todosEventos = todosEventos + " | " + dataAthletes[j].event;
+                todasMedallas = todasMedallas + " | " + dataAthletes[j].medal;
+                var datos = "{" +
+                    String.fromCharCode(34) + "name" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].name + String.fromCharCode(34) + "," +
+                    String.fromCharCode(34) + "gender" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].gender + String.fromCharCode(34) + "," +
+                    String.fromCharCode(34) + "height" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].height + String.fromCharCode(34) + "," +
+                    String.fromCharCode(34) + "weight" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].weight + String.fromCharCode(34) + "," +
+                    String.fromCharCode(34) + "sport" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].sport + String.fromCharCode(34) + "," +
+                    String.fromCharCode(34) + "team" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].team + String.fromCharCode(34) + "," +
+                    String.fromCharCode(34) + "noc" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].noc + String.fromCharCode(34) + "," +
+                    String.fromCharCode(34) + "age" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].age + String.fromCharCode(34) + "," +
+                    String.fromCharCode(34) + "event" + String.fromCharCode(34) + ":" + String.fromCharCode + todosEventos + String.fromCharCode(34) + "," +
+                    String.fromCharCode(34) + "medal" + String.fromCharCode(34) + ":" + String.fromCharCode + todasMedallas + String.fromCharCode(34) + "," +
+                    "}"
+            }   
+        }
+        dataLimpia.push(datos);
+    } 
+   
+ 
 fnCargaGeneral(dataAthletes);
 
 //FUNCIÓN DE CARGA GENERAL DE TODOS LAS CARDS DE ATLETAS
@@ -41,7 +89,7 @@ function fnCargaGeneral(dataAthletes) {
                                     ? ''+avatarMujer[Math.abs(Math.round((Math.random() * avatarMujer.length-4)+1))]+''
                                     : ''+avatarHombre[Math.abs(Math.round((Math.random() * avatarHombre.length-3)+1))]+''} width= 180px>
                                     <img class="bandera" 
-                                    src="https://restcountries.eu/data/${element.noc.toLowerCase()}.svg" alt="">
+                                    src="https://www.fiba.basketball/api/img/team/logoflag/0?sizeType=Medium&backgroundType=Light&patternType=default_medium&eventId=10628&iocCode=${element.noc}" alt="">
                                 </section>  
                             </section><!--Fin de class "cara"-->
 
@@ -63,21 +111,10 @@ btnBuscar.addEventListener('click', function() {
     const nameAthlete = document.getElementById("search").value;
     const showFilter = filterItems(nameAthlete);
     function filterItems(query){
-        console.log(query)
         return dataAthletes.filter(function(el) {
             return el.name.toLowerCase().indexOf(query.toLowerCase()) > -1;
         })
-      };
-    fnCargaGeneral(showFilter);
+      };    
+      fnCargaGeneral(showFilter);
 });
 
-// usar un map para llenar un vacio que contenga solo los nombres
-// y ese map se encarga de quitar los duplicados
-
-//
-//es IRI, so reemplaza
-//switch case para las nacionalidades
-//buscame la bandera de tal y el api te lo devuelve
-
-//duplicados
-//los array tiene un método que se llama reduce, ejem: map, sort
