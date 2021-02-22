@@ -29,14 +29,16 @@ const contenedor = document.getElementById ("contenedor");
     const dataLimpia=[];
     for (let i = 0; i < nombresUnicos.length; i++) {
         let nombrePU = nombresUnicos[i];
-        let todosEventos = "";
-        let todasMedallas = "";
-        
+        let eventos = [];
+        let todosEventos = [];
+        let todasMedallas = [];
 
         for (let j = 0; j < dataAthletes.length; j++) {
             if (nombrePU == dataAthletes[j].name) {
-                todosEventos = todosEventos + dataAthletes[j].event+ " | ";
-                todasMedallas= todasMedallas + dataAthletes[j].medal + " | " ;
+                
+                eventos.push(dataAthletes[j].event, dataAthletes[j].medal);
+                todosEventos.push(dataAthletes[j].event);
+                todasMedallas.push(dataAthletes[j].medal);
                 var datos = {
                     name: dataAthletes[j].name,
                     gender: dataAthletes[j].gender,
@@ -46,9 +48,10 @@ const contenedor = document.getElementById ("contenedor");
                     team: dataAthletes[j].team,
                     noc: dataAthletes[j].noc,
                     age: dataAthletes[j].age,
+                    eventsA: eventos,
                     Events: todosEventos,
                     medals: todasMedallas};   
-            }   
+            }
         }dataLimpia.push(datos);   
     }
 console.log(dataLimpia);
@@ -95,6 +98,7 @@ function fnCargaGeneral(dataLimpia) {
                                 <p>Estatura:${element.height}cm</p>
                                 <p>Peso:${element.weight}kg </p>
                                 <p>Dinamica:${element.sport}</p>
+                                <p>Eventos:${element.eventsA}</p>
                                 <p>Eventos:${element.Events}</p>
                                 <p>Medallas:${element.medals}</p>
 
@@ -124,7 +128,6 @@ btnBuscar.addEventListener('click', function() {
     fnCargaGeneral(showFilter);
 });
 
-
 //
 const todosLosTeams =[];
 for (let i = 0; i < dataLimpia.length; i++) {
@@ -149,5 +152,20 @@ function cargar() {
 cargar();
 
 
+const atleta = {
+    "name": "William Peixoto Arjona",
+    "gender": "M",
+    "height": "186",
+    "weight": "78",
+    "sport": "Volleyball",
+    "team": "Brazil",
+    "noc": "BRA",
+    "age": 37,
+    "events":[
+        {"event": "Volleyball Men's Volleyball",
+        "medal": "Gold"},
+        {"event": "Volleyball Mixto Volleyball",
+        "medal": "silver"}]
 
-
+  };
+console.log(atleta);
