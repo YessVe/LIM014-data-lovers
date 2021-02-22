@@ -1,5 +1,5 @@
 //Importaré la data
-//import { athletesOrdenados} from './data.js';
+import { allNames, cleanData, uniqueNames, filterItems } from './data.js';
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
@@ -10,51 +10,17 @@ const contenedor = document.getElementById ("contenedor");
 
 //FUNCIÓN PARA OBTENER ATLETAS SIN DUPLICAR
     //1ro obtengo los nombres de toda la data
-    const todosLosNombres =[];
-    for (let i = 0; i < dataAthletes.length; i++) {
-    todosLosNombres.push(dataAthletes[i].name);
-    }
-    /* console.log(todosLosNombres); */
+    const todosLosNombres = allNames(dataAthletes);
+    //dataAthletes es el argumento y puede ir cambiando a dataPokemon por ejemplo allNames(dataPokemon)
 
      //2do voy a sacar los nombres sin que se repita
-    const nombresUnicos=[];
-    for (let i = 0; i < todosLosNombres.length; i++) {
-        let nombre= todosLosNombres[i];
-        if (nombresUnicos.indexOf(nombre) < 0) {
-            nombresUnicos.push(nombre);
-        }
-    }
+    const nombresUnicos= uniqueNames (todosLosNombres);
+ 
     /* console.log(nombresUnicos); */
 
     //3ro voy a crear la data para los nombres de atletas que son únicos
-    const dataLimpia=[];
-    for (let i = 0; i < nombresUnicos.length; i++) {
-        let nombrePU = nombresUnicos[i];
-        let todosEventos = [];
-        let todasMedallas = [];
-
-        for (let j = 0; j < dataAthletes.length; j++) {
-            if (nombrePU == dataAthletes[j].name) {
-                
-                todosEventos.push(dataAthletes[j].event);
-                todasMedallas.push(dataAthletes[j].medal);
-                var datos = {
-                    name: dataAthletes[j].name,
-                    gender: dataAthletes[j].gender,
-                    height: dataAthletes[j].height,
-                    weight: dataAthletes[j].weight,
-                    sport: dataAthletes[j].sport,
-                    team: dataAthletes[j].team,
-                    noc: dataAthletes[j].noc,
-                    age: dataAthletes[j].age,
-                    events: todosEventos,
-                    medals: todasMedallas,
-                    };
-            }   
-        }
-        dataLimpia.push(datos);
-    } 
-
+    const dataLimpia= cleanData(nombresUnicos,dataAthletes);
+   
 fnCargaGeneral(dataLimpia);
 
 //FUNCIÓN DE CARGA GENERAL DE TODOS LAS CARDS DE ATLETAS
@@ -119,13 +85,8 @@ mostrarData(data);
 const btnBuscar= document.getElementById ('btnBuscar'); 
 btnBuscar.addEventListener('click', function() {
     const nameAthlete = document.getElementById("search").value;
-    const showFilter = filterItems(nameAthlete);
-    function filterItems(query){
-        return dataLimpia.filter(function(el) {
-            return el.name.toLowerCase().indexOf(query.toLowerCase()) > -1;
-        })
-      };    
-      fnCargaGeneral(showFilter);
+    const showFilter = filterItems(nameAthlete,dataLimpia);  
+    fnCargaGeneral(showFilter);
 });
 
 
