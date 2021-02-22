@@ -38,30 +38,29 @@ const contenedor = document.getElementById ("contenedor");
                 
                 todosEventos = todosEventos + " | " + dataAthletes[j].event;
                 todasMedallas = todasMedallas + " | " + dataAthletes[j].medal;
-                var datos = "{" +
-                    String.fromCharCode(34) + "name" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].name + String.fromCharCode(34) + "," +
-                    String.fromCharCode(34) + "gender" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].gender + String.fromCharCode(34) + "," +
-                    String.fromCharCode(34) + "height" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].height + String.fromCharCode(34) + "," +
-                    String.fromCharCode(34) + "weight" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].weight + String.fromCharCode(34) + "," +
-                    String.fromCharCode(34) + "sport" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].sport + String.fromCharCode(34) + "," +
-                    String.fromCharCode(34) + "team" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].team + String.fromCharCode(34) + "," +
-                    String.fromCharCode(34) + "noc" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].noc + String.fromCharCode(34) + "," +
-                    String.fromCharCode(34) + "age" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].age + String.fromCharCode(34) + "," +
-                    String.fromCharCode(34) + "event" + String.fromCharCode(34) + ":" + String.fromCharCode + todosEventos + String.fromCharCode(34) + "," +
-                    String.fromCharCode(34) + "medal" + String.fromCharCode(34) + ":" + String.fromCharCode + todasMedallas + String.fromCharCode(34) + "," +
-                    "}"
+                var datos = {
+                    name: dataAthletes[j].name,
+                    gender: dataAthletes[j].gender,
+                    height: dataAthletes[j].height,
+                    weight: dataAthletes[j].weight,
+                    sport: dataAthletes[j].sport,
+                    team: dataAthletes[j].team,
+                    noc: dataAthletes[j].noc,
+                    age: dataAthletes[j].age,
+                    events: todosEventos,
+                    medals: todasMedallas,
+                    };
             }   
         }
         dataLimpia.push(datos);
     } 
-   
- 
-fnCargaGeneral(dataAthletes);
+
+fnCargaGeneral(dataLimpia);
 
 //FUNCIÓN DE CARGA GENERAL DE TODOS LAS CARDS DE ATLETAS
-function fnCargaGeneral(dataAthletes) {
+function fnCargaGeneral(dataLimpia) {
         //esta var me va a reconocer todos los valores
-        const data = Object.values(dataAthletes);
+        const data = Object.values(dataLimpia);
         const mostrarData = (parametro) => {
         //Parametro de lo que se va a jalar de lo que contiene athletes... es mi condición
         let mostrar ='';
@@ -96,10 +95,13 @@ function fnCargaGeneral(dataAthletes) {
                             <section class="contraCara">
                             <section class=contraCaraContent>
                                 <p>Nombre:${element.name}</p>
+                                <p>Género:${element.gender}</p>
+                                <p>Edad:${element.age}</p>
                                 <p>Estatura:${element.height}cm</p>
                                 <p>Peso:${element.weight}kg </p>
-                                <p>Dinamica:${element.sport}</p>
-                                <p>Evento:${element.event} Medalla:${element.medal}</p>
+                                <p>Disciplina:${element.sport}</p>
+                                <p>Evento:${element.events} </p>
+                                <p>Medalla:${element.medals} </p>
                             </section>
                             </section>
                         </div> <!--Fin class "card"-->
