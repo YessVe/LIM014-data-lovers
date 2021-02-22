@@ -1,4 +1,5 @@
 //Importaré la data
+
 import { allNames, cleanData, uniqueNames, filterItems } from './data.js';
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
@@ -15,8 +16,6 @@ const contenedor = document.getElementById ("contenedor");
 
      //2do voy a sacar los nombres sin que se repita
     const nombresUnicos= uniqueNames (todosLosNombres);
- 
-    /* console.log(nombresUnicos); */
 
     //3ro voy a crear la data para los nombres de atletas que son únicos
     const dataLimpia= cleanData(nombresUnicos,dataAthletes);
@@ -57,7 +56,6 @@ function fnCargaGeneral(dataLimpia) {
                                     src="https://www.fiba.basketball/api/img/team/logoflag/0?sizeType=Medium&backgroundType=Light&patternType=default_medium&eventId=10628&iocCode=${element.noc}" alt="">
                                 </section>  
                             </section><!--Fin de class "cara"-->
-
                             <section class="contraCara">
                             <section class=contraCaraContent>
                                 <p>Nombre:${element.name}</p>
@@ -88,5 +86,31 @@ btnBuscar.addEventListener('click', function() {
     const showFilter = filterItems(nameAthlete,dataLimpia);  
     fnCargaGeneral(showFilter);
 });
+
+
+//
+const todosLosTeams =[];
+for (let i = 0; i < dataLimpia.length; i++) {
+todosLosTeams.push(dataLimpia[i].noc);
+}
+const teamsUnicos=[];
+for (let i = 0; i < todosLosTeams.length; i++) {
+    let pais= todosLosTeams[i];
+    if (teamsUnicos.indexOf(pais) < 0) {
+        teamsUnicos.push(pais);
+    }
+}
+function cargar() {
+    teamsUnicos
+    const select = document.getElementById("paises"); //Seleccionamos el select
+    for(let i=0; i < teamsUnicos.length; i++){ 
+        let option = document.createElement("option"); //Creamos la opcion
+        option.innerHTML = teamsUnicos[i]; //Metemos el texto en la opción
+        select.appendChild(option); //Metemos la opción en el select
+    }
+}
+cargar();
+
+
 
 
