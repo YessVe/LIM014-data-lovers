@@ -1,5 +1,7 @@
 //Importaré la data
-//import { athletesOrdenados} from './data.js';
+
+import { allNames, cleanData, uniqueNames, filterItems } from './data.js';
+//import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
 // creo la variable que va a llamar desde el archivo donde
@@ -9,49 +11,15 @@ const contenedor = document.getElementById ("contenedor");
 
 //FUNCIÓN PARA OBTENER ATLETAS SIN DUPLICAR
     //1ro obtengo los nombres de toda la data
-    const todosLosNombres =[];
-    for (let i = 0; i < dataAthletes.length; i++) {
-    todosLosNombres.push(dataAthletes[i].name);
-    }
-    /* console.log(todosLosNombres); */
+    const todosLosNombres = allNames(dataAthletes);
+    //dataAthletes es el argumento y puede ir cambiando a dataPokemon por ejemplo allNames(dataPokemon)
 
      //2do voy a sacar los nombres sin que se repita
-    const nombresUnicos=[];
-    for (let i = 0; i < todosLosNombres.length; i++) {
-        let nombre= todosLosNombres[i];
-        if (nombresUnicos.indexOf(nombre) < 0) {
-            nombresUnicos.push(nombre);
-        }
-    }
-    /* console.log(nombresUnicos); */
+    const nombresUnicos= uniqueNames (todosLosNombres);
 
     //3ro voy a crear la data para los nombres de atletas que son únicos
-    const dataLimpia=[];
-    for (let i = 0; i < nombresUnicos.length; i++) {
-        let nombrePU = nombresUnicos[i];
-        let todosEventos = "";
-        let todasMedallas = "";
-        
-
-        for (let j = 0; j < dataAthletes.length; j++) {
-            if (nombrePU == dataAthletes[j].name) {
-                todosEventos = todosEventos + dataAthletes[j].event+ " | ";
-                todasMedallas= todasMedallas + dataAthletes[j].medal + " | " ;
-                var datos = {
-                    name: dataAthletes[j].name,
-                    gender: dataAthletes[j].gender,
-                    height: dataAthletes[j].height,
-                    weight: dataAthletes[j].weight,
-                    sport: dataAthletes[j].sport,
-                    team: dataAthletes[j].team,
-                    noc: dataAthletes[j].noc,
-                    age: dataAthletes[j].age,
-                    Events: todosEventos,
-                    medals: todasMedallas};   
-            }   
-        }dataLimpia.push(datos);   
-    }
-console.log(dataLimpia);
+    const dataLimpia= cleanData(nombresUnicos,dataAthletes);
+   
 fnCargaGeneral(dataLimpia);
 
 //FUNCIÓN DE CARGA GENERAL DE TODOS LAS CARDS DE ATLETAS
@@ -91,13 +59,13 @@ function fnCargaGeneral(dataLimpia) {
                             <section class="contraCara">
                             <section class=contraCaraContent>
                                 <p>Nombre:${element.name}</p>
-                                <p>País:${element.team}</p>
+                                <p>Género:${element.gender}</p>
+                                <p>Edad:${element.age}</p>
                                 <p>Estatura:${element.height}cm</p>
                                 <p>Peso:${element.weight}kg </p>
-                                <p>Dinamica:${element.sport}</p>
-                                <p>Eventos:${element.Events}</p>
-                                <p>Medallas:${element.medals}</p>
-
+                                <p>Disciplina:${element.sport}</p>
+                                <p>Evento:${element.events} </p>
+                                <p>Medalla:${element.medals} </p>
                             </section>
                             </section>
                         </div> <!--Fin class "card"-->
@@ -115,12 +83,7 @@ mostrarData(data);
 const btnBuscar= document.getElementById ('btnBuscar'); 
 btnBuscar.addEventListener('click', function() {
     const nameAthlete = document.getElementById("search").value;
-    const showFilter = filterItems(nameAthlete);
-    function filterItems(query){
-        return dataLimpia.filter(function(el) {
-            return el.name.toLowerCase().indexOf(query.toLowerCase()) > -1;
-        })
-      }
+    const showFilter = filterItems(nameAthlete,dataLimpia);  
     fnCargaGeneral(showFilter);
 });
 
