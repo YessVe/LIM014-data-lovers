@@ -30,14 +30,14 @@ const contenedor = document.getElementById ("contenedor");
     const dataLimpia=[];
     for (let i = 0; i < nombresUnicos.length; i++) {
         let nombrePU = nombresUnicos[i];
-        let todosEventos = "";
-        let todasMedallas = "";
+        let todosEventos = [];
+        let todasMedallas = [];
 
         for (let j = 0; j < dataAthletes.length; j++) {
             if (nombrePU == dataAthletes[j].name) {
                 
-                todosEventos = todosEventos + " | " + dataAthletes[j].event;
-                todasMedallas = todasMedallas + " | " + dataAthletes[j].medal;
+                todosEventos.push(dataAthletes[j].event);
+                todasMedallas.push(dataAthletes[j].medal);
                 var datos = {
                     name: dataAthletes[j].name,
                     gender: dataAthletes[j].gender,
@@ -121,7 +121,7 @@ btnBuscar.addEventListener('click', function() {
     const nameAthlete = document.getElementById("search").value;
     const showFilter = filterItems(nameAthlete);
     function filterItems(query){
-        return dataAthletes.filter(function(el) {
+        return dataLimpia.filter(function(el) {
             return el.name.toLowerCase().indexOf(query.toLowerCase()) > -1;
         })
       };    
