@@ -1,6 +1,5 @@
 //Importaré la data
 //import { athletesOrdenados} from './data.js';
-//import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
 // creo la variable que va a llamar desde el archivo donde
@@ -32,36 +31,33 @@ const contenedor = document.getElementById ("contenedor");
         let nombrePU = nombresUnicos[i];
         let todosEventos = "";
         let todasMedallas = "";
+        
 
         for (let j = 0; j < dataAthletes.length; j++) {
             if (nombrePU == dataAthletes[j].name) {
-                
-                todosEventos = todosEventos + " | " + dataAthletes[j].event;
-                todasMedallas = todasMedallas + " | " + dataAthletes[j].medal;
-                var datos = "{" +
-                    String.fromCharCode(34) + "name" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].name + String.fromCharCode(34) + "," +
-                    String.fromCharCode(34) + "gender" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].gender + String.fromCharCode(34) + "," +
-                    String.fromCharCode(34) + "height" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].height + String.fromCharCode(34) + "," +
-                    String.fromCharCode(34) + "weight" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].weight + String.fromCharCode(34) + "," +
-                    String.fromCharCode(34) + "sport" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].sport + String.fromCharCode(34) + "," +
-                    String.fromCharCode(34) + "team" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].team + String.fromCharCode(34) + "," +
-                    String.fromCharCode(34) + "noc" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].noc + String.fromCharCode(34) + "," +
-                    String.fromCharCode(34) + "age" + String.fromCharCode(34) + ":" + String.fromCharCode + dataAthletes[j].age + String.fromCharCode(34) + "," +
-                    String.fromCharCode(34) + "event" + String.fromCharCode(34) + ":" + String.fromCharCode + todosEventos + String.fromCharCode(34) + "," +
-                    String.fromCharCode(34) + "medal" + String.fromCharCode(34) + ":" + String.fromCharCode + todasMedallas + String.fromCharCode(34) + "," +
-                    "}"
+                todosEventos = todosEventos + dataAthletes[j].event+ " | ";
+                todasMedallas= todasMedallas + dataAthletes[j].medal + " | " ;
+                var datos = {
+                    name: dataAthletes[j].name,
+                    gender: dataAthletes[j].gender,
+                    height: dataAthletes[j].height,
+                    weight: dataAthletes[j].weight,
+                    sport: dataAthletes[j].sport,
+                    team: dataAthletes[j].team,
+                    noc: dataAthletes[j].noc,
+                    age: dataAthletes[j].age,
+                    Events: todosEventos,
+                    medals: todasMedallas};   
             }   
-        }
-        dataLimpia.push(datos);
-    } 
-   
- 
-fnCargaGeneral(dataAthletes);
+        }dataLimpia.push(datos);   
+    }
+console.log(dataLimpia);
+fnCargaGeneral(dataLimpia);
 
 //FUNCIÓN DE CARGA GENERAL DE TODOS LAS CARDS DE ATLETAS
-function fnCargaGeneral(dataAthletes) {
+function fnCargaGeneral(dataLimpia) {
         //esta var me va a reconocer todos los valores
-        const data = Object.values(dataAthletes);
+        const data = Object.values(dataLimpia);
         const mostrarData = (parametro) => {
         //Parametro de lo que se va a jalar de lo que contiene athletes... es mi condición
         let mostrar ='';
@@ -92,14 +88,16 @@ function fnCargaGeneral(dataAthletes) {
                                     src="https://www.fiba.basketball/api/img/team/logoflag/0?sizeType=Medium&backgroundType=Light&patternType=default_medium&eventId=10628&iocCode=${element.noc}" alt="">
                                 </section>  
                             </section><!--Fin de class "cara"-->
-
                             <section class="contraCara">
                             <section class=contraCaraContent>
                                 <p>Nombre:${element.name}</p>
+                                <p>País:${element.team}</p>
                                 <p>Estatura:${element.height}cm</p>
                                 <p>Peso:${element.weight}kg </p>
                                 <p>Dinamica:${element.sport}</p>
-                                <p>Evento:${element.event} Medalla:${element.medal}</p>
+                                <p>Eventos:${element.Events}</p>
+                                <p>Medallas:${element.medals}</p>
+
                             </section>
                             </section>
                         </div> <!--Fin class "card"-->
@@ -119,11 +117,37 @@ btnBuscar.addEventListener('click', function() {
     const nameAthlete = document.getElementById("search").value;
     const showFilter = filterItems(nameAthlete);
     function filterItems(query){
-        return dataAthletes.filter(function(el) {
+        return dataLimpia.filter(function(el) {
             return el.name.toLowerCase().indexOf(query.toLowerCase()) > -1;
         })
-      };    
-      fnCargaGeneral(showFilter);
+      }
+    fnCargaGeneral(showFilter);
 });
+
+
+//
+const todosLosTeams =[];
+for (let i = 0; i < dataLimpia.length; i++) {
+todosLosTeams.push(dataLimpia[i].noc);
+}
+const teamsUnicos=[];
+for (let i = 0; i < todosLosTeams.length; i++) {
+    let pais= todosLosTeams[i];
+    if (teamsUnicos.indexOf(pais) < 0) {
+        teamsUnicos.push(pais);
+    }
+}
+function cargar() {
+    teamsUnicos
+    const select = document.getElementById("paises"); //Seleccionamos el select
+    for(let i=0; i < teamsUnicos.length; i++){ 
+        let option = document.createElement("option"); //Creamos la opcion
+        option.innerHTML = teamsUnicos[i]; //Metemos el texto en la opción
+        select.appendChild(option); //Metemos la opción en el select
+    }
+}
+cargar();
+
+
 
 

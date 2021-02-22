@@ -188,14 +188,15 @@ width: 10em;;
 }
 
 .contraCaraContent{
-    margin: 1em 1em 1em 1em;
+    overflow: auto;
+    margin: 1em 1em 1em 0.9em;
     color: white;
 
 }
 
 .contraCaraContent p{
     border-bottom: solid 1px rgb(156, 154, 154);
-    padding: 10px 0;
+    padding: 11px 0;
     
 }
 
@@ -232,7 +233,7 @@ background-color: darkslategray;
    }
 
 .caraNombre{
-    width: 8em;
+    width: 8.1em;
     position: absolute;
     left:3.8em;
     top: 12.8em;
@@ -240,7 +241,7 @@ background-color: darkslategray;
 
 .caraNombre h1{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-style: italic;
     color: rgb(255, 255, 255);
     letter-spacing: 0em;
