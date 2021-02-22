@@ -188,6 +188,7 @@ width: 10em;;
 }
 
 .contraCaraContent{
+    overflow: auto;
     margin: 1em 1em 1em 1em;
     color: white;
 
