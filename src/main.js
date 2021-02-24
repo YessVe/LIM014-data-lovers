@@ -1,5 +1,5 @@
 //Importaré la data
-import { allNames, cleanData, uniqueNames, filterItems, filterGender } from './data.js';
+import { allNames, cleanData, uniqueNames, filterName, filterGender } from './data.js';
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
@@ -58,14 +58,14 @@ function fnCargaGeneral(dataLimpia) {
 
                             <section class="contraCara">
                             <section class=contraCaraContent>
-                                <p>Disciplina:${element.sport}</p>
-                                <p>Evento:${element.events} </p>
-                                <p>Medalla:${element.medals} </p>    
-                                <p>Género:${element.gender}</p>
-                                <p>Edad:${element.age}</p>
-                                <p>Estatura:${element.height}cm</p>
-                                <p>Peso:${element.weight}kg </p>
-
+                                <p>Disciplina: ${element.sport}</p>
+                                <p>Evento: ${element.events} </p>
+                                <p>Medalla: ${element.medals} </p>
+                                <p>País: ${element.team}</p>    
+                                <p>Género: ${element.gender}</p>
+                                <p>Edad: ${element.age}</p>
+                                <p>Estatura: ${element.height}cm</p>
+                                <p>Peso: ${element.weight}kg </p>
                             </section>
                             </section>
                         </div> <!--Fin class "card"-->
@@ -83,17 +83,19 @@ mostrarData(data);
 const btnBuscar= document.getElementById ('btnBuscar'); 
 btnBuscar.addEventListener('click', function() {
     const nameAthlete = document.getElementById("search").value;
-    const showFilter = filterItems(nameAthlete,dataLimpia);  
+    const showFilter = filterName(nameAthlete,dataLimpia);  
     fnCargaGeneral(showFilter);
 });
 
 //FUNCIÓN PARA SELECCIONAR GÉNERO CON CLICK
 const radioBtnGenero = document.getElementsByName('gender');
 for (let i = 0; i < radioBtnGenero.length; i++) {
-    radioBtnGenero[i].addEventListener('change', function () {  
-        alert(radioBtnGenero[i].value);
+      radioBtnGenero[i].addEventListener('change', function () {  
         const valueGender = radioBtnGenero[i].value;
         const showGender = filterGender(valueGender,dataLimpia);
         fnCargaGeneral(showGender);
     });
 };
+
+//FUNCIÓN PARA ORDERNAR ALFABÉTICAMENTE LOS NOMBRES DE LOS ATLETAS
+
