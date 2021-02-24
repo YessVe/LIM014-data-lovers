@@ -1,5 +1,6 @@
 //Importaré la data
-import { allNames, cleanData, uniqueNames, filterName, filterGender } from './data.js';
+
+import { allNames, cleanData, uniqueNames,filterName,alphabetOrder, filterGender} from './data.js';
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
@@ -15,6 +16,7 @@ const contenedor = document.getElementById ("contenedor");
 
      //2do voy a sacar los nombres sin que se repita
     const nombresUnicos= uniqueNames (todosLosNombres);
+
 
     //3ro voy a crear la data para los nombres de atletas que son únicos
     const dataLimpia= cleanData(nombresUnicos,dataAthletes);
@@ -77,11 +79,11 @@ function fnCargaGeneral(dataLimpia) {
     contenedor.innerHTML = mostrar;
 };
 mostrarData(data); 
-};
+}
 
 //FUNCIÓN PARA BUSCAR POR NOMBRE DE ATLETA CON CLICK
 const btnBuscar= document.getElementById ('btnBuscar'); 
-btnBuscar.addEventListener('click', function() {
+btnBuscar.addEventListener('click', ()=> {
     const nameAthlete = document.getElementById("search").value;
     const showFilter = filterName(nameAthlete,dataLimpia);  
     fnCargaGeneral(showFilter);
@@ -95,7 +97,49 @@ for (let i = 0; i < radioBtnGenero.length; i++) {
         const showGender = filterGender(valueGender,dataLimpia);
         fnCargaGeneral(showGender);
     });
-};
+}
+
+// boton de ordenar
+// Historia 6 - Ordenar (A-Z / Z-A)
+//Declaro mi select
+const selectOrdenar = document.getElementById('ordenar');
+//Creo el evento para cuando use el seleccionador
+selectOrdenar.addEventListener('change', () => {
+    contenedor.innerHTML = '';
+    const valueOrder = selectOrdenar.value;
+    const showOrder = alphabetOrder(dataLimpia,valueOrder);
+    fnCargaGeneral(showOrder)
+}); 
+//
+
+
+const todosLosTeams =[];
+for (let i = 0; i < dataLimpia.length; i++) {
+todosLosTeams.push(dataLimpia[i].noc);
+}
+const teamsUnicos=[];
+for (let i = 0; i < todosLosTeams.length; i++) {
+    let pais= todosLosTeams[i];
+    if (teamsUnicos.indexOf(pais) < 0) {
+        teamsUnicos.push(pais);
+    }
+}
+
+function cargar() {
+    teamsUnicos
+    const select = document.getElementById("paises"); //Seleccionamos el select
+    for(let i=0; i < teamsUnicos.length; i++){ 
+        let option = document.createElement("option"); //Creamos la opcion
+        option.innerHTML = teamsUnicos[i]; //Metemos el texto en la opción
+        select.appendChild(option); //Metemos la opción en el select
+    }
+}
+cargar();
+
+
+
+  // funcionalidad boton ordenar
 
 //FUNCIÓN PARA ORDERNAR ALFABÉTICAMENTE LOS NOMBRES DE LOS ATLETAS
 
+// oro 🥇 plata 🥈 bronce 🥉
