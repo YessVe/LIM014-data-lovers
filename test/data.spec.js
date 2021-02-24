@@ -1,4 +1,4 @@
-import { allNames, uniqueNames, filterItems, cleanData, alphabetOrder} from '../src/data.js';
+import { allNames, uniqueNames, cleanData, alphabetOrder, filterName} from '../src/data.js';
 
 // describe('example', () => {
 //   it('is a function', () => {
@@ -130,7 +130,7 @@ describe('prueba para la funcion search', () => {
         name: 'William Peixoto Arjona',
       },
     ];
-    expect(filterItems('wIl', a)).toEqual(b);
+    expect(filterName('wIl', a)).toEqual(b);
   });
 });
 

@@ -1,5 +1,4 @@
-// estas funciones son de ejemplo
-
+//1ro obtengo los nombres de toda la data
 export const allNames = (data) => { // data = []
   const todosLosNombres = [];
   for (let i = 0; i < data.length; i++) {
@@ -8,6 +7,7 @@ export const allNames = (data) => { // data = []
   return todosLosNombres;
 };
 
+//2do voy a sacar los nombres sin que se repita
 export const uniqueNames = (dataNames) => {
   const nombresUnicos = [];
   for (let i = 0; i < dataNames.length; i++) {
@@ -19,6 +19,7 @@ export const uniqueNames = (dataNames) => {
   return nombresUnicos;
 };
 
+//3ro voy a crear la data para los nombres de atletas que son únicos
 export const cleanData = (dataNames, data) => {
   const dataLimpia = [];
   for (let i = 0; i < dataNames.length; i++) {
@@ -50,9 +51,9 @@ export const cleanData = (dataNames, data) => {
   return dataLimpia;
 }
 
-export const filterItems = (query, data) => {
+export const filterName = (input, data) => {
   return data.filter((el) => {
-    return el.name.toLowerCase().indexOf(query.toLowerCase()) > -1;
+    return el.name.toLowerCase().indexOf(input.toLowerCase()) > -1;
   })
 };
 
@@ -79,3 +80,14 @@ export const alphabetOrder = (first, condition) => {
   }
   return result;
 }; 
+
+export const filterGender = (input, data) => {
+  return data.filter((el) => {
+    return el.gender.indexOf(input) > -1;
+  })
+};
+
+
+  /* if (query==0 || query=="" || isNaN(query) || query==Number) {
+    throw TypeError("Escribe letras, por favor")
+  } */

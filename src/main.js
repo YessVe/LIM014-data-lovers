@@ -1,6 +1,6 @@
 //Importaré la data
 
-import { allNames, cleanData, uniqueNames, filterItems,alphabetOrder} from './data.js';
+import { allNames, cleanData, uniqueNames,filterName,alphabetOrder, filterGender} from './data.js';
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
@@ -20,7 +20,7 @@ const contenedor = document.getElementById ("contenedor");
 
     //3ro voy a crear la data para los nombres de atletas que son únicos
     const dataLimpia= cleanData(nombresUnicos,dataAthletes);
-   
+
 fnCargaGeneral(dataLimpia);
 
 //FUNCIÓN DE CARGA GENERAL DE TODOS LAS CARDS DE ATLETAS
@@ -57,16 +57,17 @@ function fnCargaGeneral(dataLimpia) {
                                     src="https://www.fiba.basketball/api/img/team/logoflag/0?sizeType=Medium&backgroundType=Light&patternType=default_medium&eventId=10628&iocCode=${element.noc}" alt="">
                                 </section>  
                             </section><!--Fin de class "cara"-->
+
                             <section class="contraCara">
                             <section class=contraCaraContent>
-                                <p>Nombre:${element.name}</p>
-                                <p>Género:${element.gender}</p>
-                                <p>Edad:${element.age}</p>
-                                <p>Estatura:${element.height}cm</p>
-                                <p>Peso:${element.weight}kg </p>
-                                <p>Disciplina:${element.sport}</p>
-                                <p>Evento:${element.events} </p>
-                                <p>Medalla:${element.medals} </p>
+                                <p>Disciplina: ${element.sport}</p>
+                                <p>Evento: ${element.events} </p>
+                                <p>Medalla: ${element.medals} </p>
+                                <p>País: ${element.team}</p>    
+                                <p>Género: ${element.gender}</p>
+                                <p>Edad: ${element.age}</p>
+                                <p>Estatura: ${element.height}cm</p>
+                                <p>Peso: ${element.weight}kg </p>
                             </section>
                             </section>
                         </div> <!--Fin class "card"-->
@@ -84,10 +85,19 @@ mostrarData(data);
 const btnBuscar= document.getElementById ('btnBuscar'); 
 btnBuscar.addEventListener('click', ()=> {
     const nameAthlete = document.getElementById("search").value;
-    const showFilter = filterItems(nameAthlete,dataLimpia);  
+    const showFilter = filterName(nameAthlete,dataLimpia);  
     fnCargaGeneral(showFilter);
 });
 
+//FUNCIÓN PARA SELECCIONAR GÉNERO CON CLICK
+const radioBtnGenero = document.getElementsByName('gender');
+for (let i = 0; i < radioBtnGenero.length; i++) {
+      radioBtnGenero[i].addEventListener('change', function () {  
+        const valueGender = radioBtnGenero[i].value;
+        const showGender = filterGender(valueGender,dataLimpia);
+        fnCargaGeneral(showGender);
+    });
+}
 
 // boton de ordenar
 // Historia 6 - Ordenar (A-Z / Z-A)
@@ -130,5 +140,6 @@ cargar();
 
   // funcionalidad boton ordenar
 
+//FUNCIÓN PARA ORDERNAR ALFABÉTICAMENTE LOS NOMBRES DE LOS ATLETAS
 
 // oro 🥇 plata 🥈 bronce 🥉
