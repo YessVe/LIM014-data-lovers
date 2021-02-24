@@ -1,5 +1,7 @@
 //Importaré la data
-//import { athletesOrdenados} from './data.js';
+
+import { allNames, cleanData, uniqueNames, filterItems,alphabetOrder} from './data.js';
+//import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
 // creo la variable que va a llamar desde el archivo donde
@@ -9,52 +11,16 @@ const contenedor = document.getElementById ("contenedor");
 
 //FUNCIÓN PARA OBTENER ATLETAS SIN DUPLICAR
     //1ro obtengo los nombres de toda la data
-    const todosLosNombres =[];
-    for (let i = 0; i < dataAthletes.length; i++) {
-    todosLosNombres.push(dataAthletes[i].name);
-    }
-    /* console.log(todosLosNombres); */
+    const todosLosNombres = allNames(dataAthletes);
+    //dataAthletes es el argumento y puede ir cambiando a dataPokemon por ejemplo allNames(dataPokemon)
 
      //2do voy a sacar los nombres sin que se repita
-    const nombresUnicos=[];
-    for (let i = 0; i < todosLosNombres.length; i++) {
-        let nombre= todosLosNombres[i];
-        if (nombresUnicos.indexOf(nombre) < 0) {
-            nombresUnicos.push(nombre);
-        }
-    }
-    /* console.log(nombresUnicos); */
+    const nombresUnicos= uniqueNames (todosLosNombres);
+
 
     //3ro voy a crear la data para los nombres de atletas que son únicos
-    const dataLimpia=[];
-    for (let i = 0; i < nombresUnicos.length; i++) {
-        let nombrePU = nombresUnicos[i];
-        let eventos = [];
-        let todosEventos = [];
-        let todasMedallas = [];
-
-        for (let j = 0; j < dataAthletes.length; j++) {
-            if (nombrePU == dataAthletes[j].name) {
-                
-                eventos.push(dataAthletes[j].event, dataAthletes[j].medal);
-                todosEventos.push(dataAthletes[j].event);
-                todasMedallas.push(dataAthletes[j].medal);
-                var datos = {
-                    name: dataAthletes[j].name,
-                    gender: dataAthletes[j].gender,
-                    height: dataAthletes[j].height,
-                    weight: dataAthletes[j].weight,
-                    sport: dataAthletes[j].sport,
-                    team: dataAthletes[j].team,
-                    noc: dataAthletes[j].noc,
-                    age: dataAthletes[j].age,
-                    eventsA: eventos,
-                    Events: todosEventos,
-                    medals: todasMedallas};   
-            }
-        }dataLimpia.push(datos);   
-    }
-console.log(dataLimpia);
+    const dataLimpia= cleanData(nombresUnicos,dataAthletes);
+   
 fnCargaGeneral(dataLimpia);
 
 //FUNCIÓN DE CARGA GENERAL DE TODOS LAS CARDS DE ATLETAS
@@ -94,14 +60,13 @@ function fnCargaGeneral(dataLimpia) {
                             <section class="contraCara">
                             <section class=contraCaraContent>
                                 <p>Nombre:${element.name}</p>
-                                <p>País:${element.team}</p>
+                                <p>Género:${element.gender}</p>
+                                <p>Edad:${element.age}</p>
                                 <p>Estatura:${element.height}cm</p>
                                 <p>Peso:${element.weight}kg </p>
-                                <p>Dinamica:${element.sport}</p>
-                                <p>Eventos:${element.eventsA}</p>
-                                <p>Eventos:${element.Events}</p>
-                                <p>Medallas:${element.medals}</p>
-
+                                <p>Disciplina:${element.sport}</p>
+                                <p>Evento:${element.events} </p>
+                                <p>Medalla:${element.medals} </p>
                             </section>
                             </section>
                         </div> <!--Fin class "card"-->
@@ -117,18 +82,27 @@ mostrarData(data);
 
 //FUNCIÓN PARA BUSCAR POR NOMBRE DE ATLETA CON CLICK
 const btnBuscar= document.getElementById ('btnBuscar'); 
-btnBuscar.addEventListener('click', function() {
+btnBuscar.addEventListener('click', ()=> {
     const nameAthlete = document.getElementById("search").value;
-    const showFilter = filterItems(nameAthlete);
-    function filterItems(query){
-        return dataLimpia.filter(function(el) {
-            return el.name.toLowerCase().indexOf(query.toLowerCase()) > -1;
-        })
-      }
+    const showFilter = filterItems(nameAthlete,dataLimpia);  
     fnCargaGeneral(showFilter);
 });
 
+
+// boton de ordenar
+// Historia 6 - Ordenar (A-Z / Z-A)
+//Declaro mi select
+const selectOrdenar = document.getElementById('ordenar');
+//Creo el evento para cuando use el seleccionador
+selectOrdenar.addEventListener('change', () => {
+    contenedor.innerHTML = '';
+    const valueOrder = selectOrdenar.value;
+    const showOrder = alphabetOrder(dataLimpia,valueOrder);
+    fnCargaGeneral(showOrder)
+}); 
 //
+
+
 const todosLosTeams =[];
 for (let i = 0; i < dataLimpia.length; i++) {
 todosLosTeams.push(dataLimpia[i].noc);
@@ -140,6 +114,7 @@ for (let i = 0; i < todosLosTeams.length; i++) {
         teamsUnicos.push(pais);
     }
 }
+
 function cargar() {
     teamsUnicos
     const select = document.getElementById("paises"); //Seleccionamos el select
@@ -152,20 +127,8 @@ function cargar() {
 cargar();
 
 
-const atleta = {
-    "name": "William Peixoto Arjona",
-    "gender": "M",
-    "height": "186",
-    "weight": "78",
-    "sport": "Volleyball",
-    "team": "Brazil",
-    "noc": "BRA",
-    "age": 37,
-    "events":[
-        {"event": "Volleyball Men's Volleyball",
-        "medal": "Gold"},
-        {"event": "Volleyball Mixto Volleyball",
-        "medal": "silver"}]
 
-  };
-console.log(atleta);
+  // funcionalidad boton ordenar
+
+
+// oro 🥇 plata 🥈 bronce 🥉
