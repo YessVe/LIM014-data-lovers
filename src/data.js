@@ -51,15 +51,15 @@ export const cleanData = (dataNames, data) => {
   return dataLimpia;
 }
 
-export const filterItems = (query, data) => {
+export const filterName = (input, data) => {
   return data.filter((el) => {
-    return el.name.toLowerCase().indexOf(query.toLowerCase()) > -1;
+    return el.name.toLowerCase().indexOf(input.toLowerCase()) > -1;
   })
 };
 
-export const filterGender = (query, data) => {
+export const filterGender = (input, data) => {
   return data.filter((el) => {
-    return el.gender.toLowerCase().indexOf(query.toLowerCase()) > -1;
+    return el.gender.indexOf(input) > -1;
   })
 };
 
