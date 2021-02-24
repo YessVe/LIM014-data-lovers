@@ -1,6 +1,5 @@
 //Importaré la data
-
-import { allNames, cleanData, uniqueNames, filterItems } from './data.js';
+import { allNames, cleanData, uniqueNames, filterName, filterGender } from './data.js';
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
@@ -19,7 +18,7 @@ const contenedor = document.getElementById ("contenedor");
 
     //3ro voy a crear la data para los nombres de atletas que son únicos
     const dataLimpia= cleanData(nombresUnicos,dataAthletes);
-   
+
 fnCargaGeneral(dataLimpia);
 
 //FUNCIÓN DE CARGA GENERAL DE TODOS LAS CARDS DE ATLETAS
@@ -56,16 +55,17 @@ function fnCargaGeneral(dataLimpia) {
                                     src="https://www.fiba.basketball/api/img/team/logoflag/0?sizeType=Medium&backgroundType=Light&patternType=default_medium&eventId=10628&iocCode=${element.noc}" alt="">
                                 </section>  
                             </section><!--Fin de class "cara"-->
+
                             <section class="contraCara">
                             <section class=contraCaraContent>
-                                <p>Nombre:${element.name}</p>
-                                <p>Género:${element.gender}</p>
-                                <p>Edad:${element.age}</p>
-                                <p>Estatura:${element.height}cm</p>
-                                <p>Peso:${element.weight}kg </p>
-                                <p>Disciplina:${element.sport}</p>
-                                <p>Evento:${element.events} </p>
-                                <p>Medalla:${element.medals} </p>
+                                <p>Disciplina: ${element.sport}</p>
+                                <p>Evento: ${element.events} </p>
+                                <p>Medalla: ${element.medals} </p>
+                                <p>País: ${element.team}</p>    
+                                <p>Género: ${element.gender}</p>
+                                <p>Edad: ${element.age}</p>
+                                <p>Estatura: ${element.height}cm</p>
+                                <p>Peso: ${element.weight}kg </p>
                             </section>
                             </section>
                         </div> <!--Fin class "card"-->
@@ -77,40 +77,25 @@ function fnCargaGeneral(dataLimpia) {
     contenedor.innerHTML = mostrar;
 };
 mostrarData(data); 
-}
+};
 
 //FUNCIÓN PARA BUSCAR POR NOMBRE DE ATLETA CON CLICK
 const btnBuscar= document.getElementById ('btnBuscar'); 
 btnBuscar.addEventListener('click', function() {
     const nameAthlete = document.getElementById("search").value;
-    const showFilter = filterItems(nameAthlete,dataLimpia);  
+    const showFilter = filterName(nameAthlete,dataLimpia);  
     fnCargaGeneral(showFilter);
 });
 
+//FUNCIÓN PARA SELECCIONAR GÉNERO CON CLICK
+const radioBtnGenero = document.getElementsByName('gender');
+for (let i = 0; i < radioBtnGenero.length; i++) {
+      radioBtnGenero[i].addEventListener('change', function () {  
+        const valueGender = radioBtnGenero[i].value;
+        const showGender = filterGender(valueGender,dataLimpia);
+        fnCargaGeneral(showGender);
+    });
+};
 
-//
-const todosLosTeams =[];
-for (let i = 0; i < dataLimpia.length; i++) {
-todosLosTeams.push(dataLimpia[i].noc);
-}
-const teamsUnicos=[];
-for (let i = 0; i < todosLosTeams.length; i++) {
-    let pais= todosLosTeams[i];
-    if (teamsUnicos.indexOf(pais) < 0) {
-        teamsUnicos.push(pais);
-    }
-}
-function cargar() {
-    teamsUnicos
-    const select = document.getElementById("paises"); //Seleccionamos el select
-    for(let i=0; i < teamsUnicos.length; i++){ 
-        let option = document.createElement("option"); //Creamos la opcion
-        option.innerHTML = teamsUnicos[i]; //Metemos el texto en la opción
-        select.appendChild(option); //Metemos la opción en el select
-    }
-}
-cargar();
-
-
-
+//FUNCIÓN PARA ORDERNAR ALFABÉTICAMENTE LOS NOMBRES DE LOS ATLETAS
 
