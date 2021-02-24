@@ -57,6 +57,30 @@ export const filterName = (input, data) => {
   })
 };
 
+export const alphabetOrder = (first, condition) => {
+  //*La variable me servirá para ordenar las primeras letras del nombre del atleta  
+  const result = first;
+  if (condition === 'a-z') {
+    result.sort((a, b) => {
+    /* Si la comparacion resulta verdadero tomara como  valor "1" para que vaya a la
+    primera posición */
+      if (a.name.toLowerCase() > b.name.toLowerCase()) {
+        return 1;
+      }
+      return -1;
+    });
+  }
+  if (condition === 'z-a') {
+    result.sort((a, b) => {
+      if (a.name.toLowerCase() < b.name.toLowerCase()) {
+        return 1;
+      }
+      return -1;
+    });
+  }
+  return result;
+}; 
+
 export const filterGender = (input, data) => {
   return data.filter((el) => {
     return el.gender.indexOf(input) > -1;
