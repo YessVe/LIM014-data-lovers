@@ -1,6 +1,6 @@
 //Importaré la data
 
-import { allNames, cleanData, uniqueNames,filterName,alphabetOrder, filterGender,filterCountry} from './data.js';
+import {unique, allNames, cleanData,filterName,alphabetOrder, filterGender,allCountry, filterCountry,allSport, filterSport} from './data.js';
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
@@ -17,8 +17,7 @@ const contenedor = document.getElementById ("contenedor");
     //dataAthletes es el argumento y puede ir cambiando a dataPokemon por ejemplo allNames(dataPokemon)
 
      //2do voy a sacar los nombres sin que se repita
-    const nombresUnicos= uniqueNames (todosLosNombres);
-
+    const nombresUnicos= unique (todosLosNombres);
 
     //3ro voy a crear la data para los nombres de atletas que son únicos
     const dataLimpia= cleanData(nombresUnicos,dataAthletes);
@@ -102,9 +101,9 @@ for (let i = 0; i < radioBtnGenero.length; i++) {
         const valueGender = radioBtnGenero[i].value;
         const showGender = filterGender(valueGender,dataLimpia);
         fnCargaGeneral(showGender);
+
     });
 }
-
 
 // boton de ordenar
 // Historia 6 - Ordenar (A-Z / Z-A)
@@ -119,41 +118,42 @@ selectOrdenar.addEventListener('change', () => {
 }); 
 
 //Select Paises
+const todosLosPaises = allCountry(dataAthletes);
+const paisesUnicos= unique (todosLosPaises);
+paisesUnicos.sort()
 
-const todosLosTeams =[];
-for (let i = 0; i < dataLimpia.length; i++) {
-todosLosTeams.push(dataLimpia[i].noc);
-}
-const teamsUnicos=[];
-for (let i = 0; i < todosLosTeams.length; i++) {
-    let pais= todosLosTeams[i];
-    if (teamsUnicos.indexOf(pais) < 0) {
-        teamsUnicos.push(pais);
-    }
-}
-
-teamsUnicos.sort()
 const selectPais = document.getElementById("paises"); //Seleccionamos el select
-for(let i=0; i < teamsUnicos.length; i++){ 
+for(let i=0; i < paisesUnicos.length; i++){ 
     let option = document.createElement("option"); //Creamos la opcion
-    option.innerHTML = teamsUnicos[i]; //Metemos el texto en la opción
+    option.innerHTML = paisesUnicos[i]; //Metemos el texto en la opción
     selectPais.appendChild(option); //Metemos la opción en el select
-    option.setAttribute('value', teamsUnicos[i])
+    option.setAttribute('value', paisesUnicos[i])
 }
-
 //Creo el evento para cuando use el seleccionador de paises
 selectPais.addEventListener('change', () => {
-    contenedor.innerHTML = '';
     const valueCountry = selectPais.value;
     const showCountry = filterCountry(valueCountry,dataLimpia);
     fnCargaGeneral(showCountry)
 }); 
 
 
+//Creo el evento para cuando use el seleccionador de deportes
+const todosLosDeportes = allSport(dataAthletes);
+const deportesUnicos= unique(todosLosDeportes);
+deportesUnicos.sort()
 
-
-  // funcionalidad boton ordenar
-
-//FUNCIÓN PARA ORDERNAR ALFABÉTICAMENTE LOS NOMBRES DE LOS ATLETAS
+const selectDeporte = document.getElementById("deportes"); 
+for(let i=0; i < deportesUnicos.length; i++){ 
+    let option = document.createElement("option");
+    option.innerHTML = deportesUnicos[i]; 
+    selectDeporte.appendChild(option);
+    option.setAttribute('value', deportesUnicos[i])
+}
+//Creo el evento para cuando use el seleccionador de paises
+selectDeporte.addEventListener('change', () => {
+    const valueSport = selectDeporte.value;
+    const showSport = filterSport(valueSport,dataLimpia);
+    fnCargaGeneral(showSport)
+}); 
 
 // oro 🥇 plata 🥈 bronce 🥉
