@@ -8,7 +8,7 @@ export const allNames = (data) => { // data = []
 };
 
 //2do voy a sacar los nombres sin que se repita
-export const uniqueNames = (dataNames) => {
+export const unique = (dataNames) => {
   const nombresUnicos = [];
   for (let i = 0; i < dataNames.length; i++) {
     let nombre = dataNames[i];
@@ -87,9 +87,35 @@ export const filterGender = (input, data) => {
   })
 };
 
+//Historia de Usuario: Filtrado por país
+//Lista de todos los paises
+export const allCountry = (data) => { // data = []
+  const todosLosPaises = [];
+  for (let i = 0; i < data.length; i++) {
+    todosLosPaises.push(data[i].noc);
+  }
+  return todosLosPaises;
+};
+
 export const filterCountry = (select,data) =>{
   return data.filter((el) => {
     return el.noc.indexOf(select) > -1;})
+}
+
+//Historia de Usuario: Filtrado por Deporte
+//Lista de todos los paises
+
+export const allSport = (data) => { // data = []
+  const todosLosDeportes = [];
+  for (let i = 0; i < data.length; i++) {
+    todosLosDeportes.push(data[i].sport);
+  }
+  return todosLosDeportes;
+};
+
+export const filterSport = (select,data) =>{
+  return data.filter((el) => {
+    return el.sport.indexOf(select) > -1;})
 }
   /* if (query==0 || query=="" || isNaN(query) || query==Number) {
     throw TypeError("Escribe letras, por favor")
