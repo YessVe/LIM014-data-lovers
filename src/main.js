@@ -1,12 +1,14 @@
 //Importaré la data
 
-import { allNames, cleanData, unique,filterName,alphabetOrder, filterGender, allCountries, filterCountry} from './data.js';
+import {unique, allNames, cleanData,filterName,alphabetOrder, filterGender,allCountries, filterCountry,allSport, filterSport} from './data.js';
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
 // creo la variable que va a llamar desde el archivo donde
 //está la info, la propiedad solo de 'athletes'
 const dataAthletes = (copyAthletes.athletes);
+const contarAtletas =document.getElementById("contarAtletas");
+const contarMedallas =document.getElementById("contarMedallas");
 const contenedor = document.getElementById ("contenedor");
 
 //FUNCIÓN PARA OBTENER ATLETAS SIN DUPLICAR
@@ -76,6 +78,8 @@ function fnCargaGeneral(dataLimpia) {
     contenedor.innerHTML = mostrar;
 };
 mostrarData(data); 
+contarAtletas.innerHTML="atletas:"+dataLimpia.length;
+contarMedallas.innerHTML="Medallas:"+dataLimpia.medals;
 }
 
 //FUNCIÓN PARA BUSCAR POR NOMBRE DE ATLETA CON CLICK
@@ -123,8 +127,23 @@ selectPaises.addEventListener('change', () => {
 }); 
 
 //FUNCIÓN PARA FILTRAR POR DEPORTES
-
-
+    //Creo el evento para cuando use el seleccionador de deportes
+const todosLosDeportes = allSport(dataAthletes);
+const deportesUnicos= unique(todosLosDeportes);
+deportesUnicos.sort()
+const selectDeporte = document.getElementById("deportes"); 
+for(let i=0; i < deportesUnicos.length; i++){ 
+    let option = document.createElement("option");
+    option.innerHTML = deportesUnicos[i]; 
+    selectDeporte.appendChild(option);
+    option.setAttribute('value', deportesUnicos[i])
+}
+    //Creo el evento para cuando use el seleccionador de paises
+selectDeporte.addEventListener('change', () => {
+    const valueSport = selectDeporte.value;
+    const showSport = filterSport(valueSport,dataLimpia);
+    fnCargaGeneral(showSport)
+}); 
 
 
 

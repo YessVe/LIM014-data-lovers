@@ -107,6 +107,21 @@ export const filterCountry = (input, data) => {
   })
 };
 
+//FUNCIÓN PARA TENER LA LISTA DE DEPORTE
+export const allSport = (data) => { // data = []
+  const todosLosDeportes = [];
+  for (let i = 0; i < data.length; i++) {
+    todosLosDeportes.push(data[i].sport);
+  }
+  return todosLosDeportes;
+};
+
+//FUNCIÓN PARA SELECCIONAR DEPORTE
+export const filterSport = (select,data) =>{
+  return data.filter((el) => {
+    return el.sport.indexOf(select) > -1;})
+}
+
 
   /* if (query==0 || query=="" || isNaN(query) || query==Number) {
     throw TypeError("Escribe letras, por favor")

@@ -1,24 +1,4 @@
-import { allNames, uniqueNames, cleanData, alphabetOrder, filterName, filterGender} from '../src/data.js';
-
-// describe('example', () => {
-//   it('is a function', () => {
-//     expect(typeof example).toBe('function');
-//   });
-
-//   it('returns `example`', () => {
-//     expect(example()).toBe('example');
-//   });
-// });
-// describe('anotherExample', () => {
-//   it('is a function', () => {
-//     expect(typeof anotherExample).toBe('function');
-//   });
-
-//   it('returns `anotherExample`', () => {
-//     expect(anotherExample()).toBe('OMG');
-//   });
-// });
-
+import { allNames, unique, cleanData, alphabetOrder,filterName,filterGender,allCountries, filterCountry,allSport, filterSport} from '../src/data.js';
 
 const atletas = [{
   "name": "Denis Mikhaylovich Ablyazin",
@@ -71,12 +51,12 @@ describe('listNames', () => {
   });
 
 //HISTORIA DE USUARIO 1
-//Obtener solo los nombres de atleta de forma única
-describe('uniqueNames', () => {
-  it('debe eliminar nombres duplicados', () => {
+//Obtener solo valores como nombre, país y deporte de forma única
+describe('unique', () => {
+  it('debe eliminar valores de nombres, países y deportes duplicados', () => {
     const a = ['William Peixoto Arjona', 'William Peixoto Arjona', 'Chloe Esposito'];
     const b = ['William Peixoto Arjona', 'Chloe Esposito'];
-    expect(uniqueNames(a)).toEqual(b);
+    expect(unique(a)).toEqual(b);
   });
 });
 
@@ -138,47 +118,22 @@ describe('prueba para la funcion search', () => {
 //Ordenar alfabéticamente las tarjetas de los atletas
 describe('alphabetOrder', () => {
   const a= [
-    {
-      name: 'Denis Mikhaylovich Ablyazin'
-    },
-    {
-      name: 'Denis Mikhaylovich Ablyazin'
-    },
-    {
-      name: 'William Peixoto Arjona'
-    },
-    {
-      name: 'Chloe Esposito'
-    },
+    { name: 'Denis Mikhaylovich Ablyazin'},
+    { name: 'Denis Mikhaylovich Ablyazin'},
+    { name: 'William Peixoto Arjona'},
+    { name: 'Chloe Esposito'},
   ];
   const az = [
-    {
-      name: 'Chloe Esposito'
-    },
-    {
-      name: 'Denis Mikhaylovich Ablyazin'
-    },
-    {
-      name: 'Denis Mikhaylovich Ablyazin'
-    },
-    {
-      name: 'William Peixoto Arjona'
-    }
-
+    { name: 'Chloe Esposito'},
+    { name: 'Denis Mikhaylovich Ablyazin'},
+    { name: 'Denis Mikhaylovich Ablyazin'},
+    { name: 'William Peixoto Arjona'}
   ];
   const za = [
-    {
-      name: 'William Peixoto Arjona'
-    },
-    {
-      name: 'Denis Mikhaylovich Ablyazin'
-    },
-    {
-      name: 'Denis Mikhaylovich Ablyazin'
-    },
-    {
-      name: 'Chloe Esposito'
-    }
+    { name: 'William Peixoto Arjona'},
+    { name: 'Denis Mikhaylovich Ablyazin'},
+    { name: 'Denis Mikhaylovich Ablyazin'},
+    { name: 'Chloe Esposito'}
   ];
   it('is a function', () => {
     expect(typeof alphabetOrder).toBe('function');
@@ -193,51 +148,80 @@ describe('alphabetOrder', () => {
   });
 });
 
-//HISTORIA DE USUARIO 4
-//Filtrado de Género
-describe('filterGender', () => {
+//HISTORIA DE USUARIO 4 
+//Filtrado de Género 
+describe('filterGender', () => { 
   const atletas= [
-    {
-      name: 'Denis Mikhaylovich Ablyazin',
-      gender: 'M'
-    },
-    {
-      name: 'Chloe Esposito',
-      gender: 'F'
-    },
-    {
-      name: 'William Peixoto Arjona',
-      gender: 'M'
-    }
-
-  ];
+     { name: 'Denis Mikhaylovich Ablyazin', gender: 'M'}, 
+     { name: 'Chloe Esposito', gender: 'F'}, 
+     { name: 'William Peixoto Arjona', gender: 'M'}
+    ];
   const f = [
-    {
-      name: 'Chloe Esposito',
-      gender: 'F'
-    },
-  ];
-  const m = [
-    {
-      name: 'Denis Mikhaylovich Ablyazin',
-      gender: 'M'
-    },
-    {
-      name: 'William Peixoto Arjona',
-      gender: 'M'
-    },
-  ];
-  it('is a function', () => {
-    expect(typeof filterGender).toBe('function');
-  });
+     { name: 'Chloe Esposito', gender: 'F'}
+    ]; 
+  const m = [ 
+    { name: 'Denis Mikhaylovich Ablyazin', gender: 'M'}, 
+    { name: 'William Peixoto Arjona', gender: 'M'}
+    ]; 
+    
+  it('is a function', () => { expect(typeof filterGender).toBe('function'); });
+  it('Debe traerme solo a la chica', () => { expect(filterGender('F', atletas)).toEqual(f); });
+  it('Debe traerme solo a los chicos', () => { expect(filterGender('M', atletas)).toEqual(m); });
+   }); 
 
-  it('Debe traerme solo a la chica', () => {
-    expect(filterGender('F', atletas)).toEqual(f);
-  });
 
-  it('Debe traerme solo a los chicos', () => {
-    expect(filterGender('M', atletas)).toEqual(m);
+//HISTORIA DE USUARIO 5
+//Lista de Paises
+describe('listCountry', () => {
+  it('debe mostrarme todos los paises', () => {
+    const b = ["RUS","RUS","AUS"];
+    expect(allCountries(atletas)).toEqual(b);
   });
 });
+//Filtrado de Pais
+describe('filterCountry', () => { 
+  const b = [{
+    "name": "Matthew \"Matt\" Abood",
+    "gender": "M",
+    "height": "197",
+    "weight": "92",
+    "sport": "Swimming",
+    "team": "Australia",
+    "noc": "AUS",
+    "age": 30,
+    "event": "Swimming Men's 4 x 100 metres Freestyle Relay",
+    "medal": "Bronze"
+    }]; 
+    it('is a function', () => { expect(typeof filterCountry).toBe('function'); });
+    it('Debe traerme solo al que es australiano', () => 
+    { expect(filterCountry("AUS",atletas)).toEqual(b); });
+    }); 
 
+//HISTORIA DE USUARIO 6 
+//Lista de Deportes
+describe('listSport', () => {
+  it('debe mostrarme todos los Deportes', () => {
+    const b = ["Gymnastics","Gymnastics","Swimming"];
+    expect(allSport(atletas)).toEqual(b);
+  });
+});
+//Filtrado de Deporte
+describe('filterSport', () => { 
+  const b = [{
+    "name": "Matthew \"Matt\" Abood",
+    "gender": "M",
+    "height": "197",
+    "weight": "92",
+    "sport": "Swimming",
+    "team": "Australia",
+    "noc": "AUS",
+    "age": 30,
+    "event": "Swimming Men's 4 x 100 metres Freestyle Relay",
+    "medal": "Bronze"
+  }]; 
+  it('is a function', () => { expect(typeof filterCountry).toBe('function'); });
+  it('Debe traerme solo al que participó en gimnasia', () => 
+  { expect(filterSport("Swimming",atletas)).toEqual(b); });
+  }); 
 
+  

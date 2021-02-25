@@ -122,8 +122,8 @@ width: 10em;;
     margin-top: 2em;
 }
 
-/*Contador*/
-css #contador1{
+/*contador*/
+#contador{
     background: #40D861 ;
     border-radius: 20px;
     height:110px;
