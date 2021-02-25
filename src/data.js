@@ -7,16 +7,16 @@ export const allNames = (data) => { // data = []
   return todosLosNombres;
 };
 
-//2do voy a sacar los nombres sin que se repita
-export const unique = (dataNames) => {
-  const nombresUnicos = [];
-  for (let i = 0; i < dataNames.length; i++) {
-    let nombre = dataNames[i];
-    if (nombresUnicos.indexOf(nombre) < 0) {
-      nombresUnicos.push(nombre);
+//2do voy a sacar los nombres sea del atleta, país, deporte sin que se repita
+export const unique = (data) => {
+  const valoresUnicos = [];
+  for (let i = 0; i < data.length; i++) {
+    let valorAtletaPaisDeporte = data[i];
+    if (valoresUnicos.indexOf(valorAtletaPaisDeporte) < 0) {
+      valoresUnicos.push(valorAtletaPaisDeporte);
     }
   }
-  return nombresUnicos;
+  return valoresUnicos;
 };
 
 //3ro voy a crear la data para los nombres de atletas que son únicos
@@ -51,60 +51,63 @@ export const cleanData = (dataNames, data) => {
   return dataLimpia;
 }
 
+//FUNCIÓN PARA BUSCAR POR NOMBRE DE ATLETA
 export const filterName = (input, data) => {
   return data.filter((el) => {
     return el.name.toLowerCase().indexOf(input.toLowerCase()) > -1;
   })
 };
 
+//FUNCIÓN PARA ORDENAR ALFABÉTICAMENTE (A-Z / Z-A)
 export const alphabetOrder = (first, condition) => {
   //*La variable me servirá para ordenar las primeras letras del nombre del atleta  
   const result = first;
-  if (condition === 'a-z') {
-    result.sort((a, b) => {
-    /* Si la comparacion resulta verdadero tomara como  valor "1" para que vaya a la
+  /* Si la comparacion resulta verdadero tomara como  valor "1" para que vaya a la
     primera posición */
-      if (a.name.toLowerCase() > b.name.toLowerCase()) {
-        return 1;
-      }
+  
+    const compareName = (a, b) => {
+      if (a.name.toLowerCase() > b.name.toLowerCase()) return 1; 
+      if (a.name.toLowerCase() === b.name.toLowerCase()) return 0;
       return -1;
-    });
-  }
-  if (condition === 'z-a') {
-    result.sort((a, b) => {
-      if (a.name.toLowerCase() < b.name.toLowerCase()) {
-        return 1;
-      }
+    }
+    if (condition === 'a-z') {
+      result.sort(compareName);
+    }
+    const compareNameReverse = (a, b) => {
+      if (a.name.toLowerCase() < b.name.toLowerCase()) return 1; 
+      if (a.name.toLowerCase() === b.name.toLowerCase()) return 0;
       return -1;
-    });
-  }
-  return result;
+    }  
+    if (condition === 'z-a') {
+      result.sort(compareNameReverse);
+    }
+    return result;
 }; 
 
+//FUNCIÓN PARA SELECCIONAR GÉNERO
 export const filterGender = (input, data) => {
   return data.filter((el) => {
     return el.gender.indexOf(input) > -1;
   })
 };
 
-//Historia de Usuario: Filtrado por país
-//Lista de todos los paises
-export const allCountry = (data) => { // data = []
+//FUNCIÓN PARA TENER LA LISTA DE PAÍSES
+export const allCountries = (data) =>{
   const todosLosPaises = [];
   for (let i = 0; i < data.length; i++) {
     todosLosPaises.push(data[i].noc);
   }
   return todosLosPaises;
-};
-
-export const filterCountry = (select,data) =>{
-  return data.filter((el) => {
-    return el.noc.indexOf(select) > -1;})
 }
 
-//Historia de Usuario: Filtrado por Deporte
-//Lista de todos los paises
+//FUNCIÓN PARA SELECCIONAR PAÍS
+export const filterCountry = (input, data) => {
+  return data.filter((el) => {
+    return el.noc.indexOf(input) > -1;
+  })
+};
 
+//FUNCIÓN PARA TENER LA LISTA DE DEPORTE
 export const allSport = (data) => { // data = []
   const todosLosDeportes = [];
   for (let i = 0; i < data.length; i++) {
@@ -113,10 +116,13 @@ export const allSport = (data) => { // data = []
   return todosLosDeportes;
 };
 
+//FUNCIÓN PARA SELECCIONAR DEPORTE
 export const filterSport = (select,data) =>{
   return data.filter((el) => {
     return el.sport.indexOf(select) > -1;})
 }
+
+
   /* if (query==0 || query=="" || isNaN(query) || query==Number) {
     throw TypeError("Escribe letras, por favor")
   } */
