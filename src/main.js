@@ -1,12 +1,14 @@
 //Importaré la data
 
-import { allNames, cleanData, uniqueNames,filterName,alphabetOrder, filterGender} from './data.js';
+import { allNames, cleanData, uniqueNames,filterName,alphabetOrder, filterGender,filterCountry} from './data.js';
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
 // creo la variable que va a llamar desde el archivo donde
 //está la info, la propiedad solo de 'athletes'
 const dataAthletes = (copyAthletes.athletes);
+const contarAtletas =document.getElementById("contarAtletas");
+const contarMedallas =document.getElementById("contarMedallas");
 const contenedor = document.getElementById ("contenedor");
 
 //FUNCIÓN PARA OBTENER ATLETAS SIN DUPLICAR
@@ -79,7 +81,10 @@ function fnCargaGeneral(dataLimpia) {
     contenedor.innerHTML = mostrar;
 };
 mostrarData(data); 
+contarAtletas.innerHTML="atletas:"+dataLimpia.length;
+contarMedallas.innerHTML="Medallas:"+dataLimpia.medals;
 }
+
 
 //FUNCIÓN PARA BUSCAR POR NOMBRE DE ATLETA CON CLICK
 const btnBuscar= document.getElementById ('btnBuscar'); 
@@ -88,6 +93,7 @@ btnBuscar.addEventListener('click', ()=> {
     const showFilter = filterName(nameAthlete,dataLimpia);  
     fnCargaGeneral(showFilter);
 });
+
 
 //FUNCIÓN PARA SELECCIONAR GÉNERO CON CLICK
 const radioBtnGenero = document.getElementsByName('gender');
@@ -98,6 +104,7 @@ for (let i = 0; i < radioBtnGenero.length; i++) {
         fnCargaGeneral(showGender);
     });
 }
+
 
 // boton de ordenar
 // Historia 6 - Ordenar (A-Z / Z-A)
@@ -110,8 +117,8 @@ selectOrdenar.addEventListener('change', () => {
     const showOrder = alphabetOrder(dataLimpia,valueOrder);
     fnCargaGeneral(showOrder)
 }); 
-//
 
+//Select Paises
 
 const todosLosTeams =[];
 for (let i = 0; i < dataLimpia.length; i++) {
@@ -125,16 +132,23 @@ for (let i = 0; i < todosLosTeams.length; i++) {
     }
 }
 
-function cargar() {
-    teamsUnicos
-    const select = document.getElementById("paises"); //Seleccionamos el select
-    for(let i=0; i < teamsUnicos.length; i++){ 
-        let option = document.createElement("option"); //Creamos la opcion
-        option.innerHTML = teamsUnicos[i]; //Metemos el texto en la opción
-        select.appendChild(option); //Metemos la opción en el select
-    }
+teamsUnicos.sort()
+const selectPais = document.getElementById("paises"); //Seleccionamos el select
+for(let i=0; i < teamsUnicos.length; i++){ 
+    let option = document.createElement("option"); //Creamos la opcion
+    option.innerHTML = teamsUnicos[i]; //Metemos el texto en la opción
+    selectPais.appendChild(option); //Metemos la opción en el select
+    option.setAttribute('value', teamsUnicos[i])
 }
-cargar();
+
+//Creo el evento para cuando use el seleccionador de paises
+selectPais.addEventListener('change', () => {
+    contenedor.innerHTML = '';
+    const valueCountry = selectPais.value;
+    const showCountry = filterCountry(valueCountry,dataLimpia);
+    fnCargaGeneral(showCountry)
+}); 
+
 
 
 
