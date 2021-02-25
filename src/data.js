@@ -87,7 +87,10 @@ export const filterGender = (input, data) => {
   })
 };
 
-
+export const filterCountry = (select,data) =>{
+  return data.filter((el) => {
+    return el.noc.indexOf(select) > -1;})
+}
   /* if (query==0 || query=="" || isNaN(query) || query==Number) {
     throw TypeError("Escribe letras, por favor")
   } */
