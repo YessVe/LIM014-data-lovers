@@ -28,6 +28,11 @@
     </section>
     </header>
 
+    <section id="contador">
+      <section id="contarAtletas"></section>
+      <section id="contarMedallas"></section>
+    </section>
+     
   <article class="general">
     <section id="contenedor" class="contenedor"></section>
     <section class="box"> <!--contiene a todos los filtros-->     
@@ -66,9 +71,8 @@
       <section class="boxDeporte">
         <h2>Deporte</h2>
         <img src="images/ícono_olimpiada.png" alt="Ícono olimpiada" class="icono">
-        <select name="athletes" class="seleccion">
+        <select name="athletes" class="seleccion" id="deportes">
           <option value="" disabled="" selected="">--Selecciona una opción--</option>
-          <option>--información de JSON--</option>
         </select>  
       </section>
       <section class="boxMedallero">
@@ -87,8 +91,8 @@
   <div class="container-fluid">
     <ul class="pagination">
       <li><a href="#">«</a></li>
-      <li><a href="#">1</a></li>
-      <li><a class="active" href="#">2</a></li>
+      <li><a class="active" href="#">1</a></li>
+      <li><a href="#">2</a></li>
       <li><a href="#">3</a></li>
       <li><a href="#">4</a></li>
       <li><a href="#">5</a></li>
