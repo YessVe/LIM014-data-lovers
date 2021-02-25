@@ -1,6 +1,6 @@
 //Importaré la data
 
-import { allNames, cleanData, uniqueNames,filterName,alphabetOrder, filterGender} from './data.js';
+import { allNames, cleanData, unique,filterName,alphabetOrder, filterGender, allCountries, filterCountry} from './data.js';
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
@@ -13,11 +13,8 @@ const contenedor = document.getElementById ("contenedor");
     //1ro obtengo los nombres de toda la data
     const todosLosNombres = allNames(dataAthletes);
     //dataAthletes es el argumento y puede ir cambiando a dataPokemon por ejemplo allNames(dataPokemon)
-
      //2do voy a sacar los nombres sin que se repita
-    const nombresUnicos= uniqueNames (todosLosNombres);
-
-
+    const nombresUnicos= unique (todosLosNombres);
     //3ro voy a crear la data para los nombres de atletas que son únicos
     const dataLimpia= cleanData(nombresUnicos,dataAthletes);
 
@@ -89,57 +86,46 @@ btnBuscar.addEventListener('click', ()=> {
     fnCargaGeneral(showFilter);
 });
 
-//FUNCIÓN PARA SELECCIONAR GÉNERO CON CLICK
-const radioBtnGenero = document.getElementsByName('gender');
-for (let i = 0; i < radioBtnGenero.length; i++) {
-      radioBtnGenero[i].addEventListener('change', function () {  
-        const valueGender = radioBtnGenero[i].value;
-        const showGender = filterGender(valueGender,dataLimpia);
-        fnCargaGeneral(showGender);
-    });
-}
-
-// boton de ordenar
-// Historia 6 - Ordenar (A-Z / Z-A)
-//Declaro mi select
+//FUNCIÓN PARA ORDENAR ALFABÉTICAMENTE (A-Z / Z-A)
 const selectOrdenar = document.getElementById('ordenar');
-//Creo el evento para cuando use el seleccionador
 selectOrdenar.addEventListener('change', () => {
     contenedor.innerHTML = '';
     const valueOrder = selectOrdenar.value;
     const showOrder = alphabetOrder(dataLimpia,valueOrder);
     fnCargaGeneral(showOrder)
 }); 
-//
 
-
-const todosLosTeams =[];
-for (let i = 0; i < dataLimpia.length; i++) {
-todosLosTeams.push(dataLimpia[i].noc);
-}
-const teamsUnicos=[];
-for (let i = 0; i < todosLosTeams.length; i++) {
-    let pais= todosLosTeams[i];
-    if (teamsUnicos.indexOf(pais) < 0) {
-        teamsUnicos.push(pais);
-    }
+//FUNCIÓN PARA SELECCIONAR GÉNERO CON CLICK
+const radioBtnGenero = document.getElementsByName('gender');
+for (let i = 0; i < radioBtnGenero.length; i++) {
+      radioBtnGenero[i].addEventListener('change', () => {  
+        const valueGender = radioBtnGenero[i].value;
+        const showGender = filterGender(valueGender,dataLimpia);
+        fnCargaGeneral(showGender);
+    });
 }
 
-function cargar() {
-    teamsUnicos
-    const select = document.getElementById("paises"); //Seleccionamos el select
-    for(let i=0; i < teamsUnicos.length; i++){ 
-        let option = document.createElement("option"); //Creamos la opcion
-        option.innerHTML = teamsUnicos[i]; //Metemos el texto en la opción
-        select.appendChild(option); //Metemos la opción en el select
-    }
+//FUNCIÓN PARA FILTRAR PAÍSES
+const todosLosPaises =allCountries(dataAthletes);
+const paisesUnicos =unique(todosLosPaises);
+paisesUnicos.sort();
+const selectPaises = document.getElementById("paises");
+for(let i=0; i < paisesUnicos.length; i++){ 
+    let option = document.createElement("option"); //Creamos la opcion
+    option.innerHTML = paisesUnicos[i]; //Metemos el texto en la opción
+    option.setAttribute('value',paisesUnicos[i])
+    selectPaises.appendChild(option); //Metemos la opción en el select
 }
-cargar();
+selectPaises.addEventListener('change', () => {
+    const valueCountry = selectPaises.value;
+    const showCountry = filterCountry(valueCountry,dataLimpia);
+    fnCargaGeneral(showCountry)
+}); 
+
+//FUNCIÓN PARA FILTRAR POR DEPORTES
 
 
 
-  // funcionalidad boton ordenar
 
-//FUNCIÓN PARA ORDERNAR ALFABÉTICAMENTE LOS NOMBRES DE LOS ATLETAS
 
 // oro 🥇 plata 🥈 bronce 🥉
