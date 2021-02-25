@@ -1,4 +1,4 @@
-import { allNames, uniqueNames, cleanData, alphabetOrder, filterName} from '../src/data.js';
+import { allNames, uniqueNames, cleanData, alphabetOrder, filterName, filterGender} from '../src/data.js';
 
 // describe('example', () => {
 //   it('is a function', () => {
@@ -58,7 +58,7 @@ const atletas = [{
 }]
 
 //HISTORIA DE USUARIO 1
-//Lista de nombres
+//Traer solo los nombres de la data completa
 describe('listNames', () => {
     it('debe mostrarme solo los nombres', () => {
       const a = [{name:'William Peixoto Arjona', team:'Italy', sport:'football'},
@@ -71,7 +71,7 @@ describe('listNames', () => {
   });
 
 //HISTORIA DE USUARIO 1
-// removeDuplicates
+//Obtener solo los nombres de atleta de forma única
 describe('uniqueNames', () => {
   it('debe eliminar nombres duplicados', () => {
     const a = ['William Peixoto Arjona', 'William Peixoto Arjona', 'Chloe Esposito'];
@@ -81,7 +81,7 @@ describe('uniqueNames', () => {
 });
 
 //HISTORIA DE USUARIO 1
-//Mostrar la data del atleta sin que existan duplicados
+//Mostrar toda la información del atleta sin que existan duplicados
 describe('Mostrar data del atleta según el nombre', () => {
   it('Debe devolver la data del atleta', () => {
     const a= ["Denis Mikhaylovich Ablyazin","Matthew \"Matt\" Abood"]
@@ -113,8 +113,8 @@ describe('Mostrar data del atleta según el nombre', () => {
   });
 });
 
-//Historia de Usuario 6
-// Buscador 
+//HISTORIA DE USUARIO 2
+//Buscador por nombre de atleta
 describe('prueba para la funcion search', () => {
   it('Debe devolver el nombre del atleta que coincida con la letra que se ingresa', () => {
     const a= [
@@ -134,10 +134,13 @@ describe('prueba para la funcion search', () => {
   });
 });
 
-//Historia de Usuario 5
-// ordenado
+//HISTORIA DE USUARIO 3
+//Ordenar alfabéticamente las tarjetas de los atletas
 describe('alphabetOrder', () => {
   const a= [
+    {
+      name: 'Denis Mikhaylovich Ablyazin'
+    },
     {
       name: 'Denis Mikhaylovich Ablyazin'
     },
@@ -156,6 +159,9 @@ describe('alphabetOrder', () => {
       name: 'Denis Mikhaylovich Ablyazin'
     },
     {
+      name: 'Denis Mikhaylovich Ablyazin'
+    },
+    {
       name: 'William Peixoto Arjona'
     }
 
@@ -163,6 +169,9 @@ describe('alphabetOrder', () => {
   const za = [
     {
       name: 'William Peixoto Arjona'
+    },
+    {
+      name: 'Denis Mikhaylovich Ablyazin'
     },
     {
       name: 'Denis Mikhaylovich Ablyazin'
@@ -184,5 +193,51 @@ describe('alphabetOrder', () => {
   });
 });
 
+//HISTORIA DE USUARIO 4
+//Filtrado de Género
+describe('filterGender', () => {
+  const atletas= [
+    {
+      name: 'Denis Mikhaylovich Ablyazin',
+      gender: 'M'
+    },
+    {
+      name: 'Chloe Esposito',
+      gender: 'F'
+    },
+    {
+      name: 'William Peixoto Arjona',
+      gender: 'M'
+    }
+
+  ];
+  const f = [
+    {
+      name: 'Chloe Esposito',
+      gender: 'F'
+    },
+  ];
+  const m = [
+    {
+      name: 'Denis Mikhaylovich Ablyazin',
+      gender: 'M'
+    },
+    {
+      name: 'William Peixoto Arjona',
+      gender: 'M'
+    },
+  ];
+  it('is a function', () => {
+    expect(typeof filterGender).toBe('function');
+  });
+
+  it('Debe traerme solo a la chica', () => {
+    expect(filterGender('F', atletas)).toEqual(f);
+  });
+
+  it('Debe traerme solo a los chicos', () => {
+    expect(filterGender('M', atletas)).toEqual(m);
+  });
+});
 
 
