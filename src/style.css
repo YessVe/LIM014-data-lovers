@@ -132,8 +132,8 @@ width: 10em;;
     margin: 0.2em;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-/*Cards deportivas*/
 
+/*Cards deportivas*/
 .contenedor{
     display: flex;
     justify-content: center;
