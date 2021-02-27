@@ -1,6 +1,6 @@
 //Importaré la data
 
-import {unique, allNames, cleanData,filterName,alphabetOrder, filterGender,allCountries, filterCountry,allSport, filterSport} from './data.js';
+import {unique, allNames, cleanData,filterName,alphabetOrder, filterGender,allCountries, filterCountry,allSport, filterSport, uniqueCountry} from './data.js';
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
@@ -78,8 +78,9 @@ function fnCargaGeneral(dataLimpia) {
     contenedor.innerHTML = mostrar;
 };
 mostrarData(data); 
-contarAtletas.innerHTML="atletas:"+dataLimpia.length;
-contarMedallas.innerHTML="Medallas:"+dataLimpia.medals;
+contarAtletas.innerHTML="Atletas: "+dataLimpia.length;
+contarMedallas.innerHTML="Medallas: "+dataLimpia.medals;
+
 }
 
 //FUNCIÓN PARA BUSCAR POR NOMBRE DE ATLETA CON CLICK
@@ -111,12 +112,12 @@ for (let i = 0; i < radioBtnGenero.length; i++) {
 
 //FUNCIÓN PARA FILTRAR PAÍSES
 const todosLosPaises =allCountries(dataAthletes);
-const paisesUnicos =unique(todosLosPaises);
-paisesUnicos.sort();
+const paisesUnicos =uniqueCountry(todosLosPaises);
+
 const selectPaises = document.getElementById("paises");
 for(let i=0; i < paisesUnicos.length; i++){ 
     let option = document.createElement("option"); //Creamos la opcion
-    option.innerHTML = paisesUnicos[i]; //Metemos el texto en la opción
+    option.innerHTML = paisesUnicos[i]; //Metemos el texto en la opción + su bandera - la bandera viene del link
     option.setAttribute('value',paisesUnicos[i])
     selectPaises.appendChild(option); //Metemos la opción en el select
 }
@@ -130,6 +131,7 @@ selectPaises.addEventListener('change', () => {
     //Creo el evento para cuando use el seleccionador de deportes
 const todosLosDeportes = allSport(dataAthletes);
 const deportesUnicos= unique(todosLosDeportes);
+console.log(deportesUnicos.length);
 deportesUnicos.sort()
 const selectDeporte = document.getElementById("deportes"); 
 for(let i=0; i < deportesUnicos.length; i++){ 
