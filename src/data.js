@@ -95,15 +95,37 @@ export const filterGender = (input, data) => {
 export const allCountries = (data) =>{
   const todosLosPaises = [];
   for (let i = 0; i < data.length; i++) {
-    todosLosPaises.push(data[i].noc);
+    todosLosPaises.push(data[i].team);
   }
   return todosLosPaises;
 }
 
+//
+export const uniqueCountry = (data) => {
+  const valoresUnicosPais = [];
+  for (let i = 0; i < data.length; i++) {
+    let valorPais = data[i];
+    if (valoresUnicosPais.indexOf(valorPais) < 0) {
+      valoresUnicosPais.push(valorPais);
+    }
+  }
+  const valoresUnicosOrdenados= valoresUnicosPais.sort();
+  const valorFinalPais = [];
+  for (let i = 0; i < valoresUnicosOrdenados.length-1; i++) {
+    let valorPrimero = valoresUnicosOrdenados[i];
+    let valorSegundo = valoresUnicosOrdenados[i+1];
+    if(valorSegundo.indexOf(valorPrimero)<0){
+      valorFinalPais.push(valorSegundo);
+    }
+  }
+  return valorFinalPais;
+};
+
+
 //FUNCIÓN PARA SELECCIONAR PAÍS
 export const filterCountry = (input, data) => {
   return data.filter((el) => {
-    return el.noc.indexOf(input) > -1;
+    return el.team.indexOf(input) > -1;
   })
 };
 
