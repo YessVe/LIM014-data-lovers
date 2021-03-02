@@ -79,13 +79,12 @@ function fnCargaGeneral(dataLimpia) {
 };
 mostrarData(data); 
 contarAtletas.innerHTML="Atletas: "+dataLimpia.length;
-contarMedallas.innerHTML="Medallas: "+dataLimpia.medals;
-
+/* contarMedallas.innerHTML="Medallas: "+"Oro: "+oroMedalla+", "+"Plata: "+plataMedalla+", "+"Bronce: "+bronceMedalla+"."; */
 }
 
 //FUNCIÓN PARA BUSCAR POR NOMBRE DE ATLETA CON CLICK
-const btnBuscar= document.getElementById ('btnBuscar'); 
-btnBuscar.addEventListener('click', ()=> {
+const btnBuscar= document.getElementById ('search'); 
+btnBuscar.addEventListener('keyup', ()=> {
     const nameAthlete = document.getElementById("search").value;
     const showFilter = filterName(nameAthlete,dataLimpia);  
     if (showFilter=="") {
@@ -111,8 +110,27 @@ for (let i = 0; i < radioBtnGenero.length; i++) {
         const valueGender = radioBtnGenero[i].value;
         const showGender = filterGender(valueGender,dataLimpia);
         fnCargaGeneral(showGender);
+        var oroMedalla = 0;
+        var plataMedalla = 0;
+        var bronceMedalla = 0;
+        //el acumulador por LEY se declara fuera del loop
+        for (let i = 0; i < showGender.length; i++) {
+            let cantidadMedalla=showGender[i].medals; 
+
+            for (let j = 0; j < cantidadMedalla.length; j++) {    
+                if (cantidadMedalla[j]=="Gold") {
+                    oroMedalla = oroMedalla+1;
+                } else if (cantidadMedalla[j]=="Silver") { 
+                    plataMedalla = plataMedalla+1;
+                } else if (cantidadMedalla[j]=="Bronze") {
+                    bronceMedalla = bronceMedalla+1;
+                }
+            }
+        }
+        contarMedallas.innerHTML="Medallas: "+"Oro: "+oroMedalla+", "+"Plata: "+plataMedalla+", "+"Bronce: "+bronceMedalla+".";
     });
 }
+
 
 //FUNCIÓN PARA FILTRAR PAÍSES
 const todosLosPaises =allCountries(dataAthletes);
@@ -152,7 +170,7 @@ selectDeporte.addEventListener('change', () => {
 }); 
 
 //FUNCIÓN PARA DEFINIR LOS TOP 10
-let soloMedallas = [];
+/* let soloMedallas = [];
 dataLimpia.forEach(e => {
     soloMedallas.push(e.medals);
 });
@@ -168,7 +186,7 @@ function minMax(items) {
     return minMaxArray;
 }
 
-console.log(minMax(soloMedallas));
+console.log(minMax(soloMedallas)); */
 
 
 // oro 🥇 plata 🥈 bronce 🥉
