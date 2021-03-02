@@ -36,18 +36,14 @@
   <article class="general">
     <section id="contenedor" class="contenedor"></section>
     <section class="box"> <!--contiene a todos los filtros-->     
-      <section class="boxBuscar">
-        <section>
-          <input type="search" id="search" class="search" placeholder="_Buscar atleta"> <!--🔍-->
-          <button id="btnBuscar"><img src="images/icono_lupa.png" alt="Ícono Lupa"></button>
-        </section>
-
+      <section class="boxBuscar">     
+        <h2>Buscador por nombre</h2>
+        <input type="search" id="search" class="search" placeholder="_Buscar atleta 🔍">
         <select name="athletes" class="seleccion" id="ordenar">
           <option value="">--Selecciona una opción--</option>
           <option value="a-z">Ordena de la A - Z</option>
           <option value="z-a">Ordena de la Z - A</option>
         </select>  
-
       </section>
       
       <section class="boxGenero">
@@ -68,6 +64,7 @@
           <option value="" disabled="" selected="">--Selecciona una opción--</option>
         </select>  
       </section>
+
       <section class="boxDeporte">
         <h2>Deporte</h2>
         <img src="images/ícono_olimpiada.png" alt="Ícono olimpiada" class="icono">
@@ -75,20 +72,25 @@
           <option value="" disabled="" selected="">--Selecciona una opción--</option>
         </select>  
       </section>
+
       <section class="boxMedallero">
-        <h2>Medallero</h2>
+        <h2>Datos curiosos</h2>
         <img src="images/ícono_medalla.png" alt="Ícono medalla" class="icono">
-        <select name="athletes" class="seleccion">
-          <option value="" disabled="" selected="">--Selecciona una opción--</option>
-          <option>Top 10 medallistas de oro</option>
-          <option>Top 10 medallistas de plata</option>
-          <option>Top 10 medallistas de bronce</option>
-        </select>  
+        <form class="opciones">
+          <input type="checkbox" name="" value="">
+          <label for="masJoven">Atleta más Joven</label>
+          <input type="checkbox" name="" value="">
+          <label for="masViejo">Atleta más longevo</label>
+          <input type="checkbox" name="" value="">
+          <label for="masViejo">Edad promedio</label>
+         <!--  <button>Edad promedio</button> -->
+        </form>
       </section>
+
     </section> <!--fin de la sección que agrupa a todos los filtros-->
   </article>
   
-  <div class="container-fluid">
+<!--   <div class="container-fluid">
     <ul class="pagination">
       <li><a href="#">«</a></li>
       <li><a class="active" href="#">1</a></li>
@@ -100,7 +102,8 @@
       <li><a href="#">7</a></li>
       <li><a href="#">»</a></li>
     </ul>
-  </div>
+  </div> -->
+  
     <div id="root"></div>
     <script src="main.js" type="module"></script>
   <footer class="footer">
