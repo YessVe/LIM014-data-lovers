@@ -88,7 +88,11 @@ const btnBuscar= document.getElementById ('btnBuscar');
 btnBuscar.addEventListener('click', ()=> {
     const nameAthlete = document.getElementById("search").value;
     const showFilter = filterName(nameAthlete,dataLimpia);  
-    fnCargaGeneral(showFilter);
+    if (showFilter=="") {
+        contenedor.innerHTML="Atleta no encontrad@";   
+    } else {
+        fnCargaGeneral(showFilter);
+    }
 });
 
 //FUNCIÓN PARA ORDENAR ALFABÉTICAMENTE (A-Z / Z-A)
@@ -131,7 +135,7 @@ selectPaises.addEventListener('change', () => {
     //Creo el evento para cuando use el seleccionador de deportes
 const todosLosDeportes = allSport(dataAthletes);
 const deportesUnicos= unique(todosLosDeportes);
-console.log(deportesUnicos.length);
+
 deportesUnicos.sort()
 const selectDeporte = document.getElementById("deportes"); 
 for(let i=0; i < deportesUnicos.length; i++){ 
@@ -147,6 +151,24 @@ selectDeporte.addEventListener('change', () => {
     fnCargaGeneral(showSport)
 }); 
 
+//FUNCIÓN PARA DEFINIR LOS TOP 10
+let soloMedallas = [];
+dataLimpia.forEach(e => {
+    soloMedallas.push(e.medals);
+});
+console.log(soloMedallas);
+
+function minMax(items) {
+    var minMaxArray = items.reduce(function (r, n) {
+            r[0] = (!r[0])? n : Math.min(r[0], n);
+            r[1] = (!r[1])? n : Math.max(r[1], n);
+            return r;
+        }, []);
+
+    return minMaxArray;
+}
+
+console.log(minMax(soloMedallas));
 
 
 // oro 🥇 plata 🥈 bronce 🥉
