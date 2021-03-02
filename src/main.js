@@ -1,6 +1,6 @@
 //Importaré la data
 
-import {unique, allNames, cleanData,filterName,alphabetOrder, filterGender,allCountries, filterCountry,allSport, filterSport, uniqueCountry} from './data.js';
+import {unique, allNames, cleanData,filterName,alphabetOrder, filterGender,allCountries, filterCountry,allSport, filterSport, uniqueCountry, /* countMedals */} from './data.js';
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
@@ -79,12 +79,11 @@ function fnCargaGeneral(dataLimpia) {
 };
 mostrarData(data); 
 contarAtletas.innerHTML="Atletas: "+dataLimpia.length;
-/* contarMedallas.innerHTML="Medallas: "+"Oro: "+oroMedalla+", "+"Plata: "+plataMedalla+", "+"Bronce: "+bronceMedalla+"."; */
 }
 
 //FUNCIÓN PARA BUSCAR POR NOMBRE DE ATLETA CON CLICK
-const btnBuscar= document.getElementById ('search'); 
-btnBuscar.addEventListener('keyup', ()=> {
+const txtBuscar= document.getElementById ('search'); 
+txtBuscar.addEventListener('keyup', ()=> {
     const nameAthlete = document.getElementById("search").value;
     const showFilter = filterName(nameAthlete,dataLimpia);  
     if (showFilter=="") {
@@ -127,6 +126,8 @@ for (let i = 0; i < radioBtnGenero.length; i++) {
                 }
             }
         }
+
+      /*   countMedals(showGender); */
         contarMedallas.innerHTML="Medallas: "+"Oro: "+oroMedalla+", "+"Plata: "+plataMedalla+", "+"Bronce: "+bronceMedalla+".";
     });
 }
@@ -144,9 +145,9 @@ for(let i=0; i < paisesUnicos.length; i++){
     selectPaises.appendChild(option); //Metemos la opción en el select
 }
 selectPaises.addEventListener('change', () => {
-    const valueCountry = selectPaises.value;
+    const valueCountry = selectPaises.value; 
     const showCountry = filterCountry(valueCountry,dataLimpia);
-    fnCargaGeneral(showCountry);
+    fnCargaGeneral(showCountry); 
         let oroMedalla = 0;
         let plataMedalla = 0;
         let bronceMedalla = 0;

@@ -29,7 +29,6 @@ export const cleanData = (dataNames, data) => {
 
     for (let j = 0; j < data.length; j++) {
       if (nombrePU == data[j].name) {
-
         todosEventos.push(data[j].event);
         todasMedallas.push(data[j].medal);
         var datos = {
@@ -143,3 +142,24 @@ export const filterSport = (select,data) =>{
     return el.sport.indexOf(select) > -1;})
 }
 
+//FUNCIÓN PARA CONTAR LA CANTIDAD DE MEDALLAS
+/* export const countMedals = (data) => {
+  let oroMedalla = 0;
+  let plataMedalla = 0;
+  let bronceMedalla = 0;
+  //el acumulador por LEY se declara fuera del loop
+  for (let i = 0; i < data.length; i++) {
+      let cantidadMedalla=data[i].medals; 
+
+      for (let j = 0; j < cantidadMedalla.length; j++) {    
+          if (cantidadMedalla[j]=="Gold") {
+              oroMedalla = oroMedalla+1;
+          } else if (cantidadMedalla[j]=="Silver") { 
+              plataMedalla = plataMedalla+1;
+          } else if (cantidadMedalla[j]=="Bronze") {
+              bronceMedalla = bronceMedalla+1;
+          }
+      }
+  }
+
+} */
