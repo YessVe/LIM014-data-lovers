@@ -1,15 +1,28 @@
 //Importaré la data
 
-import {unique, allNames, cleanData,filterName,alphabetOrder, filterGender,allCountries, filterCountry,allSport, filterSport, uniqueCountry, /* countMedals */} from './data.js';
+import {unique, allNames, cleanData,filterName,alphabetOrder, filterGender,allCountries, filterCountry,allSport, filterSport, uniqueCountry, countMedals} from './data.js';
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
 // creo la variable que va a llamar desde el archivo donde
 //está la info, la propiedad solo de 'athletes'
 const dataAthletes = (copyAthletes.athletes);
-const contarAtletas =document.getElementById("contarAtletas");
-const contarMedallas =document.getElementById("contarMedallas");
-const contenedor = document.getElementById ("contenedor");
+const contarAtletas =document.getElementById('contarAtletas');
+const contarMedallas =document.getElementById('contarMedallas');
+const contenedor = document.getElementById ('contenedor');
+
+//FUNCIÓN PARA EL BOTÓN LIMPIAR
+const btnReset = document.getElementById('limpiar');
+btnReset.addEventListener('click',()=>{
+    fnCargaGeneral(dataLimpia);
+    contarMedallas.innerHTML="";
+    document.getElementById('search').value="";
+    document.getElementById('ordenar').value="";//las tarjetas se quedan ordenadas
+    document.getElementsByName('gender').value="";//el input se queda marcado
+    selectPaises.value="";
+    selectDeporte.value="";
+    //aquí faltaría agregar la limpieza del filtro DATOS CURISOS
+})
 
 //FUNCIÓN PARA OBTENER ATLETAS SIN DUPLICAR
     //1ro obtengo los nombres de toda la data
@@ -109,34 +122,16 @@ for (let i = 0; i < radioBtnGenero.length; i++) {
         const valueGender = radioBtnGenero[i].value;
         const showGender = filterGender(valueGender,dataLimpia);
         fnCargaGeneral(showGender);
-        let oroMedalla = 0;
-        let plataMedalla = 0;
-        let bronceMedalla = 0;
-        //el acumulador por LEY se declara fuera del loop
-        for (let i = 0; i < showGender.length; i++) {
-            let cantidadMedalla=showGender[i].medals; 
-
-            for (let j = 0; j < cantidadMedalla.length; j++) {    
-                if (cantidadMedalla[j]=="Gold") {
-                    oroMedalla = oroMedalla+1;
-                } else if (cantidadMedalla[j]=="Silver") { 
-                    plataMedalla = plataMedalla+1;
-                } else if (cantidadMedalla[j]=="Bronze") {
-                    bronceMedalla = bronceMedalla+1;
-                }
-            }
-        }
-
-      /*   countMedals(showGender); */
-        contarMedallas.innerHTML="Medallas: "+"Oro: "+oroMedalla+", "+"Plata: "+plataMedalla+", "+"Bronce: "+bronceMedalla+".";
+     
+        let showMedals = countMedals(showGender);
+        let x= showMedals.split("-");//busca el guión y lo parte convirtiéndolo en un array - "es poderoso"
+        contarMedallas.innerHTML= "Medallas: "+"Oro 🥇: "+x[0]+", "+"Plata 🥈: "+x[1]+", "+"Bronce 🥉: "+x[2]+".";
     });
 }
-
 
 //FUNCIÓN PARA FILTRAR PAÍSES
 const todosLosPaises =allCountries(dataAthletes);
 const paisesUnicos =uniqueCountry(todosLosPaises);
-
 const selectPaises = document.getElementById("paises");
 for(let i=0; i < paisesUnicos.length; i++){ 
     let option = document.createElement("option"); //Creamos la opcion
@@ -148,23 +143,11 @@ selectPaises.addEventListener('change', () => {
     const valueCountry = selectPaises.value; 
     const showCountry = filterCountry(valueCountry,dataLimpia);
     fnCargaGeneral(showCountry); 
-        let oroMedalla = 0;
-        let plataMedalla = 0;
-        let bronceMedalla = 0;
-        //el acumulador por LEY se declara fuera del loop
-        for (let i = 0; i < showCountry.length; i++) {
-            let cantidadMedalla=showCountry[i].medals; 
-            for (let j = 0; j < cantidadMedalla.length; j++) {    
-                if (cantidadMedalla[j]=="Gold") {
-                    oroMedalla = oroMedalla+1;
-                } else if (cantidadMedalla[j]=="Silver") { 
-                    plataMedalla = plataMedalla+1;
-                } else if (cantidadMedalla[j]=="Bronze") {
-                    bronceMedalla = bronceMedalla+1;
-                }
-            }
-        }
-    contarMedallas.innerHTML="Medallas: "+"Oro: "+oroMedalla+", "+"Plata: "+plataMedalla+", "+"Bronce: "+bronceMedalla+".";
+    
+    let showMedals = countMedals(showCountry);
+    let x= showMedals.split("-");
+    contarMedallas.innerHTML= "Medallas: "+"Oro 🥇: "+x[0]+", "+"Plata 🥈: "+x[1]+", "+"Bronce 🥉: "+x[2]+".";
+    
 }); 
 
 //FUNCIÓN PARA FILTRAR POR DEPORTES
@@ -172,7 +155,7 @@ selectPaises.addEventListener('change', () => {
 const todosLosDeportes = allSport(dataAthletes);
 const deportesUnicos= unique(todosLosDeportes);
 
-deportesUnicos.sort()
+deportesUnicos.sort();
 const selectDeporte = document.getElementById("deportes"); 
 for(let i=0; i < deportesUnicos.length; i++){ 
     let option = document.createElement("option");
@@ -187,24 +170,10 @@ selectDeporte.addEventListener('change', () => {
     fnCargaGeneral(showSport)
 }); 
 
-//FUNCIÓN PARA DEFINIR LOS TOP 10
-/* let soloMedallas = [];
-dataLimpia.forEach(e => {
-    soloMedallas.push(e.medals);
-});
-console.log(soloMedallas);
+//FUNCIÓN PARA TENER LOS 5 ATLETAS MÁS JÓVENES
+const ordenarEdad = dataLimpia.sort((a,b) => (a.age > b.age ? -1 : 1));
+console.log(ordenarEdad);
 
-function minMax(items) {
-    var minMaxArray = items.reduce(function (r, n) {
-            r[0] = (!r[0])? n : Math.min(r[0], n);
-            r[1] = (!r[1])? n : Math.max(r[1], n);
-            return r;
-        }, []);
-
-    return minMaxArray;
-}
-
-console.log(minMax(soloMedallas)); */
 
 
 // oro 🥇 plata 🥈 bronce 🥉
