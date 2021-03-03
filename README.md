@@ -217,7 +217,7 @@ necesidades serán detalladas líneas abajo.
   **Yo como fan quiero** realizar una nueva búsqueda **para** continuar explorando con otros filtros
 
   --> Criterio de aceptación:
-      Se colocará un botón de "reset" para borrar todos los filtros previamente seleccionados
+      Se tiene un botón de "Limpiar Filtros" para borrar todos los filtros previamente seleccionados
       por el o la usuaria.
 
   --> Definición de lo terminado:
