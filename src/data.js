@@ -143,7 +143,7 @@ export const filterSport = (select,data) =>{
 }
 
 //FUNCIÓN PARA CONTAR LA CANTIDAD DE MEDALLAS
-/* export const countMedals = (data) => {
+export const countMedals = (data) => {
   let oroMedalla = 0;
   let plataMedalla = 0;
   let bronceMedalla = 0;
@@ -161,5 +161,5 @@ export const filterSport = (select,data) =>{
           }
       }
   }
-
-} */
+  return (oroMedalla.toString()+"-"+plataMedalla.toString()+"-"+bronceMedalla.toString());
+}
