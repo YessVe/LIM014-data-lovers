@@ -1,15 +1,28 @@
 //Importaré la data
 
-import {unique, allNames, cleanData,filterName,alphabetOrder, filterGender,allCountries, filterCountry,allSport, filterSport} from './data.js';
+import {unique, allNames, cleanData,filterName,alphabetOrder, filterGender,allCountries, filterCountry,allSport, filterSport, uniqueCountry, countMedals} from './data.js';
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
 // creo la variable que va a llamar desde el archivo donde
 //está la info, la propiedad solo de 'athletes'
 const dataAthletes = (copyAthletes.athletes);
-const contarAtletas =document.getElementById("contarAtletas");
-const contarMedallas =document.getElementById("contarMedallas");
-const contenedor = document.getElementById ("contenedor");
+const contarAtletas =document.getElementById('contarAtletas');
+const contarMedallas =document.getElementById('contarMedallas');
+const contenedor = document.getElementById ('contenedor');
+
+//FUNCIÓN PARA EL BOTÓN LIMPIAR
+const btnReset = document.getElementById('limpiar');
+btnReset.addEventListener('click',()=>{
+    fnCargaGeneral(dataLimpia);
+    contarMedallas.innerHTML="";
+    document.getElementById('search').value="";
+    document.getElementById('ordenar').value="";//las tarjetas se quedan ordenadas
+    document.getElementsByName('gender').value="";//el input se queda marcado
+    selectPaises.value="";
+    selectDeporte.value="";
+    //aquí faltaría agregar la limpieza del filtro DATOS CURISOS
+})
 
 //FUNCIÓN PARA OBTENER ATLETAS SIN DUPLICAR
     //1ro obtengo los nombres de toda la data
@@ -78,16 +91,19 @@ function fnCargaGeneral(dataLimpia) {
     contenedor.innerHTML = mostrar;
 };
 mostrarData(data); 
-contarAtletas.innerHTML="atletas:"+dataLimpia.length;
-contarMedallas.innerHTML="Medallas:"+dataLimpia.medals;
+contarAtletas.innerHTML="Atletas: "+dataLimpia.length;
 }
 
 //FUNCIÓN PARA BUSCAR POR NOMBRE DE ATLETA CON CLICK
-const btnBuscar= document.getElementById ('btnBuscar'); 
-btnBuscar.addEventListener('click', ()=> {
+const txtBuscar= document.getElementById ('search'); 
+txtBuscar.addEventListener('keyup', ()=> {
     const nameAthlete = document.getElementById("search").value;
     const showFilter = filterName(nameAthlete,dataLimpia);  
-    fnCargaGeneral(showFilter);
+    if (showFilter=="") {
+        contenedor.innerHTML="Atleta no encontrad@";   
+    } else {
+        fnCargaGeneral(showFilter);
+    }
 });
 
 //FUNCIÓN PARA ORDENAR ALFABÉTICAMENTE (A-Z / Z-A)
@@ -106,31 +122,40 @@ for (let i = 0; i < radioBtnGenero.length; i++) {
         const valueGender = radioBtnGenero[i].value;
         const showGender = filterGender(valueGender,dataLimpia);
         fnCargaGeneral(showGender);
+     
+        let showMedals = countMedals(showGender);
+        let x= showMedals.split("-");//busca el guión y lo parte convirtiéndolo en un array - "es poderoso"
+        contarMedallas.innerHTML= "Medallas: "+"Oro 🥇: "+x[0]+", "+"Plata 🥈: "+x[1]+", "+"Bronce 🥉: "+x[2]+".";
     });
 }
 
 //FUNCIÓN PARA FILTRAR PAÍSES
 const todosLosPaises =allCountries(dataAthletes);
-const paisesUnicos =unique(todosLosPaises);
-paisesUnicos.sort();
+const paisesUnicos =uniqueCountry(todosLosPaises);
 const selectPaises = document.getElementById("paises");
 for(let i=0; i < paisesUnicos.length; i++){ 
     let option = document.createElement("option"); //Creamos la opcion
-    option.innerHTML = paisesUnicos[i]; //Metemos el texto en la opción
+    option.innerHTML = paisesUnicos[i]; //Metemos el texto en la opción + su bandera - la bandera viene del link
     option.setAttribute('value',paisesUnicos[i])
     selectPaises.appendChild(option); //Metemos la opción en el select
 }
 selectPaises.addEventListener('change', () => {
-    const valueCountry = selectPaises.value;
+    const valueCountry = selectPaises.value; 
     const showCountry = filterCountry(valueCountry,dataLimpia);
-    fnCargaGeneral(showCountry)
+    fnCargaGeneral(showCountry); 
+    
+    let showMedals = countMedals(showCountry);
+    let x= showMedals.split("-");
+    contarMedallas.innerHTML= "Medallas: "+"Oro 🥇: "+x[0]+", "+"Plata 🥈: "+x[1]+", "+"Bronce 🥉: "+x[2]+".";
+    
 }); 
 
 //FUNCIÓN PARA FILTRAR POR DEPORTES
     //Creo el evento para cuando use el seleccionador de deportes
 const todosLosDeportes = allSport(dataAthletes);
 const deportesUnicos= unique(todosLosDeportes);
-deportesUnicos.sort()
+
+deportesUnicos.sort();
 const selectDeporte = document.getElementById("deportes"); 
 for(let i=0; i < deportesUnicos.length; i++){ 
     let option = document.createElement("option");
@@ -144,6 +169,10 @@ selectDeporte.addEventListener('change', () => {
     const showSport = filterSport(valueSport,dataLimpia);
     fnCargaGeneral(showSport)
 }); 
+
+//FUNCIÓN PARA TENER LOS 5 ATLETAS MÁS JÓVENES
+const ordenarEdad = dataLimpia.sort((a,b) => (a.age > b.age ? -1 : 1));
+console.log(ordenarEdad);
 
 
 
