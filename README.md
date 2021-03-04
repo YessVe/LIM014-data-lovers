@@ -1,6 +1,5 @@
 # Juego Olímpicos de Rio de Janeiro
 
-
 # Data Lovers
 
 ## Índice
@@ -18,26 +17,16 @@
 
 ## 1. Resumen del proyecto
 
-En este proyecto **construirás una _página web_ para visualizar un
-_conjunto (set) de datos_** que se adecúe a lo que descubras que tu usuario
-necesita.
+Se ha construido una ** _página web_ para visualizar un _conjunto (set) de datos_** 
+que se adecúe a lo que nuestro usuario necesite. Las necesidades serán descritas
+en las historias de usuarias líneas abajo. Sin embargo, el entregable final es
+una página web que permita **visualizar la data, filtrarla, ordenarla y hacer algún
+cálculo agregado**. Con cálculo agregado, se refiere a distintos cálculos que se 
+puede hacer con la data para mostrar información aún más relevante para los usuarios 
+(promedio, el valor máximo o mínimo, etc).
 
-Como entregable final tendrás una página web que permita **visualizar la data,
-filtrarla, ordenarla y hacer algún cálculo agregado**. Con cálculo agregado
-nos referimos a distintos cálculos que puedes hacer con la data para mostrar
-información aún más relevante para los usuarios (promedio, el valor máximo
-o mínimo, etc).
-
-Esta vez te proponemos una serie de datos de diferentes _temáticas_ para que
-explores y decidas con qué temática te interesa trabajar. Hemos elegido
-específicamente estos sets de datos porque creemos que se adecúan bien a esta
-etapa de tu aprendizaje.
-
-Una vez que definas tu área de interés, buscar entender quién es tu usuario
-y qué necesita saber o ver exactamente; luego podrás construir la interfaz que
-le ayude a interactuar y entender mejor esos datos.
-
-Estos son datos que te proponemos:
+Los datos sobre las preferencias de usuarios y la información con la que se trabajará
+están en los siguientes links:
 
 * [Juegos Olímpicos de Río de Janeiro](src/data/athletes/athletes.json).
   Este set nos proporciona la lista de los atletas que ganaron medallas en las
@@ -108,106 +97,131 @@ usuario necesita.
 
 ## 5. Criterios de aceptación mínimos del proyecto
 
-Los criterios para considerar que has completado este proyecto son:
-
-### Definición del producto
-
-Documenta brevemente tu trabajo en el archivo `README.md` de tu repositorio,
-contándonos cómo fue tu proceso de diseño y cómo crees que el producto resuelve
-el problema (o problemas) que tiene tu usuario.
+Los criterios para considerar que este proyecto está completado están de acuerdo
+a las historias de usuario que a continuación se detallan.
 
 ### Historias de usuario
 
+La o el usuario es un(a) fanático(a) de los Juegos Olímpicos y sus inquietudes y
+necesidades serán detalladas líneas abajo.
+
 * [ ] Usuario 1:
-  Yo como fanática de los juegos olímpicos
-  Quiero ver a todos los deportistas
-  Para tener una vista general de los que participaron
+  **Yo como fan quiero** ver a todos los deportistas **para** tener una vista general de 
+  los que participaron
 
     --> Criterio de aceptación:
-
         Al ingresar a nuestra plataforma se verá todos los deportistas en cards.
-        En esta card, al dar click, se podrá visualizar sus datos como peso, estatura, 
-        edad, nacionalidad, premio y disciplina en la que participaron.
-        Tendrán un ícono según su género (masculino y femenino).
+        En esta card, al pasar el mouse, se volteará la tarjeta del deportista y se
+        podrá visualizar sus datos como peso, estatura, edad, disciplina en la que 
+        participaron y medalla. Para saber su nacionalidad, se mostrará la 
+        bandera del país que representa en la cara principal.
 
     --> Definición de lo terminado:
-
-(esto lo tendremos cuando corramos el test)
+        -La vizualización de cards se ve sin duplicados con la información correspondiente del atleta.
+        -La vizualización de la data de los atletas recibió su testeo correspondiente.
+        -Se usó el Slint para las buenas prácticas.
+        -Fue subido al Github.
 
 * [ ] Usuario 2:
-  Yo como fanática de los juegos olímpicos
-  Quiero filtrar a los deportistas
-  Para conocerlos según las disciplinas
+  **Yo como fan quiero** buscar a un atleta **para** saber sus datos y si ganó en los juegos.
 
     --> Criterio de aceptación:
+        En la página principal, habrá un "buscador por nombre de atleta". Estará ubicado en la 
+        esquina superior y solo aceptará nombres. Cuando el usuario haya escrito y dado enter o 
+        click en la lupa, aparecerá el card del atleta o un mensaje que diga "Atleta no encontrad@".
 
+    --> Definición de lo terminado:
+        -El buscador funciona tal como se esperaba.
+        -La función usada para buscador de atletas recibió su testeo correspondiente.
+        -Se usó el Slint para las buenas prácticas.
+        -Fue subido al Github.
+
+* [ ] Usuario 3:
+  **Yo como fan quiero** ordenar los nombres de los atletas alfabéticamente **para** tener una 
+  visualización más ordenada
+
+    --> Criterio de aceptación:
+        Al inicio, habrá una opción desplegable para ordenar los nombres de los atletas de la 
+        A - Z o viceversa. Cuando se haya escogido, los cards con la información de los atletas 
+        se reorganizará. 
+
+    --> Definición de lo terminado:
+        -El odenador alfabeticamente tal como se esperaba.
+        -La función usada para el ordenador alfabeticamente de atletas recibió su testeo correspondiente.
+        -Se usó el Slint para las buenas prácticas.
+        -Fue subido al Github.
+
+* [ ] Usuario 4:
+  **Yo como fan quiero** filtrar a los deportistas **para** conocerlos según su género.
+
+    --> Criterio de aceptación:
+        A través de una opción de botón en radio, se podrá elegir el género "femenino"
+        o "masculino". Presionando cualquiera de los dos, se mostrará las tarjetas con
+        los atletas según lo marcado.
+
+    --> Definición de lo terminado:
+        -El filtro de género funciona tal como se esperaba.
+        -La función usada para el filtro de géneros de atletas recibió su testeo correspondiente.
+        -Se usó el Slint para las buenas prácticas.
+        -Fue subido al Github.
+
+* [ ] Usuario 5:
+  **Yo como fan quiero** filtrar a los deportistas **para** conocerlos según el país que representó.
+
+    --> Criterio de aceptación:
+        En la página principal, habrá un seleccionador de países. Este mostrará todas 
+        los países que participaron en los juegos y que llevaron alguna medalla. 
+        Así, el usuario podrá elegir uno de ellos y mostrará los atletas según su nacionalidad.
+
+    --> Definición de lo terminado:
+      **(esto lo tendremos cuando corramos el test)**
+
+* [ ] Usuario 6:
+  **Yo como fan quiero** filtrar a los deportistas **para** conocerlos según las disciplinas.
+
+    --> Criterio de aceptación:
         En la página principal, habrá un seleccionador de disciplinas (por íconos). 
         Este mostrará todas las que se dieron en los juegos. Así, el usuario podrá 
         elegir uno de ellos y mostrará los atletas que participaron en él.
 
     --> Definición de lo terminado:
+        -El filtro del seleccionador de deportes funciona tal como se esperaba.
+        -La función usada para el filtro de deportes recibió su testeo correspondiente.
+        -Se usó el Slint para las buenas prácticas.
+        -Fue subido al Github.
 
-(esto lo tendremos cuando corramos el test)
-
-* [ ] Usuario 3:
-  Yo como fanática de los juegos olímpicos
-  Quiero filtrar a los deportistas
-  Para conocerlos según las país
-
-  --> Criterio de aceptación:
-
-        En la página principal, habrá un seleccionador de países (por íconos de bandera). 
-        Este mostrará todas los países que participaron en los juegos. Así, el usuario 
-        podrá elegir uno de ellos y mostrará los atletas según su nacionalidad.
-
-  --> Definición de lo terminado:
-
-  (esto lo tendremos cuando corramos el test)
-
-* [ ] Usuario 4:
-  Yo como fanática de los juegos olímpicos
-  Quiero saber cuáles son los top 10 atletas que ganaron medallas de oro, de plata o de bronce
-  Para tener un conocimiento de los mejores
+* [ ] Usuario 7:
+  **Yo como fan quiero** saber cuáles atletas son los cinco más jóvenes y cinco más viejos; así como la edad promedio.
+  **para** tener un conocimiento de datos curiosos.
 
   --> Criterio de aceptación:
-
-        En la página principal, habrá una opción "Medallero" y se abrirá una ventana donde se 
-        visualice los íconos de oro, plata y bronce. Al costado, habrá la opción de conocer el top 
-        10 según la medalla escogida. 
-
-  --> Definición de lo terminado:
-
-(esto lo tendremos cuando corramos el test)
-
-* [ ] Usuario 5:
-  Yo como fanática de los juegos olímpicos
-  Quiero ordenar los nombres de los atletas alfabéticamente
-  Para tener una visualización más ordenada
-
- --> Criterio de aceptación:
-
-        Al inicio, habrá una opción desplegable para ordenar los nombres de los atletas de la 
-        A - Z o viceversa. Cuando se haya escogido, los cards con la información de los atletas 
-        se reorganizará. 
+        En la página principal, habrá una sección "Datos Curiosos". Esta tendrá opciones de seleccionar a los atletas 
+        más jóvenes y más longevos. También, habrá un botón para conocer la edad promedio. El mensaje saldrá en la página 
+        principal dentro de un cuadro.
 
   --> Definición de lo terminado:
+      **(esto lo tendremos cuando corramos el test)**
 
-(esto lo tendremos cuando corramos el test)
+* [ ] Usuario 8:
+  **Yo como fan quiero** conocer el número de medallas en oro, plata y bronce según el género y país **para** tener un
+  conocimiento general cuando elijo el filtro país o género.
 
-* [ ] Usuario 6:
-  Yo como fanática de los juegos olímpicos
-  Quiero buscar a un atleta
-  Para saber sus datos y si participó en los juegos.
-
- --> Criterio de aceptación:
-
-        En la página principal, habrá un "buscador por nombre de atleta". Estará ubicado en la 
-        esquina superior y solo aceptará nombres. Cuando el usuario haya escrito y dado enter o 
-        click en la lupa, aparecerá el card del atleta o un mensaje que diga "Atleta no encontrad@".
+  --> Criterio de aceptación:
+      Cada vez que se elija el filtro de género o algún país, debajo del header aparecerá el número de medallas según su
+      tipo (oro, plata y bronce). Así mismo, se conocerá cuántos atletas hay luego de haber realizado ese filtro.
 
   --> Definición de lo terminado:
+      **(esto lo tendremos cuando corramos el test)**
 
-(esto lo tendremos cuando corramos el test)
+* [ ] Usuario 9:
+  **Yo como fan quiero** realizar una nueva búsqueda **para** continuar explorando con otros filtros
+
+  --> Criterio de aceptación:
+      Se tiene un botón de "Limpiar Filtros" para borrar todos los filtros previamente seleccionados
+      por el o la usuaria.
+
+  --> Definición de lo terminado:
+      **(esto lo tendremos cuando corramos el test)**
 
 
 Una vez que entiendas las necesidades de tus usuarios, escribe las [Historias
@@ -264,15 +278,6 @@ a la siguiente (Cumple con Definición de Terminado + Criterios de Aceptación).
 
   ![Prototipo de alta fidelidad final](https://user-images.githubusercontent.com/77126999/107290635-e6ebf880-6a34-11eb-9bc7-4eed0f0c883b.png)
 
-  
-chala chala
-
-#### Testeos de usabilidad
-
-Durante el reto deberás hacer _tests_ de usabilidad con distintos usuarios, y
-en base a los resultados, deberás iterar tus diseños. Cuéntanos
-qué problemas de usabilidad detectaste a través de los _tests_ y cómo los
-mejoraste en tu propuesta final.
 
 ### Implementación de la Interfaz de Usuario (HTML/CSS/JS)
 
