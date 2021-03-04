@@ -1,6 +1,6 @@
 //Importaré la data
 
-import {unique, allNames, cleanData,filterName,alphabetOrder, filterGender,allCountries, filterCountry,allSport, filterSport, uniqueCountry, countMedals} from './data.js';
+import {unique, allNames, cleanData,filterName,alphabetOrder, filterGender,allCountries, filterCountry,allSport, filterSport, uniqueCountry, countMedals, /* ageOrder */} from './data.js';
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
@@ -170,10 +170,36 @@ selectDeporte.addEventListener('change', () => {
     fnCargaGeneral(showSport)
 }); 
 
-//FUNCIÓN PARA TENER LOS 5 ATLETAS MÁS JÓVENES
-const ordenarEdad = dataLimpia.sort((a,b) => (a.age > b.age ? -1 : 1));
+//FUNCIÓN PARA TENER LOS 5 ATLETAS MÁS JÓVENES Y LOS 5 MÁS LONGEVOS
+const ordenarEdad = dataLimpia.sort((a,b) => (a.age < b.age ? -1 : 1));
 console.log(ordenarEdad);
+const atletas5Jovenes = ordenarEdad.slice(0,5); // el slice me saca elementos de mi array.
+//el 0 es mi inicio y el 5 es la última posición, pero no lo incluye en el array
+const atletas5Viejos = ordenarEdad.slice(ordenarEdad.length-5,ordenarEdad.length);
+console.log(atletas5Jovenes);
+console.log(atletas5Viejos); 
 
+/* const top5 = ageOrder(dataLimpia);
+console.log(top5); *///experimento con el archivo data.js
 
+//FUNCIÓN PARA SABER EL ATLETA MÁS JOVEN Y MÁS LONGEVO
+ function minMax(items) {
+    var minMaxArray = items.reduce(function (acumulador, currentValue) {
+            acumulador[0] = (!acumulador[0])? currentValue.age : Math.min(acumulador[0], currentValue.age);
+            acumulador[1] = (!acumulador[1])? currentValue.age : Math.max(acumulador[1], currentValue.age); 
+            return acumulador;
+        }, []);
 
-// oro 🥇 plata 🥈 bronce 🥉
+    return minMaxArray;
+} 
+//1er parámetro recibe como argumento una función... el 2do depende de lo que le estemos pasando: array vacío.
+//acumulador toma el valor del array vacío
+//
+console.log(minMax(dataLimpia)); 
+
+//FUNCIÓN PARA CONOCER LA EDAD PROMEDIO
+ var sumatoriaEdades = dataLimpia.reduce((acumulador, siguienteValor) => acumulador+siguienteValor.age, 0); 
+ //Si no hay nada, regresamos un objeto con edad = 0. No hay necesidad de devolver el nombre, pues no es necesario */
+ var promedioEdad = Math.round(sumatoriaEdades / dataLimpia.length);
+ console.log(sumatoriaEdades);
+console.log(promedioEdad); 

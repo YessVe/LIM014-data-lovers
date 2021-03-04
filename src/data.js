@@ -163,3 +163,15 @@ export const countMedals = (data) => {
   }
   return (oroMedalla.toString()+"-"+plataMedalla.toString()+"-"+bronceMedalla.toString());
 }
+
+//FUNCIÓN PARA TENER LOS 5 ATLETAS MÁS JÓVENES Y LOS 5 MÁS LONGEVOS
+/* export const ageOrder = (data,a,b) => {
+  let ordenarEdad= data.sort((a.age < b.age ? -1 : 1));
+  console.log(ordenarEdad);
+  const atletas5Jovenes = ordenarEdad.slice(0,5);
+  // el slice me saca elementos de mi array.
+  //el 0 es mi inicio y el 5 es la última posición, pero no lo incluye en el array
+  const atletas5Viejos = ordenarEdad.slice(ordenarEdad.length-5,ordenarEdad.length+1);
+  return (atletas5Jovenes+"-"+atletas5Viejos)
+}
+ */
