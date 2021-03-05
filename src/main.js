@@ -1,6 +1,4 @@
 //Importaré la data
-
-
 import {unique, allNames, cleanData,filterName,alphabetOrder,filterGender,
     allCountries,uniqueCountry, filterCountry,allSport, filterSport,countMedals,
     ageOrder} from './data.js';
@@ -159,7 +157,6 @@ selectPaises.addEventListener('change', () => {
 
 //FUNCIÓN PARA FILTRAR POR DEPORTES
     //Creo el evento para cuando use el seleccionador de deportes
-
     const todosLosDeportes = allSport(dataAthletes);
     const deportesUnicos= unique(todosLosDeportes);
     deportesUnicos.sort()
@@ -170,14 +167,13 @@ selectPaises.addEventListener('change', () => {
         selectDeporte.appendChild(option);
         option.setAttribute('value', deportesUnicos[i])
     }
-        //Creo el evento para cuando use el seleccionador de paises
+        //Creo el evento para cuando use el seleccionador de deportes
     selectDeporte.addEventListener('change', () => {
         const valueSport = selectDeporte.value;
         const showSport = filterSport(valueSport,dataLimpia);
         fnCargaGeneral(showSport)
     }); 
     
-
 //FUNCIÓN PARA TENER LOS 5 ATLETAS MÁS JÓVENES Y LOS 5 MÁS LONGEVOS
 const radioBtnEdades = document.getElementsByName('calculo');
 for (let i = 0; i < radioBtnEdades.length; i++) {
@@ -187,13 +183,13 @@ for (let i = 0; i < radioBtnEdades.length; i++) {
         fnCargaGeneral(edades);
     });
 }
+
 //FUNCIÓN PARA TENER EL PROMEDIO
-
-
 const sumatoriaEdades = dataLimpia.reduce((acumulador, siguienteValor) => acumulador+siguienteValor.age, 0); 
 //Si no hay nada, regresamos un objeto con edad = 0. No hay necesidad de devolver el nombre, pues no es necesario */ 
 const promedioEdad = Math.round(sumatoriaEdades / dataLimpia.length); 
 let radioBtnPromedio = document.getElementById("promedio"); 
 radioBtnPromedio.addEventListener('change', () => { 
 contenedor.innerHTML= "La edad promedio de todos los atletas es "+promedioEdad; });
+
 
