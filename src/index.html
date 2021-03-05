@@ -32,50 +32,51 @@
       <section id="contarAtletas"></section>
       <section id="contarMedallas"></section>
     </section>
-    
+
     <button id="limpiar">Limpiar Filtros</button>
 
-  <article class="general">
-    <section id="contenedor" class="contenedor"></section>
-    <section class="box"> <!--contiene a todos los filtros-->     
-      <section class="boxBuscar">
-        <section>
-          <input type="search" id="search" class="search" placeholder="_Buscar atleta"> <!--🔍-->
+    <article class="general">
+      <section id="contenedor" class="contenedor">
+      </section>
+
+      <section class="box"> <!--contiene a todos los filtros-->     
+        <section class="boxBuscar">     
+          <h2>Buscador por nombre</h2>
+          <input type="search" id="search" class="search" placeholder="_Buscar atleta 🔍">
+          <select name="athletes" class="seleccion" id="ordenar">
+            <option value="">--Selecciona una opción--</option>
+            <option value="a-z">Ordena de la A - Z</option>
+            <option value="z-a">Ordena de la Z - A</option>
+          </select>  
+        </section>
+        
+        <section class="boxGenero">
+          <h2>Género</h2>
+          <img src="images/Ícono_género.png" alt="Ícono género" style="width: 70px;" class="iconoGender">
+          <form class="opciones">
+            <input type="radio" name="gender" value="F">
+            <label for="female">Femenino</label>
+            <input type="radio" name="gender" value="M">
+            <label for="male">Masculino</label>
+          </form>
         </section>
 
-        <select name="athletes" class="seleccion" id="ordenar">
-          <option value="">--Selecciona una opción--</option>
-          <option value="a-z">Ordena de la A - Z</option>
-          <option value="z-a">Ordena de la Z - A</option>
-        </select>  
+        <section class="boxPais">
+          <h2>País</h2>
+          <img src="images/ícono_país.png" alt="Ícono País" class="icono">
+          <select name="athletes" class="seleccion" id="paises">
+            <option value="" disabled="" selected="">--Selecciona una opción--</option>
+          </select>  
+        </section>
 
-      </section>
-      
-      <section class="boxGenero">
-        <h2>Género</h2>
-        <img src="images/Ícono_género.png" alt="Ícono género" style="width: 70px;" class="iconoGender">
-        <form class="opciones">
-          <input type="radio" name="gender" value="F">
-          <label for="female">Femenino</label>
-          <input type="radio" name="gender" value="M">
-          <label for="male">Masculino</label>
-        </form>
-      </section>
+        <section class="boxDeporte">
+          <h2>Deporte</h2>
+          <img src="images/ícono_olimpiada.png" alt="Ícono olimpiada" class="icono">
+          <select name="athletes" class="seleccion" id="deportes">
+            <option value="" disabled="" selected="">--Selecciona una opción--</option>
+          </select>  
+        </section>
 
-      <section class="boxPais">
-        <h2>País</h2>
-        <img src="images/ícono_país.png" alt="Ícono País" class="icono">
-        <select name="athletes" class="seleccion" id="paises">
-          <option value="" disabled="" selected="">--Selecciona una opción--</option>
-        </select>  
-      </section>
-      <section class="boxDeporte">
-        <h2>Deporte</h2>
-        <img src="images/ícono_olimpiada.png" alt="Ícono olimpiada" class="icono">
-        <select name="athletes" class="seleccion" id="deportes">
-          <option value="" disabled="" selected="">--Selecciona una opción--</option>
-        </select>  
-      </section>
 
       <section class="boxDatos">
         <h2>Datos curiosos</h2>
@@ -112,4 +113,4 @@
     <p>&copy; 2021 <a href="">Olimpiadas Rio 2016</a></p>
   </footer>
   </body>
-</html>O
+</html>

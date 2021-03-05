@@ -1,14 +1,17 @@
 //Importaré la data
 
+
 import {unique, allNames, cleanData,filterName,alphabetOrder,filterGender,
     allCountries,uniqueCountry, filterCountry,allSport, filterSport,countMedals,
     ageOrder} from './data.js';
+
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
 // creo la variable que va a llamar desde el archivo donde
 //está la info, la propiedad solo de 'athletes'
 const dataAthletes = (copyAthletes.athletes);
+
 const contarAtletas =document.getElementById("contarAtletas");
 const contarMedallas =document.getElementById("contarMedallas");
 const selectOrdenar = document.getElementById('ordenar');
@@ -94,7 +97,8 @@ function fnCargaGeneral(dataLimpia) {
     contenedor.innerHTML = mostrar;
 };
 mostrarData(data); 
-contarAtletas.innerHTML="atletas:"+dataLimpia.length;
+
+contarAtletas.innerHTML="Atletas: "+dataLimpia.length;
 }
 
 
@@ -102,46 +106,13 @@ contarAtletas.innerHTML="atletas:"+dataLimpia.length;
 const txtBuscar= document.getElementById ('search'); 
 txtBuscar.addEventListener('keyup', ()=> {
     const nameAthlete = document.getElementById("search").value;
-    const showFilter = filterName(nameAthlete,dataLimpia);   
+    const showFilter = filterName(nameAthlete,dataLimpia);  
     if (showFilter=="") {
-        contenedor.innerHTML="atleta no encontrad@"
-        contarAtletas.innerHTML="atletas:"+ 0;
+        contenedor.innerHTML="Atleta no encontrad@";   
     } else {
-        fnCargaGeneral(showFilter)
+        fnCargaGeneral(showFilter);
     }
-    selectOrdenar.addEventListener('change', () => {
-        const valueOrder= selectOrdenar.value;
-        const showOrder =alphabetOrder(showFilter,valueOrder);
-        fnCargaGeneral(showOrder)});
-         for (let i = 0; i < radioBtnGenero.length; i++) {
-        radioBtnGenero[i].addEventListener('change', () => {  
-            const valueGender = radioBtnGenero[i].value;
-            const showGender = filterGender(valueGender,showFilter);
-            //el acumulador por LEY se declara fuera del loop
-            let showMedals = countMedals(showGender);
-            let x= showMedals.split("-");//busca el guión y lo parte convirtiéndolo en un array - "es poderoso"
-            contarMedallas.innerHTML= "Medallas: "+"Oro 🥇: "+x[0]+", "+"Plata 🥈: "+x[1]+", "+"Bronce 🥉: "+x[2]+".";
-            fnCargaGeneral(showGender) }) 
-       }
-      selectPaises.addEventListener('change', () => {
-         const valueCountry = selectPaises.value;
-         const showCountry = filterCountry(valueCountry,showFilter);
-        fnCargaGeneral(showCountry)
-    }); 
-        selectDeporte.addEventListener('change', () => {
-        const valueSport = selectDeporte.value;
-        const showSport = filterSport(valueSport,showFilter);
-        fnCargaGeneral(showSport)
-    });
-    
 });
-
-
-// const ordenado =(show)=>{
-//    const valueOrder= selectOrdenar.value;
-//    const showOrder =alphabetOrder(show,valueOrder);
-//   fnCargaGeneral(showOrder)
-// }
 
 selectOrdenar.addEventListener('change', () => {
     const valueOrder = selectOrdenar.value;
@@ -164,24 +135,31 @@ for (let i = 0; i < radioBtnGenero.length; i++) {
 }
 
 //FUNCIÓN PARA FILTRAR PAÍSES
-const todosLosPaises =allCountries(dataAthletes); 
+
+const todosLosPaises =allCountries(dataAthletes);
 const paisesUnicos =uniqueCountry(todosLosPaises);
-paisesUnicos.sort();
+
 const selectPaises = document.getElementById("paises");
 for(let i=0; i < paisesUnicos.length; i++){ 
     let option = document.createElement("option"); //Creamos la opcion
-    option.innerHTML = paisesUnicos[i]; //Metemos el texto en la opción
+    option.innerHTML = paisesUnicos[i]; //Metemos el texto en la opción + su bandera - la bandera viene del link
     option.setAttribute('value',paisesUnicos[i])
     selectPaises.appendChild(option); //Metemos la opción en el select
 }
 selectPaises.addEventListener('change', () => {
-    const valueCountry = selectPaises.value;
+    const valueCountry = selectPaises.value; 
     const showCountry = filterCountry(valueCountry,dataLimpia);
-    fnCargaGeneral(showCountry)
+    fnCargaGeneral(showCountry); 
+    
+    let showMedals = countMedals(showCountry);
+    let x= showMedals.split("-");
+    contarMedallas.innerHTML= "Medallas: "+"Oro 🥇: "+x[0]+", "+"Plata 🥈: "+x[1]+", "+"Bronce 🥉: "+x[2]+".";
+    
 }); 
 
 //FUNCIÓN PARA FILTRAR POR DEPORTES
     //Creo el evento para cuando use el seleccionador de deportes
+
     const todosLosDeportes = allSport(dataAthletes);
     const deportesUnicos= unique(todosLosDeportes);
     deportesUnicos.sort()
@@ -210,6 +188,7 @@ for (let i = 0; i < radioBtnEdades.length; i++) {
     });
 }
 //FUNCIÓN PARA TENER EL PROMEDIO
+
 
 const sumatoriaEdades = dataLimpia.reduce((acumulador, siguienteValor) => acumulador+siguienteValor.age, 0); 
 //Si no hay nada, regresamos un objeto con edad = 0. No hay necesidad de devolver el nombre, pues no es necesario */ 

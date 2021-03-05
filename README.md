@@ -106,7 +106,7 @@ La o el usuario es un(a) fanático(a) de los Juegos Olímpicos y sus inquietudes
 necesidades serán detalladas líneas abajo.
 
 * [ ] Usuario 1:
-  **Quiere** ver a todos los deportistas **para** tener una vista general de 
+  **Yo como fan quiero** ver a todos los deportistas **para** tener una vista general de 
   los que participaron
 
     --> Criterio de aceptación:
@@ -117,11 +117,13 @@ necesidades serán detalladas líneas abajo.
         bandera del país que representa en la cara principal.
 
     --> Definición de lo terminado:
-        Existe un test que verifica la funcionalidad de la visualización de las cards
-        de los atletas. Es posible observar las tarjetas con el estilo e información.
+        -La vizualización de cards se ve sin duplicados con la información correspondiente del atleta.
+        -La vizualización de la data de los atletas recibió su testeo correspondiente.
+        -Se usó el Slint para las buenas prácticas.
+        -Fue subido al Github.
 
 * [ ] Usuario 2:
-  **Quiere** buscar a un atleta **para** saber sus datos y si ganó en los juegos.
+  **Yo como fan quiero** buscar a un atleta **para** saber sus datos y si ganó en los juegos.
 
     --> Criterio de aceptación:
         En la página principal, habrá un "buscador por nombre de atleta". Estará ubicado en la 
@@ -129,10 +131,13 @@ necesidades serán detalladas líneas abajo.
         click en la lupa, aparecerá el card del atleta o un mensaje que diga "Atleta no encontrad@".
 
     --> Definición de lo terminado:
-      **(esto lo tendremos cuando corramos el test)**
+        -El buscador funciona tal como se esperaba.
+        -La función usada para buscador de atletas recibió su testeo correspondiente.
+        -Se usó el Slint para las buenas prácticas.
+        -Fue subido al Github.
 
 * [ ] Usuario 3:
-  **Quiere** ordenar los nombres de los atletas alfabéticamente **para** tener una 
+  **Yo como fan quiero** ordenar los nombres de los atletas alfabéticamente **para** tener una 
   visualización más ordenada
 
     --> Criterio de aceptación:
@@ -141,10 +146,13 @@ necesidades serán detalladas líneas abajo.
         se reorganizará. 
 
     --> Definición de lo terminado:
-      **(esto lo tendremos cuando corramos el test)**
+        -El odenador alfabeticamente tal como se esperaba.
+        -La función usada para el ordenador alfabeticamente de atletas recibió su testeo correspondiente.
+        -Se usó el Slint para las buenas prácticas.
+        -Fue subido al Github.
 
 * [ ] Usuario 4:
-  **Quiere** filtrar a los deportistas **para** conocerlos según su género.
+  **Yo como fan quiero** filtrar a los deportistas **para** conocerlos según su género.
 
     --> Criterio de aceptación:
         A través de una opción de botón en radio, se podrá elegir el género "femenino"
@@ -152,21 +160,24 @@ necesidades serán detalladas líneas abajo.
         los atletas según lo marcado.
 
     --> Definición de lo terminado:
-      **(esto lo tendremos cuando corramos el test)**
+        -El filtro de género funciona tal como se esperaba.
+        -La función usada para el filtro de géneros de atletas recibió su testeo correspondiente.
+        -Se usó el Slint para las buenas prácticas.
+        -Fue subido al Github.
 
 * [ ] Usuario 5:
-  **Quiere** filtrar a los deportistas **para** conocerlos según el país que representó.
+  **Yo como fan quiero** filtrar a los deportistas **para** conocerlos según el país que representó.
 
-  --> Criterio de aceptación:
+    --> Criterio de aceptación:
         En la página principal, habrá un seleccionador de países. Este mostrará todas 
         los países que participaron en los juegos y que llevaron alguna medalla. 
         Así, el usuario podrá elegir uno de ellos y mostrará los atletas según su nacionalidad.
 
-  --> Definición de lo terminado:
+    --> Definición de lo terminado:
       **(esto lo tendremos cuando corramos el test)**
 
 * [ ] Usuario 6:
-  **Quiere** filtrar a los deportistas **para** conocerlos según las disciplinas.
+  **Yo como fan quiero** filtrar a los deportistas **para** conocerlos según las disciplinas.
 
     --> Criterio de aceptación:
         En la página principal, habrá un seleccionador de disciplinas (por íconos). 
@@ -174,22 +185,36 @@ necesidades serán detalladas líneas abajo.
         elegir uno de ellos y mostrará los atletas que participaron en él.
 
     --> Definición de lo terminado:
-      **(esto lo tendremos cuando corramos el test)**
+        -El filtro del seleccionador de deportes funciona tal como se esperaba.
+        -La función usada para el filtro de deportes recibió su testeo correspondiente.
+        -Se usó el Slint para las buenas prácticas.
+        -Fue subido al Github.
 
 * [ ] Usuario 7:
-  **Quiere** saber cuáles son los top 10 atletas que ganaron medallas de oro, de plata o de bronce
-  **para** tener un conocimiento de los mejores
+  **Yo como fan quiero** saber cuáles atletas son los cinco más jóvenes y cinco más viejos; así como la edad promedio.
+  **para** tener un conocimiento de datos curiosos.
 
   --> Criterio de aceptación:
-        En la página principal, habrá una opción "Medallero" y se abrirá una ventana donde se 
-        visualice los íconos de oro, plata y bronce. Al costado, habrá la opción de conocer el top 
-        10 según la medalla escogida. 
+        En la página principal, habrá una sección "Datos Curiosos". Esta tendrá opciones de seleccionar a los atletas 
+        más jóvenes y más longevos. También, habrá un botón para conocer la edad promedio. El mensaje saldrá en la página 
+        principal dentro de un cuadro.
 
   --> Definición de lo terminado:
       **(esto lo tendremos cuando corramos el test)**
 
 * [ ] Usuario 8:
-  **Quiere** realizar una nueva búsqueda **para** continuar explorando con otros filtros
+  **Yo como fan quiero** conocer el número de medallas en oro, plata y bronce según el género y país **para** tener un
+  conocimiento general cuando elijo el filtro país o género.
+
+  --> Criterio de aceptación:
+      Cada vez que se elija el filtro de género o algún país, debajo del header aparecerá el número de medallas según su
+      tipo (oro, plata y bronce). Así mismo, se conocerá cuántos atletas hay luego de haber realizado ese filtro.
+
+  --> Definición de lo terminado:
+      **(esto lo tendremos cuando corramos el test)**
+
+* [ ] Usuario 9:
+  **Yo como fan quiero** realizar una nueva búsqueda **para** continuar explorando con otros filtros
 
   --> Criterio de aceptación:
       Se colocará un botón de "reset" para borrar todos los filtros previamente seleccionados
