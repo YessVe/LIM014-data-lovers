@@ -21,6 +21,9 @@ btnReset.addEventListener('click',()=>{
     document.getElementsByName('gender').value="";//el input se queda marcado
     selectPaises.value="";
     selectDeporte.value="";
+    document.getElementById("joven")="";
+    document.getElementById("viejo")="";
+    document.getElementById("promedio")="";
     //aquí faltaría agregar la limpieza del filtro DATOS CURISOS
 })
 
@@ -154,7 +157,6 @@ selectPaises.addEventListener('change', () => {
     //Creo el evento para cuando use el seleccionador de deportes
 const todosLosDeportes = allSport(dataAthletes);
 const deportesUnicos= unique(todosLosDeportes);
-
 deportesUnicos.sort();
 const selectDeporte = document.getElementById("deportes"); 
 for(let i=0; i < deportesUnicos.length; i++){ 
@@ -170,36 +172,25 @@ selectDeporte.addEventListener('change', () => {
     fnCargaGeneral(showSport)
 }); 
 
-//FUNCIÓN PARA TENER LOS 5 ATLETAS MÁS JÓVENES Y LOS 5 MÁS LONGEVOS
+//FUNCIÓN PARA TENER LOS 5 ATLETAS MÁS JÓVENES, EL MÁS LONGEVO
 const ordenarEdad = dataLimpia.sort((a,b) => (a.age < b.age ? -1 : 1));
-console.log(ordenarEdad);
 const atletas5Jovenes = ordenarEdad.slice(0,5); // el slice me saca elementos de mi array.
 //el 0 es mi inicio y el 5 es la última posición, pero no lo incluye en el array
-const atletas5Viejos = ordenarEdad.slice(ordenarEdad.length-5,ordenarEdad.length);
-console.log(atletas5Jovenes);
-console.log(atletas5Viejos); 
-
-/* const top5 = ageOrder(dataLimpia);
-console.log(top5); *///experimento con el archivo data.js
-
-//FUNCIÓN PARA SABER EL ATLETA MÁS JOVEN Y MÁS LONGEVO
- function minMax(items) {
-    var minMaxArray = items.reduce(function (acumulador, currentValue) {
-            acumulador[0] = (!acumulador[0])? currentValue.age : Math.min(acumulador[0], currentValue.age);
-            acumulador[1] = (!acumulador[1])? currentValue.age : Math.max(acumulador[1], currentValue.age); 
-            return acumulador;
-        }, []);
-
-    return minMaxArray;
-} 
-//1er parámetro recibe como argumento una función... el 2do depende de lo que le estemos pasando: array vacío.
-//acumulador toma el valor del array vacío
-//
-console.log(minMax(dataLimpia)); 
+let radioBtnJoven = document.getElementById("joven");
+radioBtnJoven.addEventListener('change', () => {
+    fnCargaGeneral(atletas5Jovenes);
+});
+const atletaViejo = ordenarEdad.slice(ordenarEdad.length-1,ordenarEdad.length);
+let radioBtnViejo = document.getElementById("viejo");
+radioBtnViejo.addEventListener('change', () => {
+    fnCargaGeneral(atletaViejo);
+});
 
 //FUNCIÓN PARA CONOCER LA EDAD PROMEDIO
- var sumatoriaEdades = dataLimpia.reduce((acumulador, siguienteValor) => acumulador+siguienteValor.age, 0); 
+ const sumatoriaEdades = dataLimpia.reduce((acumulador, siguienteValor) => acumulador+siguienteValor.age, 0); 
  //Si no hay nada, regresamos un objeto con edad = 0. No hay necesidad de devolver el nombre, pues no es necesario */
- var promedioEdad = Math.round(sumatoriaEdades / dataLimpia.length);
- console.log(sumatoriaEdades);
-console.log(promedioEdad); 
+ const promedioEdad = Math.round(sumatoriaEdades / dataLimpia.length);
+ let radioBtnPromedio = document.getElementById("promedio");
+ radioBtnPromedio.addEventListener('change', () => {
+     contenedor.innerHTML= "La edad promedio de todos los atletas es "+promedioEdad;
+ });
