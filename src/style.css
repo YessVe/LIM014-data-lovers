@@ -1,7 +1,8 @@
-/*body{
-background-image: url("images/mascota_rio.jpeg");
-object-position: -20%  50%;
-}*/
+
+body{
+    background-attachment: fixed;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -12,7 +13,6 @@ object-position: -20%  50%;
 header{
     height: 550px;
     background-repeat: no-repeat;
-    padding: 0;
     margin: 0 0 4em;
 }
 
@@ -75,7 +75,6 @@ header{
 .conte {
 width: 10em;;
 }
-
 
 .conte p{
     font-size: 15px;
@@ -266,11 +265,13 @@ left: 1em;
 top: 2em;
 }
 
+
+/* Historia 5 - Yess */
 /* La organización de FLEXBOX para todos los filtros */
 .box{
     display: flex;
     flex-direction: column;
-    width: 450px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .box h2 {
@@ -289,16 +290,40 @@ top: 2em;
     margin: 0.5em;
 }
 
-.icono{
-    margin: -0.2em 0.4em;
+.boxBuscar,.boxGenero,.boxPais,.boxDeporte,.boxDatos{
+    width: 400px;
+    border-radius: 20px;
+    opacity: 0.73;
+    margin: 0.2em;
+}
+.boxBuscar{
+    height: 150px;
+    background: #DD4040;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.iconoGender{
-    margin: -0.9em 0.4em;
+.boxGenero{
+    background: #40D861 ;
+}
+
+.boxPais{
+    background: #40A7DD;
+}
+
+.boxDeporte{
+    background: #C9DF1F;
+}
+
+.boxDatos{
+    background: #FFE351;
 }
 
 .opciones{
     position: relative;
+    width: 20em;
     left: 4em;
     top: -2.2em;
 }
@@ -310,56 +335,23 @@ top: 2em;
     position: relative;
     left: 2em;
     margin: 0.5em ;
-
-}
-
-/* Historia 5 - Yess */
-.boxBuscar{
-    height: 150px;
-    background: #DD4040;
-    opacity: 0.73;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0.2em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    padding: 7px 7px;
+    border-radius: 12px;
     position: relative;
-    left:auto;
 }
 
-.boxGenero{
-    background: #40D861 ;
-    border-radius: 20px;
-    height:110px;
-    left: 28px; 
-    opacity: 0.73;
-    margin: 0.2em;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.icono{
+    margin: -0.2em 0.4em;
 }
 
-.boxPais{
-    background: #40A7DD;
-    opacity: 0.73;
-    border-radius: 20px;
-    margin: 0.2em;
-}
-
-.boxDeporte{
-    background: #C9DF1F;
-    opacity: 0.73;
-    border-radius: 20px;
-    margin: 0.2em;
+.iconoGender{
+    margin: -0.9em 0.4em;
 }
 
 
-.boxMedallero{
-    background: #FFE351;
-    opacity: 0.73;
-    border-radius: 20px;
-    margin: 0.em;
-}
-
+/*
 .container-fluid{
     margin:auto;
     text-align:center;
@@ -392,7 +384,7 @@ ul.pagination li a:hover:not(.active) {
 ul.pagination li a {
     transition: background-color .3s;
 }
-
+*/
 /* footer*/
 
 .footer {
@@ -411,3 +403,18 @@ ul.pagination li a {
 		color: white;
         font-family:'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 	}
+
+@media (max-width: 768px) {
+
+body{
+    margin: 0%;
+    padding: 0%;}
+
+/*Header*/
+header{
+    height: 250px;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0 0 4em;
+}
+}
