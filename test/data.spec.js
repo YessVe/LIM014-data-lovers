@@ -1,4 +1,6 @@
-import { allNames, unique, cleanData, alphabetOrder,filterName,filterGender,allCountries, filterCountry,allSport, filterSport} from '../src/data.js';
+
+import { allNames, unique, cleanData, alphabetOrder,filterName,filterGender,allCountries, uniqueCountry,
+  filterCountry, allSport, filterSport,countMedals,ageOrder} from '../src/data.js';
 
 const atletas = [{
   "name": "Denis Mikhaylovich Ablyazin",
@@ -163,7 +165,6 @@ describe('filterGender', () => {
     { name: 'Denis Mikhaylovich Ablyazin', gender: 'M'}, 
     { name: 'William Peixoto Arjona', gender: 'M'}
     ]; 
-    
   it('is a function', () => { expect(typeof filterGender).toBe('function'); });
   it('Debe traerme solo a la chica', () => { expect(filterGender('F', atletas)).toEqual(f); });
   it('Debe traerme solo a los chicos', () => { expect(filterGender('M', atletas)).toEqual(m); });
@@ -174,11 +175,19 @@ describe('filterGender', () => {
 //Lista de Paises
 describe('listCountry', () => {
   it('debe mostrarme todos los paises', () => {
-    const b = ["RUS","RUS","AUS"];
+    const b = ["Russia","Russia","Australia"];
     expect(allCountries(atletas)).toEqual(b);
   });
 });
 //Filtrado de Pais
+describe('uniqueCountry', () => { 
+  const a = ["Brazil","Brazil-2","Russia","Russia-1"]; 
+  const b = ["Brazil","Russia"]; 
+    it('is a function', () => { expect(typeof uniqueCountry).toBe('function'); });
+    it('Debe traerme a los paises duplicados sin número', () => 
+    { expect(uniqueCountry(a)).toEqual(b); });
+    }); 
+
 describe('filterCountry', () => { 
   const b = [{
     "name": "Matthew \"Matt\" Abood",
@@ -194,14 +203,14 @@ describe('filterCountry', () => {
     }]; 
     it('is a function', () => { expect(typeof filterCountry).toBe('function'); });
     it('Debe traerme solo al que es australiano', () => 
-    { expect(filterCountry("AUS",atletas)).toEqual(b); });
+    { expect(filterCountry("Australia",atletas)).toEqual(b); });
     }); 
 
 //HISTORIA DE USUARIO 6 
 //Lista de Deportes
 describe('listSport', () => {
+  const b = ["Gymnastics","Gymnastics","Swimming"];
   it('debe mostrarme todos los Deportes', () => {
-    const b = ["Gymnastics","Gymnastics","Swimming"];
     expect(allSport(atletas)).toEqual(b);
   });
 });
@@ -219,9 +228,49 @@ describe('filterSport', () => {
     "event": "Swimming Men's 4 x 100 metres Freestyle Relay",
     "medal": "Bronze"
   }]; 
-  it('is a function', () => { expect(typeof filterCountry).toBe('function'); });
+  it('is a function', () => { expect(typeof filterSport).toBe('function'); });
   it('Debe traerme solo al que participó en gimnasia', () => 
   { expect(filterSport("Swimming",atletas)).toEqual(b); });
-  }); 
+  });
 
-  
+
+//HISTORIA DE USUARIO 6 
+//Contador
+describe('countMedals', () => {
+  it('is a function', () => { expect(typeof countMedals).toBe('function'); });
+  it('Debe traerme la cantidad de medallas', () => 
+  {   const a = [{
+    "name": "Matthew \"Matt\" Abood",
+    "gender": "M",
+    "height": "197",
+    "weight": "92",
+    "sport": "Swimming",
+    "team": "Australia",
+    "noc": "AUS",
+    "age": 30,
+    "event": "Swimming Men's 4 x 100 metres Freestyle Relay",
+    "medals": ["Bronze"]
+  }]; 
+  const b= "0-0-1"
+  expect(countMedals(a)).toEqual(b)});
+  });
+
+  //Promedio de edades 
+  describe('ageOrder', () => {
+    const a = [{"name": "Natalia Madaj","age": 28},{"name": "Elizabeth \"Beezie\" Madden (Patton-)","age": 52},
+    {"name": "Tianna Madison-Bartoletta","age": 30,},{"name": "Frederik Rodenberg Madsen","age": 18,},
+    {"name": "Mark Overgaard Madsen","age": 31},{"name": "Kingsley Madu","age": 20,},
+    {"name": "James Magnussen","age": 25},{"name": "Leonie Rebekka Maier","age": 23}];
+
+    const b= [{"age": 18, "name": "Frederik Rodenberg Madsen"}, {"age": 20, "name": "Kingsley Madu"}, 
+    {"age": 23, "name": "Leonie Rebekka Maier"}, {"age": 25, "name": "James Magnussen"}, {"age": 28, "name": "Natalia Madaj"}];
+
+    const c= [{"age": 25, "name": "James Magnussen"},{"age": 28, "name": "Natalia Madaj"},{"name": "Tianna Madison-Bartoletta","age": 30},
+    {"name": "Mark Overgaard Madsen","age": 31},{"name": "Elizabeth \"Beezie\" Madden (Patton-)","age": 52}] 
+    
+    it('is a function', () => { expect(typeof ageOrder).toBe('function'); });
+    it('Debe ordenarme las edades de menor a mayor y solo debe mostrarme 5', () => 
+    {expect(ageOrder(a,"J")).toEqual(b)});
+    it('Debe ordenarme las edades de los mayores y solo debe mostrarme 5', () => 
+    {expect(ageOrder(a,"L")).toEqual(c)});
+    });

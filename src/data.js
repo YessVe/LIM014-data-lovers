@@ -136,6 +136,26 @@ export const allSport = (data) => { // data = []
   return todosLosDeportes;
 };
 
+export const uniqueCountry = (data) => {
+  const valoresUnicosPais = [];
+  for (let i = 0; i < data.length; i++) {
+    let valorPais = data[i];
+    if (valoresUnicosPais.indexOf(valorPais) < 0) {
+      valoresUnicosPais.push(valorPais);
+    }
+  }
+  const valoresUnicosOrdenados= valoresUnicosPais.sort();
+  const valorFinalPais = [];
+  for (let i = 0; i < valoresUnicosOrdenados.length; i++) {
+    let valorPrimero = valoresUnicosOrdenados[i-1];
+    let valorSegundo = valoresUnicosOrdenados[i];
+    if(valorSegundo.indexOf(valorPrimero)<0){ 
+      valorFinalPais.push(valorSegundo);
+    } 
+  }
+  return valorFinalPais;
+ };
+
 //FUNCIÓN PARA SELECCIONAR DEPORTE
 export const filterSport = (select,data) =>{
   return data.filter((el) => {
@@ -150,7 +170,6 @@ export const countMedals = (data) => {
   //el acumulador por LEY se declara fuera del loop
   for (let i = 0; i < data.length; i++) {
       let cantidadMedalla=data[i].medals; 
-
       for (let j = 0; j < cantidadMedalla.length; j++) {    
           if (cantidadMedalla[j]=="Gold") {
               oroMedalla = oroMedalla+1;
@@ -164,14 +183,14 @@ export const countMedals = (data) => {
   return (oroMedalla.toString()+"-"+plataMedalla.toString()+"-"+bronceMedalla.toString());
 }
 
-//FUNCIÓN PARA TENER LOS 5 ATLETAS MÁS JÓVENES Y LOS 5 MÁS LONGEVOS
-/* export const ageOrder = (data,a,b) => {
-  let ordenarEdad= data.sort((a.age < b.age ? -1 : 1));
-  console.log(ordenarEdad);
-  const atletas5Jovenes = ordenarEdad.slice(0,5);
-  // el slice me saca elementos de mi array.
-  //el 0 es mi inicio y el 5 es la última posición, pero no lo incluye en el array
-  const atletas5Viejos = ordenarEdad.slice(ordenarEdad.length-5,ordenarEdad.length+1);
-  return (atletas5Jovenes+"-"+atletas5Viejos)
-}
- */
+//FUNCIÓN EDADES
+export const ageOrder = (data, condition) => {
+  //*La variable me servirá para ordenar las primeras letras del nombre del atleta  
+    const ordenarEdad = data.sort((a,b) => (a.age < b.age ? -1 : 1)) 
+    if (condition=="J") {
+      return ordenarEdad.slice(0,5);
+    } else if (condition=="L") {
+      return ordenarEdad.slice(ordenarEdad.length-5,ordenarEdad.length);
+    }
+}; 
+
