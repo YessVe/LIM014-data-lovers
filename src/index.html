@@ -32,14 +32,15 @@
       <section id="contarAtletas"></section>
       <section id="contarMedallas"></section>
     </section>
-     
+    
+    <button id="limpiar">Limpiar Filtros</button>
+
   <article class="general">
     <section id="contenedor" class="contenedor"></section>
     <section class="box"> <!--contiene a todos los filtros-->     
       <section class="boxBuscar">
         <section>
           <input type="search" id="search" class="search" placeholder="_Buscar atleta"> <!--🔍-->
-          <button id="btnBuscar"><img src="images/icono_lupa.png" alt="Ícono Lupa"></button>
         </section>
 
         <select name="athletes" class="seleccion" id="ordenar">
@@ -75,20 +76,24 @@
           <option value="" disabled="" selected="">--Selecciona una opción--</option>
         </select>  
       </section>
-      <section class="boxMedallero">
-        <h2>Medallero</h2>
+
+      <section class="boxDatos">
+        <h2>Datos curiosos</h2>
         <img src="images/ícono_medalla.png" alt="Ícono medalla" class="icono">
-        <select name="athletes" class="seleccion">
-          <option value="" disabled="" selected="">--Selecciona una opción--</option>
-          <option>Top 10 medallistas de oro</option>
-          <option>Top 10 medallistas de plata</option>
-          <option>Top 10 medallistas de bronce</option>
-        </select>  
+        <form class="opciones">
+          <input type="radio" name="calculo" value="J">
+          <label for="masJoven">Los 5 Atletas más Jóvenes</label>
+          <input type="radio" name="calculo" value="L">
+          <label for="masViejo">Atleta más longevo</label>
+          <input type="radio" id="promedio" name="promedio" value="P">
+          <label for="promedio">Edad promedio</label>
+        </form>
       </section>
+      
     </section> <!--fin de la sección que agrupa a todos los filtros-->
   </article>
   
-  <div class="container-fluid">
+  <!--<div class="container-fluid">
     <ul class="pagination">
       <li><a href="#">«</a></li>
       <li><a class="active" href="#">1</a></li>
@@ -100,7 +105,7 @@
       <li><a href="#">7</a></li>
       <li><a href="#">»</a></li>
     </ul>
-  </div>
+  </div>-->
     <div id="root"></div>
     <script src="main.js" type="module"></script>
   <footer class="footer">

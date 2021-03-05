@@ -95,7 +95,7 @@ export const filterGender = (input, data) => {
 export const allCountries = (data) =>{
   const todosLosPaises = [];
   for (let i = 0; i < data.length; i++) {
-    todosLosPaises.push(data[i].noc);
+    todosLosPaises.push(data[i].team);
   }
   return todosLosPaises;
 }
@@ -103,7 +103,7 @@ export const allCountries = (data) =>{
 //FUNCIÓN PARA SELECCIONAR PAÍS
 export const filterCountry = (input, data) => {
   return data.filter((el) => {
-    return el.noc.indexOf(input) > -1;
+    return el.team.indexOf(input) > -1;
   })
 };
 
@@ -116,13 +116,61 @@ export const allSport = (data) => { // data = []
   return todosLosDeportes;
 };
 
+export const uniqueCountry = (data) => {
+  const valoresUnicosPais = [];
+  for (let i = 0; i < data.length; i++) {
+    let valorPais = data[i];
+    if (valoresUnicosPais.indexOf(valorPais) < 0) {
+      valoresUnicosPais.push(valorPais);
+    }
+  }
+  const valoresUnicosOrdenados= valoresUnicosPais.sort();
+  const valorFinalPais = [];
+  for (let i = 0; i < valoresUnicosOrdenados.length; i++) {
+    let valorPrimero = valoresUnicosOrdenados[i-1];
+    let valorSegundo = valoresUnicosOrdenados[i];
+    if(valorSegundo.indexOf(valorPrimero)<0){ 
+      valorFinalPais.push(valorSegundo);
+    } 
+  }
+  return valorFinalPais;
+ };
+
 //FUNCIÓN PARA SELECCIONAR DEPORTE
 export const filterSport = (select,data) =>{
   return data.filter((el) => {
     return el.sport.indexOf(select) > -1;})
 }
 
+//Medallas
+//FUNCIÓN PARA CONTAR LA CANTIDAD DE MEDALLAS
+export const countMedals = (data) => {
+  let oroMedalla = 0;
+  let plataMedalla = 0;
+  let bronceMedalla = 0;
+  //el acumulador por LEY se declara fuera del loop
+  for (let i = 0; i < data.length; i++) {
+      let cantidadMedalla=data[i].medals; 
+      for (let j = 0; j < cantidadMedalla.length; j++) {    
+          if (cantidadMedalla[j]=="Gold") {
+              oroMedalla = oroMedalla+1;
+          } else if (cantidadMedalla[j]=="Silver") { 
+              plataMedalla = plataMedalla+1;
+          } else if (cantidadMedalla[j]=="Bronze") {
+              bronceMedalla = bronceMedalla+1;
+          }
+      }
+  }
+  return (oroMedalla.toString()+"-"+plataMedalla.toString()+"-"+bronceMedalla.toString());
+}
 
-  /* if (query==0 || query=="" || isNaN(query) || query==Number) {
-    throw TypeError("Escribe letras, por favor")
-  } */
+//FUNCIÓN EDADES
+export const ageOrder = (data, condition) => {
+  //*La variable me servirá para ordenar las primeras letras del nombre del atleta  
+    const ordenarEdad = data.sort((a,b) => (a.age < b.age ? -1 : 1)) 
+    if (condition=="J") {
+      return ordenarEdad.slice(0,5);
+    } else if (condition=="L") {
+      return ordenarEdad.slice(ordenarEdad.length-5,ordenarEdad.length);
+    }
+}; 
