@@ -25,7 +25,8 @@ btnReset.addEventListener('click',()=>{
     document.getElementsByName('gender').value="";//el input se queda marcado
     selectPaises.value="";
     selectDeporte.value="";
-    //aquí faltaría agregar la limpieza del filtro DATOS CURISOS
+    document.getElementsByName('calculo').value="";
+    document.getElementById("promedio").value="";
 })
 
 //FUNCIÓN PARA OBTENER ATLETAS SIN DUPLICAR
@@ -117,8 +118,6 @@ selectOrdenar.addEventListener('change', () => {
     const showOrder = alphabetOrder(dataLimpia,valueOrder);
     fnCargaGeneral(showOrder)
 });
-
-
 const radioBtnGenero = document.getElementsByName('gender');
 for (let i = 0; i < radioBtnGenero.length; i++) {
       radioBtnGenero[i].addEventListener('change', () => {  
@@ -133,10 +132,8 @@ for (let i = 0; i < radioBtnGenero.length; i++) {
 }
 
 //FUNCIÓN PARA FILTRAR PAÍSES
-
 const todosLosPaises =allCountries(dataAthletes);
 const paisesUnicos =uniqueCountry(todosLosPaises);
-
 const selectPaises = document.getElementById("paises");
 for(let i=0; i < paisesUnicos.length; i++){ 
     let option = document.createElement("option"); //Creamos la opcion
@@ -159,7 +156,7 @@ selectPaises.addEventListener('change', () => {
     //Creo el evento para cuando use el seleccionador de deportes
     const todosLosDeportes = allSport(dataAthletes);
     const deportesUnicos= unique(todosLosDeportes);
-    deportesUnicos.sort()
+    deportesUnicos.sort();
     const selectDeporte = document.getElementById("deportes"); 
     for(let i=0; i < deportesUnicos.length; i++){ 
         let option = document.createElement("option");
