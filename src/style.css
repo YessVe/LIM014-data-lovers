@@ -372,6 +372,7 @@ header{
     height:110px;
     opacity: 0.73;
     margin: 0.2em;
+    font-size: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
