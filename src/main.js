@@ -56,8 +56,7 @@ function fnCargaGeneral(dataLimpia) {
             const deportista =
             `   <div class=wrap>
                     <div class=card-wrap>
-                        <div class="card">
-                        
+                        <div class="card">        
                             <section class="cara">
                                 <div class="caraNombre">
                                     <h1>
@@ -118,14 +117,15 @@ selectOrdenar.addEventListener('change', () => {
     const showOrder = alphabetOrder(dataLimpia,valueOrder);
     fnCargaGeneral(showOrder)
 });
+
+//FUNCIÓN PARA BUSCAR POR GÉNERO
 const radioBtnGenero = document.getElementsByName('gender');
 for (let i = 0; i < radioBtnGenero.length; i++) {
       radioBtnGenero[i].addEventListener('change', () => {  
         const valueGender = radioBtnGenero[i].value;
         const showGender = filterGender(valueGender,dataLimpia);
-        fnCargaGeneral(showGender);
-     
-        let showMedals = countMedals(showGender);
+        fnCargaGeneral(showGender); 
+        let showMedals = countMedals(showGender); 
         let x= showMedals.split("-");//busca el guión y lo parte convirtiéndolo en un array - "es poderoso"
         contarMedallas.innerHTML= "Medallas: "+"Oro 🥇: "+x[0]+", "+"Plata 🥈: "+x[1]+", "+"Bronce 🥉: "+x[2]+".";
     });

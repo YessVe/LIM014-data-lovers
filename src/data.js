@@ -127,6 +127,7 @@ export const filterCountry = (input, data) => {
   })
 };
 
+
 //FUNCIÓN PARA TENER LA LISTA DE DEPORTE
 export const allSport = (data) => { // data = []
   const todosLosDeportes = [];
