@@ -20,7 +20,6 @@ header{
     letter-spacing: 0em;
     display: flex;
     flex-direction: row-reverse;
-    /* flex-direction: row; */
     align-items: center;
     align-content: space-around;
     justify-content: space-around;
@@ -60,15 +59,9 @@ header{
     justify-content: flex-end;
     width: 10em;
     color: rgb(61, 61, 61);
-
-/*     min-width: 100px;
+    min-width: 100px;
     margin: auto;
     padding: 20px 0;
-    color: rgb(61, 61, 61);
-    position: relative;
-}
- *//*estilos de Nancy*/
-
 }
 
 .conte {
@@ -77,7 +70,6 @@ flex-direction: column;
 justify-content: center;
 }
 
-
 .conte a{
     color: white;
     text-decoration: none;
@@ -85,7 +77,7 @@ justify-content: center;
     padding: 10px 20px ;
     border-radius: 20px;
     font-size: 15px;
-    margin: 10px;
+    margin: 10px;   
 }
 
 .rioImage{
@@ -93,17 +85,13 @@ justify-content: center;
     border-radius: 0px; 
     display: flex;
 }
-
 /*Fin de Header*/
-
 
 .general{
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     margin-top: 2em;
 }
-
-
 #contador{
     background:#40A7DD;
 
