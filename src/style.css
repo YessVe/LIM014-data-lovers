@@ -1,6 +1,6 @@
 
 body{
-    background-attachment: fixed;
+
 }
 
 *{
@@ -11,23 +11,19 @@ body{
 
 /*Header*/
 header{
-    height: 550px;
-    background-repeat: no-repeat;
-    margin: 0 0 4em;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
 }
 
 .imagenes {
-    padding: 0;
-    position: absolute;
     width: 75%;
-    margin-right: -1.11605%;
-    margin-left: -1.11605%;
     overflow: hidden;
     border-radius: 300px 0 0 300px;
 }
 
 .imagenes ul{
-    
     display: flex;
     padding: 0;
     width: 400%;
@@ -61,10 +57,9 @@ header{
 .contentHeader{
     min-width: 100px;
     margin: auto;
-    padding: 30px 0;
+    padding: 20px 0;
     color: rgb(61, 61, 61);
     position: relative;
-    left: -16em;
 
 }
 
@@ -73,7 +68,7 @@ header{
 }
 
 .conte {
-width: 10em;;
+    width: 10em;
 }
 
 .conte p{
@@ -85,12 +80,11 @@ width: 10em;;
     color: white;
     text-decoration: none;
     background-color: yellowgreen;
-    padding: 4px 20px ;
+    padding: 10px 20px ;
     border-radius: 20px;
     font-size: 15px;
     margin: 10px;
 }
-
 
 .rioImage{
     height: 183px;
@@ -115,22 +109,29 @@ width: 10em;;
     font-family: sans-serif;
 }
 
-.general{
-    display: flex;
-    flex-direction: row-reverse;
-    margin-top: 2em;
-}
-
 /*contador*/
-#contador{
+#contador{  
+    width: 40%;
+    font-size: 20px;
+    margin-top: 10px;    
+    text-align: center;
     background: #40D861 ;
+    border-bottom: 5px solid #014b0d;
     border-radius: 20px;
     height:110px;
     left: 28px; 
     opacity: 0.73;
-    margin: 0.2em;
+    padding: 5px;
+    margin: 5px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+.general{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1em;
+}
+
 
 /*Cards deportivas*/
 .contenedor{
@@ -188,7 +189,7 @@ width: 10em;;
 
 .contraCara{
 	width: 100%;
-    background-color: #2e5d7cc7;
+    background-color: #2e5d7caf;
     background-size: cover;
     -webkit-transform: rotateY(180deg);
 	transform: rotateY(180deg);
@@ -199,13 +200,12 @@ width: 10em;;
 
 .contraCaraContent{
     overflow: auto;
-    margin: 1em 1em 1em 0.9em;
+    margin: 1em 0.1em 1em 0.9em;
     color: white;
 
 }
 
 .contraCaraContent p{
-    border-bottom: solid 1px rgb(156, 154, 154);
     padding: 11px 0;
     
 }
@@ -260,11 +260,17 @@ background-color: darkslategray;
 }
 
 .avatar{
-position: relative;
-left: 1em;
-top: 2em;
+    position: relative;
+    left: 1em;
+    top: 2em;
 }
 
+.name{
+    background-color: black;
+    color: blanchedalmond;
+    border-radius: 0.6em;
+    width: 11em;
+}
 
 /* Historia 5 - Yess */
 /* La organización de FLEXBOX para todos los filtros */
@@ -276,7 +282,7 @@ top: 2em;
 
 .box h2 {
     font-family: sans-serif;
-    font-size: 20px;
+    font-size: 19px;
     font-style: italic;
     font-weight: 400;
     text-align: left;
@@ -284,25 +290,23 @@ top: 2em;
     background: #10415bbd;
     border: 2px solid #FFFFFF;
     border-radius: 10px;
-    height: 35px;
+    height: 31px;
     width: 310px;
     left: 68px;
-    margin: 0.5em;
+    padding: 0.1em;
+    margin: 0.6em;
 }
 
 .boxBuscar,.boxGenero,.boxPais,.boxDeporte,.boxDatos{
+    position: relative;
+    padding: 2px;
     width: 400px;
     border-radius: 20px;
     opacity: 0.73;
     margin: 0.2em;
 }
 .boxBuscar{
-    height: 150px;
     background: #DD4040;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
 }
 
 .boxGenero{
@@ -319,13 +323,17 @@ top: 2em;
 
 .boxDatos{
     background: #FFE351;
+    height: 8em;
 }
 
 .opciones{
-    position: relative;
+    position: absolute;
+    width: 15em;
+    left: 5em;
+}
+
+.search{
     width: 20em;
-    left: 4em;
-    top: -2.2em;
 }
 
 .seleccion {
@@ -343,49 +351,8 @@ top: 2em;
 }
 
 .icono{
-    margin: -0.2em 0.4em;
+    margin: -0.3em 0.4em;
 }
-
-.iconoGender{
-    margin: -0.9em 0.4em;
-}
-
-
-/*
-.container-fluid{
-    margin:auto;
-    text-align:center;
-}
-
-ul.pagination {
-    display: inline-block;
-    padding: 0;
-    margin: 0;   
-}
-
-ul.pagination li {
-    display: inline;}
-
-ul.pagination li a {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-}
-ul.pagination li a.active {
-    background-color: #6092dd;
-    color: white;
-}
-
-ul.pagination li a:hover:not(.active) {
-    background-color: #ddd;}
-
-ul.pagination li a {
-    transition: background-color .3s;
-}
-*/
-/* footer*/
 
 .footer {
 	background: #6092dd;
@@ -394,27 +361,301 @@ ul.pagination li a {
 	padding: 20px;
 	margin-top: 40px;
 }
-	.footer p {
-		margin: 0;
-        font-family:'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-	}
-	
-	.footer a {
-		color: white;
-        font-family:'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-	}
+.footer p,.a {
+    margin: 0;
+    font-family:'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+}
 
-@media (max-width: 768px) {
+.footer a {
+    color: white;
+}
 
-body{
-    margin: 0%;
-    padding: 0%;}
+#limpiar{
+    color: rgb(255, 255, 255);
+    background: #1d6f9bbd;
+    border: 2px solid #FFFFFF;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15em;
+    padding: 10px 20px;
+    border-radius: 22px;
 
+}
+
+.mensajes{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+@media (max-width: 768px){
 /*Header*/
 header{
-    height: 250px;
-    background-repeat: no-repeat;
-    padding: 0;
-    margin: 0 0 4em;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
 }
+
+.imagenes {
+    margin-right: 0%;
+    margin-left: 0%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0 0 0 0;
+}
+
+.contentHeader{
+    display: flex;
+    flex-direction: row;
+    min-width: 100px;
+    margin: auto;
+    padding: 20px 0;
+    color: rgb(61, 61, 61);
+    position: relative;
+
+}
+
+.contentHeader h1{
+    font-size: 18px;
+}
+
+.conte {
+    width: 10em;
+}
+
+.conte p{
+    font-size: 10px;
+}
+
+.conte a{
+    color: white;
+    text-decoration: none;
+    background-color: yellowgreen;
+    padding: 5px 15px ;
+    border-radius: 20px;
+    font-size: 12px;
+    margin: 5px;
+}
+
+.rioImage{
+    width: 140px;
+    height:130px;
+    border-radius: 0px; 
+    display: flex;
+    position: relative;
+}
+
+.cabecera {
+    font-family: sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    letter-spacing: 0em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse
+}
+/*Fin de Header*/
+
+.cabecera h1{
+    font-family: sans-serif;
+}
+/*contador*/
+#contador{  
+    width: 90%;
+    font-size: 15px;
+    margin-top: 10px;    
+    text-align: center;
+    background: #40D861 ;
+    border-bottom: 5px solid #014b0d;
+    border-radius: 20px;
+    height:90px;
+    left: 28px; 
+    opacity: 0.73;
+    padding: 5px;
+    margin: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.general{
+    display: flex;
+    flex-direction: column;
+}
+
+/*Cards deportivas*/
+.contenedor{
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+/* Historia 5 - Yess */
+/* La organización de FLEXBOX para todos los filtros */
+.box{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.box h2 {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    text-align: left;
+    color: rgb(255, 255, 255);
+    background: #10415bbd;
+    border: 2px solid #FFFFFF;
+    border-radius: 10px;
+    height: 26px;
+    width: 260px;
+    left: 68px;
+    padding: 0.1em;
+    margin: 0.5em;
+}
+
+.boxBuscar,.boxGenero,.boxPais,.boxDeporte,.boxDatos{
+    position: relative;
+    padding: 2px;
+    width: 320px;
+    border-radius: 20px;
+    opacity: 0.73;
+    margin: 3px 1.5em;
+}
+
+.opciones{
+    position: absolute;
+    width: 14em;
+    left: 5em;
+    font-size: 14px;
+}
+
+.search{
+    width: 15em;
+}
+
+.seleccion {
+    background:rgba(255, 255, 255, 0.7);
+    border: 2px solid rgba(255, 255, 255, 1);
+    font-size: 11px;
+    width: 180px;
+    position: relative;
+    left: 2em;
+    margin: 0.5em ;
+    border-radius: 0.5em;
+    cursor: pointer;
+    padding: 7px 7px;
+    border-radius: 12px;
+    position: relative;
+}
+
+.icono{
+    margin: -0.3em 0.4em;
+}
+
+#limpiar{
+    align-items:center;
+    width: 15em;
+    border-radius: 5px;
+    background-color: #81ebeb;   
+}
+.wrap{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
+.card-wrap{
+	margin: 0.2em;
+	-webkit-perspective: 800;
+	perspective: 800;
+}
+
+.card{
+    font-family: sans-serif;
+    color: rgb(255, 255, 255);
+    height: 18.2em;
+    width: 13.5em;
+    border-radius: 1em;
+    object-fit: cover;
+    margin: 2px;
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: .5 s ease;
+	transition: .5s ease;
+	-webkit-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.65);
+	box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.65);
+}
+
+.cara, .contraCara{
+	width: 100%;
+	height: 100%;
+    border-radius: 1em;
+	position: absolute;
+	top: 0;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+    background-color: rgb(255, 255, 255);
+}
+
+.contraCara{
+	width: 100%;
+    background-color: #2e5d7caf;
+    background-size: cover;
+    -webkit-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+}
+
+.contraCaraContent{
+    overflow: auto;
+    margin: 1em 1em 1em 0.9em;
+    color: white;
+
+}
+
+.contraCaraContent p{
+    font-size:15px;
+    padding: 4px ; 
+}
+
+.contraCaraContent p:active{
+color: rgb(77, 216, 77);
+background-color: darkslategray;
+}
+
+
+.cara{
+	display: flex;
+	color: #fff;
+	font-family: "open sans";
+    width: 100%;
+    background-image: url(./images/cara.png);
+    background-size: cover;
+    position: relative;
+}
+
+.card-wrap:active .card{
+	-webkit-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+#limpiar{
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    width: 12em;
+    padding: 9px 16px;
+    border-radius: 10px;
+    background-color: #81ebeb;
+}
+
 }

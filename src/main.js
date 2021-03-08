@@ -1,14 +1,15 @@
 //Importaré la data
-
 import {unique, allNames, cleanData,filterName,alphabetOrder,filterGender,
     allCountries,uniqueCountry, filterCountry,allSport, filterSport,countMedals,
     ageOrder} from './data.js';
+
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
 // creo la variable que va a llamar desde el archivo donde
 //está la info, la propiedad solo de 'athletes'
 const dataAthletes = (copyAthletes.athletes);
+
 const contarAtletas =document.getElementById("contarAtletas");
 const contarMedallas =document.getElementById("contarMedallas");
 const selectOrdenar = document.getElementById('ordenar');
@@ -24,7 +25,8 @@ btnReset.addEventListener('click',()=>{
     document.getElementsByName('gender').value="";//el input se queda marcado
     selectPaises.value="";
     selectDeporte.value="";
-    //aquí faltaría agregar la limpieza del filtro DATOS CURISOS
+    document.getElementsByName('calculo').value="";
+    document.getElementById("promedio").value="";
 })
 
 //FUNCIÓN PARA OBTENER ATLETAS SIN DUPLICAR
@@ -72,9 +74,9 @@ function fnCargaGeneral(dataLimpia) {
                                     src="https://www.fiba.basketball/api/img/team/logoflag/0?sizeType=Medium&backgroundType=Light&patternType=default_medium&eventId=10628&iocCode=${element.noc}" alt="">
                                 </section>  
                             </section><!--Fin de class "cara"-->
-
                             <section class="contraCara">
                             <section class=contraCaraContent>
+                                <center><p class="name">${element.name}</p></center>
                                 <p>Disciplina: ${element.sport}</p>
                                 <p>Evento: ${element.events} </p>
                                 <p>Medalla: ${element.medals} </p>
@@ -94,7 +96,7 @@ function fnCargaGeneral(dataLimpia) {
     contenedor.innerHTML = mostrar;
 };
 mostrarData(data); 
-contarAtletas.innerHTML="atletas:"+dataLimpia.length;
+contarAtletas.innerHTML="Atletas: "+dataLimpia.length;
 }
 
 
@@ -102,54 +104,19 @@ contarAtletas.innerHTML="atletas:"+dataLimpia.length;
 const txtBuscar= document.getElementById ('search'); 
 txtBuscar.addEventListener('keyup', ()=> {
     const nameAthlete = document.getElementById("search").value;
-    const showFilter = filterName(nameAthlete,dataLimpia);   
+    const showFilter = filterName(nameAthlete,dataLimpia);  
     if (showFilter=="") {
-        contenedor.innerHTML="atleta no encontrad@"
-        contarAtletas.innerHTML="atletas:"+ 0;
+        contenedor.innerHTML="Atleta no encontrad@";   
     } else {
-        fnCargaGeneral(showFilter)
+        fnCargaGeneral(showFilter);
     }
-    selectOrdenar.addEventListener('change', () => {
-        const valueOrder= selectOrdenar.value;
-        const showOrder =alphabetOrder(showFilter,valueOrder);
-        fnCargaGeneral(showOrder)});
-         for (let i = 0; i < radioBtnGenero.length; i++) {
-        radioBtnGenero[i].addEventListener('change', () => {  
-            const valueGender = radioBtnGenero[i].value;
-            const showGender = filterGender(valueGender,showFilter);
-            //el acumulador por LEY se declara fuera del loop
-            let showMedals = countMedals(showGender);
-            let x= showMedals.split("-");//busca el guión y lo parte convirtiéndolo en un array - "es poderoso"
-            contarMedallas.innerHTML= "Medallas: "+"Oro 🥇: "+x[0]+", "+"Plata 🥈: "+x[1]+", "+"Bronce 🥉: "+x[2]+".";
-            fnCargaGeneral(showGender) }) 
-       }
-      selectPaises.addEventListener('change', () => {
-         const valueCountry = selectPaises.value;
-         const showCountry = filterCountry(valueCountry,showFilter);
-        fnCargaGeneral(showCountry)
-    }); 
-        selectDeporte.addEventListener('change', () => {
-        const valueSport = selectDeporte.value;
-        const showSport = filterSport(valueSport,showFilter);
-        fnCargaGeneral(showSport)
-    });
-    
 });
-
-
-// const ordenado =(show)=>{
-//    const valueOrder= selectOrdenar.value;
-//    const showOrder =alphabetOrder(show,valueOrder);
-//   fnCargaGeneral(showOrder)
-// }
 
 selectOrdenar.addEventListener('change', () => {
     const valueOrder = selectOrdenar.value;
     const showOrder = alphabetOrder(dataLimpia,valueOrder);
     fnCargaGeneral(showOrder)
 });
-
-
 const radioBtnGenero = document.getElementsByName('gender');
 for (let i = 0; i < radioBtnGenero.length; i++) {
       radioBtnGenero[i].addEventListener('change', () => {  
@@ -164,27 +131,31 @@ for (let i = 0; i < radioBtnGenero.length; i++) {
 }
 
 //FUNCIÓN PARA FILTRAR PAÍSES
-const todosLosPaises =allCountries(dataAthletes); 
+const todosLosPaises =allCountries(dataAthletes);
 const paisesUnicos =uniqueCountry(todosLosPaises);
-paisesUnicos.sort();
 const selectPaises = document.getElementById("paises");
 for(let i=0; i < paisesUnicos.length; i++){ 
     let option = document.createElement("option"); //Creamos la opcion
-    option.innerHTML = paisesUnicos[i]; //Metemos el texto en la opción
+    option.innerHTML = paisesUnicos[i]; //Metemos el texto en la opción + su bandera - la bandera viene del link
     option.setAttribute('value',paisesUnicos[i])
     selectPaises.appendChild(option); //Metemos la opción en el select
 }
 selectPaises.addEventListener('change', () => {
-    const valueCountry = selectPaises.value;
+    const valueCountry = selectPaises.value; 
     const showCountry = filterCountry(valueCountry,dataLimpia);
-    fnCargaGeneral(showCountry)
+    fnCargaGeneral(showCountry); 
+    
+    let showMedals = countMedals(showCountry);
+    let x= showMedals.split("-");
+    contarMedallas.innerHTML= "Medallas: "+"Oro 🥇: "+x[0]+", "+"Plata 🥈: "+x[1]+", "+"Bronce 🥉: "+x[2]+".";
+    
 }); 
 
 //FUNCIÓN PARA FILTRAR POR DEPORTES
     //Creo el evento para cuando use el seleccionador de deportes
     const todosLosDeportes = allSport(dataAthletes);
     const deportesUnicos= unique(todosLosDeportes);
-    deportesUnicos.sort()
+    deportesUnicos.sort();
     const selectDeporte = document.getElementById("deportes"); 
     for(let i=0; i < deportesUnicos.length; i++){ 
         let option = document.createElement("option");
@@ -192,14 +163,13 @@ selectPaises.addEventListener('change', () => {
         selectDeporte.appendChild(option);
         option.setAttribute('value', deportesUnicos[i])
     }
-        //Creo el evento para cuando use el seleccionador de paises
+        //Creo el evento para cuando use el seleccionador de deportes
     selectDeporte.addEventListener('change', () => {
         const valueSport = selectDeporte.value;
         const showSport = filterSport(valueSport,dataLimpia);
         fnCargaGeneral(showSport)
     }); 
     
-
 //FUNCIÓN PARA TENER LOS 5 ATLETAS MÁS JÓVENES Y LOS 5 MÁS LONGEVOS
 const radioBtnEdades = document.getElementsByName('calculo');
 for (let i = 0; i < radioBtnEdades.length; i++) {
@@ -216,5 +186,55 @@ const sumatoriaEdades = dataLimpia.reduce((acumulador, siguienteValor) => acumul
 const promedioEdad = Math.round(sumatoriaEdades / dataLimpia.length); 
 let radioBtnPromedio = document.getElementById("promedio"); 
 radioBtnPromedio.addEventListener('change', () => { 
-contenedor.innerHTML= "La edad promedio de todos los atletas es "+promedioEdad; });
+contenedor.innerHTML= 
+`<div class="mensajes">LA EDAD PROMEDIO DE NUESTROS ATLETAS ES DE ${promedioEdad} AÑOS</div>
+<img src="./images/wallpaper 2.png">` });
+
+
+//Paginación
+/*const pagination_element = document.getElementById('pagination');
+let paginaActual = 1;
+let cantidad = 80;
+
+function DisplayList (items, contenedor, rows_per_page, page) {
+	contenedor.innerHTML = "";
+	page--;
+	let inicio= rows_per_page * page;
+	let final = inicio+ rows_per_page;
+	let paginatedItems = items.slice(inicio, final);
+
+	for (let i = 0; i < paginatedItems.length; i++) {
+		let item = paginatedItems[i];
+		let item_element = document.createElement('div');
+		item_element.classList.add('item');
+		item_element.innerText = item;		
+		contenedor.appendChild(item_element);
+	}
+}
+
+function SetupPagination (items, contenedor, rows_per_page) {
+	contenedor.innerHTML = "";
+	let page_count = Math.ceil(items.length / rows_per_page);
+	for (let i = 1; i < page_count + 1; i++) {
+		let btn = PaginationButton(i, items);
+		contenedor.appendChild(btn);
+	}
+}
+
+function PaginationButton (page, items) {
+	let button = document.createElement('button');
+	button.innerText = page;
+
+	if (paginaActual == page) button.classList.add('active');
+	button.addEventListener('click', function () {
+		paginaActual = page;
+		DisplayList(items, contenedor, cantidad, paginaActual);
+		let current_btn = document.querySelector('.pagenumbers button.active');
+		current_btn.classList.remove('active');
+		button.classList.add('active');
+	});
+	return button;
+}
+DisplayList(dataLimpia, contenedor, cantidad, paginaActual);
+SetupPagination(dataLimpia, pagination_element, cantidad);*/
 
