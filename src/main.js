@@ -73,9 +73,9 @@ function fnCargaGeneral(dataLimpia) {
                                     src="https://www.fiba.basketball/api/img/team/logoflag/0?sizeType=Medium&backgroundType=Light&patternType=default_medium&eventId=10628&iocCode=${element.noc}" alt="">
                                 </section>  
                             </section><!--Fin de class "cara"-->
-
                             <section class="contraCara">
                             <section class=contraCaraContent>
+                                <center><p class="name">${element.name}</p></center>
                                 <p>Disciplina: ${element.sport}</p>
                                 <p>Evento: ${element.events} </p>
                                 <p>Medalla: ${element.medals} </p>
@@ -95,7 +95,6 @@ function fnCargaGeneral(dataLimpia) {
     contenedor.innerHTML = mostrar;
 };
 mostrarData(data); 
-
 contarAtletas.innerHTML="Atletas: "+dataLimpia.length;
 }
 
@@ -187,9 +186,13 @@ const sumatoriaEdades = dataLimpia.reduce((acumulador, siguienteValor) => acumul
 const promedioEdad = Math.round(sumatoriaEdades / dataLimpia.length); 
 let radioBtnPromedio = document.getElementById("promedio"); 
 radioBtnPromedio.addEventListener('change', () => { 
-contenedor.innerHTML= "La edad promedio de todos los atletas es "+promedioEdad; 
+/* contenedor.innerHTML= "La edad promedio de todos los atletas es "+promedioEdad;  */
+contenedor.innerHTML= 
+`<div class="mensajes">LA EDAD PROMEDIO DE NUESTROS ATLETAS ES DE ${promedioEdad} AÑOS</div>
+<img src="./images/wallpaper 2.png">`;
 contarAtletas.innerHTML="";
 contarMedallas.innerHTML="";
 });
+
 
 

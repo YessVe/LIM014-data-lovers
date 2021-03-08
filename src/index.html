@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html>
-
-  <section class="maincontenedor">
+<html lang="es">
     <head>
       <meta charset="utf-8">
       <link rel="shortcut icon" href="./images/logo_rio.png">
@@ -26,6 +24,8 @@
           <section class="conte">
             <h1>Atletas de los Juegos Olímpicos</h1>
             <p>Aquí, podrás encontrar a los atletas que ganaron una o más medallas en los Juegos Olímpicos en las distintas disciplinas.</p>
+            <a href="#">Acerca de</a>
+            <a href="#">verlo online</a>
           </section>
         </section>
       </header>
@@ -36,13 +36,14 @@
       </section>
 
       <article class="general">
-        <section id="contenedor" class="contenedor">
-        </section>
+        <!-- <section id="contenedor" class="contenedor">
+        </section> -->
 
         <section class="box"> <!--contiene a todos los filtros-->
           <button id="limpiar">Limpiar Filtros</button>     
           <section class="boxBuscar">     
             <h2>Buscador por nombre</h2>
+            <!-- <img src="images/icono_lupa.png" alt="Ícono Lupa" class="icono"> -->
             <section>
               <input type="search" id="search" class="search" placeholder="_Buscar atleta 🔍">
               <select name="athletes" class="seleccion" id="ordenar">
@@ -94,10 +95,11 @@
           </section>
 
         </section> <!--fin de la sección que agrupa a todos los filtros-->
+        <section id="contenedor" class="contenedor">
+        </section>
+      
       </article>
     
-
-      <div id="root"></div>
       <script src="main.js" type="module"></script>
 
       <footer class="footer">
@@ -105,7 +107,5 @@
       </footer>
     
     </body>
-
-  </section>
 
 </html>
