@@ -131,10 +131,8 @@ for (let i = 0; i < radioBtnGenero.length; i++) {
 }
 
 //FUNCIÓN PARA FILTRAR PAÍSES
-
 const todosLosPaises =allCountries(dataAthletes);
 const paisesUnicos =uniqueCountry(todosLosPaises);
-
 const selectPaises = document.getElementById("paises");
 for(let i=0; i < paisesUnicos.length; i++){ 
     let option = document.createElement("option"); //Creamos la opcion
@@ -155,7 +153,6 @@ selectPaises.addEventListener('change', () => {
 
 //FUNCIÓN PARA FILTRAR POR DEPORTES
     //Creo el evento para cuando use el seleccionador de deportes
-
     const todosLosDeportes = allSport(dataAthletes);
     const deportesUnicos= unique(todosLosDeportes);
     deportesUnicos.sort();
@@ -182,9 +179,8 @@ for (let i = 0; i < radioBtnEdades.length; i++) {
         fnCargaGeneral(edades);
     });
 }
+
 //FUNCIÓN PARA TENER EL PROMEDIO
-
-
 const sumatoriaEdades = dataLimpia.reduce((acumulador, siguienteValor) => acumulador+siguienteValor.age, 0); 
 //Si no hay nada, regresamos un objeto con edad = 0. No hay necesidad de devolver el nombre, pues no es necesario */ 
 const promedioEdad = Math.round(sumatoriaEdades / dataLimpia.length); 
@@ -241,4 +237,5 @@ function PaginationButton (page, items) {
 }
 DisplayList(dataLimpia, contenedor, cantidad, paginaActual);
 SetupPagination(dataLimpia, pagination_element, cantidad);*/
+
 

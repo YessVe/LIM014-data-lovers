@@ -96,7 +96,7 @@ export const allCountries = (data) =>{
     todosLosPaises.push(data[i].team);
   }
   return todosLosPaises;
-}
+};
 
 //FUNCIÓN PARA FILTRAR PAÍSES
 export const uniqueCountry = (data) => {
@@ -136,31 +136,11 @@ export const allSport = (data) => { // data = []
   return todosLosDeportes;
 };
 
-export const uniqueCountry = (data) => {
-  const valoresUnicosPais = [];
-  for (let i = 0; i < data.length; i++) {
-    let valorPais = data[i];
-    if (valoresUnicosPais.indexOf(valorPais) < 0) {
-      valoresUnicosPais.push(valorPais);
-    }
-  }
-  const valoresUnicosOrdenados= valoresUnicosPais.sort();
-  const valorFinalPais = [];
-  for (let i = 0; i < valoresUnicosOrdenados.length; i++) {
-    let valorPrimero = valoresUnicosOrdenados[i-1];
-    let valorSegundo = valoresUnicosOrdenados[i];
-    if(valorSegundo.indexOf(valorPrimero)<0){ 
-      valorFinalPais.push(valorSegundo);
-    } 
-  }
-  return valorFinalPais;
- };
-
 //FUNCIÓN PARA SELECCIONAR DEPORTE
 export const filterSport = (select,data) =>{
   return data.filter((el) => {
     return el.sport.indexOf(select) > -1;})
-}
+};
 
 //FUNCIÓN PARA CONTAR LA CANTIDAD DE MEDALLAS
 export const countMedals = (data) => {

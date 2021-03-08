@@ -14,13 +14,11 @@ header{
     -ms-flex-direction: row;
     flex-direction: row;
 }
-
 .imagenes {
     width: 75%;
     overflow: hidden;
     border-radius: 300px 0 0 300px;
 }
-
 .imagenes ul{
     display: flex;
     padding: 0;
@@ -28,16 +26,13 @@ header{
     animation: cambio 20s infinite;
     animation-timing-function: ease-out;
 }
-
 .imagenes li{
     width: 100%;
     list-style: none;
 }
-
 .imagenes img{
     width: 100%;
 }
-
 @keyframes cambio {
     0% {margin-left: 0;}
     20% {margin-left: 0;}
@@ -51,20 +46,16 @@ header{
     75% {margin-left: -300%;}
     100% {margin-left: -300%;}
 }
-
 .contentHeader{
     min-width: 100px;
     margin: auto;
     padding: 20px 0;
     color: rgb(61, 61, 61);
     position: relative;
-
 }
-
 .contentHeader h1{
     font-size: 30px;
 }
-
 .conte {
     width: 10em;
 }
@@ -73,7 +64,6 @@ header{
     font-size: 15px;
     margin: 1em 0;
 }
-
 .conte a{
     color: white;
     text-decoration: none;
@@ -91,7 +81,6 @@ header{
     display: flex;
     position: relative;
 }
-
 .cabecera {
     font-family: sans-serif;
     font-size: 30px;
