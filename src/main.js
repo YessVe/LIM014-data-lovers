@@ -187,6 +187,9 @@ const sumatoriaEdades = dataLimpia.reduce((acumulador, siguienteValor) => acumul
 const promedioEdad = Math.round(sumatoriaEdades / dataLimpia.length); 
 let radioBtnPromedio = document.getElementById("promedio"); 
 radioBtnPromedio.addEventListener('change', () => { 
-contenedor.innerHTML= "La edad promedio de todos los atletas es "+promedioEdad; });
+contenedor.innerHTML= "La edad promedio de todos los atletas es "+promedioEdad; 
+contarAtletas.innerHTML="";
+contarMedallas.innerHTML="";
+});
 
 
