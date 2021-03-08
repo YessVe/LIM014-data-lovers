@@ -11,9 +11,9 @@ export const allNames = (data) => { // data = []
 export const unique = (data) => {
   const valoresUnicos = [];
   for (let i = 0; i < data.length; i++) {
-    let valorAtletaPaisDeporte = data[i];
-    if (valoresUnicos.indexOf(valorAtletaPaisDeporte) < 0) {
-      valoresUnicos.push(valorAtletaPaisDeporte);
+    let valorAtletaDeporte = data[i];
+    if (valoresUnicos.indexOf(valorAtletaDeporte) < 0) {
+      valoresUnicos.push(valorAtletaDeporte);
     }
   }
   return valoresUnicos;
@@ -29,7 +29,6 @@ export const cleanData = (dataNames, data) => {
 
     for (let j = 0; j < data.length; j++) {
       if (nombrePU == data[j].name) {
-
         todosEventos.push(data[j].event);
         todasMedallas.push(data[j].medal);
         var datos = {
@@ -64,7 +63,6 @@ export const alphabetOrder = (first, condition) => {
   const result = first;
   /* Si la comparacion resulta verdadero tomara como  valor "1" para que vaya a la
     primera posición */
-  
     const compareName = (a, b) => {
       if (a.name.toLowerCase() > b.name.toLowerCase()) return 1; 
       if (a.name.toLowerCase() === b.name.toLowerCase()) return 0;
@@ -99,6 +97,28 @@ export const allCountries = (data) =>{
   }
   return todosLosPaises;
 }
+
+//FUNCIÓN PARA FILTRAR PAÍSES
+export const uniqueCountry = (data) => {
+  const valoresUnicosPais = [];
+  for (let i = 0; i < data.length; i++) {
+    let valorPais = data[i];
+    if (valoresUnicosPais.indexOf(valorPais) < 0) {
+      valoresUnicosPais.push(valorPais);
+    }
+  } 
+  const valoresUnicosOrdenados= valoresUnicosPais.sort();
+  const valorFinalPais = [];
+  for (let i = 0; i < valoresUnicosOrdenados.length; i++) {
+    let valorPrimero = valoresUnicosOrdenados[i-1];
+    let valorSegundo = valoresUnicosOrdenados[i];
+    if(valorSegundo.indexOf(valorPrimero)<0){ 
+      valorFinalPais.push(valorSegundo);
+    } 
+  }
+  return valorFinalPais;
+ };
+
 
 //FUNCIÓN PARA SELECCIONAR PAÍS
 export const filterCountry = (input, data) => {
@@ -142,7 +162,6 @@ export const filterSport = (select,data) =>{
     return el.sport.indexOf(select) > -1;})
 }
 
-//Medallas
 //FUNCIÓN PARA CONTAR LA CANTIDAD DE MEDALLAS
 export const countMedals = (data) => {
   let oroMedalla = 0;
@@ -174,3 +193,4 @@ export const ageOrder = (data, condition) => {
       return ordenarEdad.slice(ordenarEdad.length-5,ordenarEdad.length);
     }
 }; 
+
