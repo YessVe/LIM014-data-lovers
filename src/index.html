@@ -25,8 +25,8 @@
             <h1>Atletas de los Juegos Olímpicos</h1>
             <p>Aquí, podrás encontrar a los atletas que ganaron una o más medallas en los Juegos Olímpicos en las distintas disciplinas.</p>
             <section>
-              <a href="#">Acerca de</a>
-              <a href="#">verlo online</a>
+              <a href="https://es.wikipedia.org/wiki/Juegos_Ol%C3%ADmpicos_de_R%C3%ADo_de_Janeiro_2016" target="_blank">Acerca de</a>
+              <a href="https://www.youtube.com/watch?v=-qzVS4LkXpo" target="_blank">Verlo online</a>
             </section>
           </section>
         </section>
@@ -45,7 +45,6 @@
           <button id="limpiar">Limpiar Filtros</button>     
           <section class="boxBuscar">     
             <h2>Buscador por nombre</h2>
-            <!-- <img src="images/icono_lupa.png" alt="Ícono Lupa" class="icono"> -->
             <section>
               <input type="search" id="search" class="search" placeholder="_Buscar atleta 🔍">
               <select name="athletes" class="seleccion" id="ordenar">
@@ -58,13 +57,15 @@
           
           <section class="boxGenero">
             <h2>Género</h2>
-            <img src="images/Ícono_género.png" alt="Ícono género" class="iconoGender">
-            <form class="opciones">
-              <input type="radio" name="gender" value="F">
-              <label for="female">Femenino</label>
-              <input type="radio" name="gender" value="M">
-              <label for="male">Masculino</label>
-            </form>
+            <section>
+              <img src="images/Ícono_género.png" alt="Ícono género" class="iconoGender">
+              <form>
+                <input type="radio" name="gender" value="F">
+                <label for="female">Femenino</label>
+                <input type="radio" name="gender" value="M">
+                <label for="male">Masculino</label>
+              </form>
+            </section>
           </section>
 
           <section class="boxPais">
@@ -85,20 +86,20 @@
 
           <section class="boxDatos">
             <h2>Datos curiosos</h2>
-            <img src="images/ícono_medalla.png" alt="Ícono medalla" class="icono">
-            <form class="opciones">
-              <input type="radio" name="calculo" id="joven" value="J">
-              <label for="masJoven">Los 5 Atletas más Jóvenes</label>
-              <input type="radio" name="calculo" id="viejo" value="L">
-              <label for="masViejo">Los 5 Atletas más Longevos</label>
-              <input type="radio" name="calculo" id="promedio" value="P">
-              <label for="masViejo">Edad promedio</label>
-            </form>
+            <section>
+              <img src="images/ícono_medalla.png" alt="Ícono medalla" class="icono">
+              <form>
+                <input type="radio" name="calculo" id="joven" value="J">
+                <label for="masJoven">Los 5 Atletas más Jóvenes</label>
+                <input type="radio" name="calculo" id="viejo" value="L">
+                <label for="masViejo">Los 5 Atletas más Longevos</label>
+                <input type="radio" name="calculo" id="promedio" value="P">
+                <label for="masViejo">Edad promedio</label>
+              </form>
+            </section>
           </section>
 
         </section> <!--fin de la sección que agrupa a todos los filtros-->
-        <!-- <section id="contenedor" class="contenedor">
-        </section> -->
       
       </article>
     

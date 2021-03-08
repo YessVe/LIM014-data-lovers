@@ -7,10 +7,25 @@ h1 {
     font-size: 30px;
     font-family: sans-serif;
 }
+h2 {
+    font-family: sans-serif;
+    font-size: 19px;
+    font-style: italic;
+    font-weight: 400;
+    text-align: left;
+    color: rgb(255, 255, 255);
+    background: #10415bbd;
+    border: 2px solid #FFFFFF;
+    border-radius: 10px;
+    width: 290px;
+    margin: 0.5em;
+    padding: 0.3em; 
+}
 p{
     font-size: 15px;
     margin: 1em 0;
 }
+
 /*Header*/
 header{
     background-repeat: no-repeat;
@@ -89,19 +104,12 @@ justify-content: center;
 
 .general{
     display: flex;
-    flex-direction: row;
-    margin-top: 2em;
+    flex-direction: row-reverse;
+    margin-top: 1em;
 }
+
 #contador{
     background:#40A7DD;
-
-    /* width: 40%;
-    font-size: 20px;
-    margin-top: 10px;    
-    text-align: center;
-    background: #40D861 ;
-    border-bottom: 5px solid #014b0d; */
-
     border-radius: 20px;
     height:100px;
     opacity: 0.73;
@@ -115,18 +123,13 @@ justify-content: center;
     align-items: center;
 }
 
-.general{
-    display: flex;
-    flex-direction: row;
-    margin-top: 1em;
-}
 
 
 /*Cards deportivas*/
 .contenedor{
     display: flex;
     justify-content: center;
-    overflow: hidden;
+    /* overflow: hidden; */
     flex-wrap: wrap;
     width: 90%;
 }
@@ -237,41 +240,30 @@ background-color: darkslategray;
     top: 2em;
 }
 
-
 /* La organización de FLEXBOX para todos los filtros */
 
 .box{
+    margin: 0 0 0 1em;
     width: 330px;
     display: flex;
     flex-direction: column;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-h2 {
-    font-family: sans-serif;
-    font-size: 19px;
-    font-style: italic;
-    font-weight: 400;
-    text-align: left;
-    color: rgb(255, 255, 255);
-    background: #10415bbd;
-    border: 2px solid #FFFFFF;
-    border-radius: 10px;
-    width: 300px;
-    margin: 0.5em;
-    padding: 0.3em; 
-}
+
 .box img{
     width: 40px;
+    margin: -0.3em 0.4em;
 }
 .boxBuscar img{
     width: 30px;
 }
 .boxGenero img{
-    width: 70px;
+    width: 50px;
 }
 .boxDatos img{
-    width: 30px;
+    width: 10%;
+   height: 35px;
 }
 /*botón limpiar*/
 button {
@@ -284,21 +276,13 @@ button {
 }
 
 .boxBuscar,.boxGenero,.boxPais,.boxDeporte,.boxDatos{
-
-    /* height: 31px;
-    width: 310px;
-    left: 68px;
     padding: 0.1em;
-    margin: 0.6em; */
-    position: relative;
-    padding: 2px;
-    width: 400px;
+    width: 310px;
     border-radius: 20px;
     opacity: 0.73;
     margin: 0.2em;
 }
 .boxBuscar{
-    height: 150px;
     background: #C9DF1F;
     display: flex;
     flex-direction: column;
@@ -310,10 +294,21 @@ button {
     padding: 0.5em;
     border-radius: 10px;
     width: 200px;
+    
 }
 
 .boxGenero{
     background: #40D861;
+    display: flex;
+    flex-direction: column;
+}
+.boxGenero section, .boxDatos section{
+    display: flex;
+    flex-direction: row;
+}
+.boxGenero form {
+    display: flex;
+    margin: 0.5em;
 }
 
 .boxPais{
@@ -325,26 +320,14 @@ button {
 }
 
 .boxDatos{
-    background: #fbc607a6;
+    background: #FFE351;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
-.boxDatos form{
+.boxDatos form {
     display: flex;
     flex-direction: column;
     margin: 0.5em;
-    /* background: #FFE351;
-    height: 8em; */
-}
-
-.opciones{
-    position: absolute;
-    width: 15em;
-    left: 5em;
-}
-
-.search{
-    width: 20em;
 }
 
 .seleccion {
@@ -356,10 +339,6 @@ button {
     cursor: pointer;
     padding: 7px 7px;
     border-radius: 12px;
-}
-
-.icono{
-    margin: -0.3em 0.4em;
 }
 
 .footer {
@@ -379,18 +358,6 @@ button {
     color: white;
 }
 
-#limpiar{
-    color: rgb(255, 255, 255);
-    background: #1d6f9bbd;
-    border: 2px solid #FFFFFF;
-    border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 15em;
-    padding: 10px 20px;
-    border-radius: 22px;
-}
-
 .mensajes{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -401,9 +368,9 @@ button {
         display: flex;
         -webkit-flex-direction: row;
         -ms-flex-direction: row;
-        flex-direction: row;
+        flex-direction: column;
     }
-
+   
     .imagenes {
         margin-right: 0%;
         margin-left: 0%;
@@ -415,24 +382,14 @@ button {
     .contentHeader{
         display: flex;
         flex-direction: row;
-        min-width: 100px;
+        width: 15em;
         margin: auto;
         padding: 20px 0;
         color: rgb(61, 61, 61);
-        position: relative;
-
-    }
-
-    .contentHeader h1{
-        font-size: 18px;
-    }
-
-    .conte {
-        width: 10em;
     }
 
     .conte p{
-        font-size: 10px;
+        font-size: 15px;
     }
 
     .conte a{
@@ -449,44 +406,36 @@ button {
         width: 140px;
         height:130px;
         border-radius: 0px; 
-        display: flex;
-        position: relative;
-    }
-
-    .cabecera {
-        font-family: sans-serif;
-        font-size: 30px;
-        font-style: normal;
-        letter-spacing: 0em;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row-reverse
     }
     /*Fin de Header*/
+
     h1{
         font-family: sans-serif;
+        font-size: 18px;
     }
     /*contador*/
-    #contador{  
+  
+    #contador{
         width: 90%;
-        font-size: 15px;
-        margin-top: 10px;    
-        text-align: center;
-        background: #40D861 ;
-        border-bottom: 5px solid #014b0d;
+        background:#40A7DD;
         border-radius: 20px;
-        height:90px;
-        left: 28px; 
+        height:100px;
         opacity: 0.73;
+        border-bottom: 5px solid #014b0d;
         padding: 5px;
         margin: 5px;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
-
 
     .general{
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
+        margin-top: 1em;
     }
 
 
@@ -498,30 +447,16 @@ button {
         width: 100%;
     }
 
-
-    /* header{
-        height: 250px;
-        background-repeat: no-repeat;
-        padding: 0;
-        margin: 0 0 4em;
-    }
-    #contador{
-        background: #40D861 ;
-        border-radius: 20px;
-        height:110px;
-        opacity: 0.73;
-        margin: 0.2em;
-        font-size: 15px;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* La organización de FLEXBOX para todos los filtros */
+    /* .box{
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     } */
-
-
-    /* La organización de FLEXBOX para todos los filtros */
     .box{
+        margin: 0 0 0 1em;
+        padding: 2px;
+        width: 320px;
         display: flex;
         flex-direction: column;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -537,57 +472,38 @@ button {
         background: #10415bbd;
         border: 2px solid #FFFFFF;
         border-radius: 10px;
-        height: 26px;
         width: 260px;
-        left: 68px;
         padding: 0.1em;
         margin: 0.5em;
     }
-
+   
     .boxBuscar,.boxGenero,.boxPais,.boxDeporte,.boxDatos{
-        position: relative;
-        padding: 2px;
-        width: 320px;
         border-radius: 20px;
         opacity: 0.73;
-        margin: 3px 1.5em;
-    }
-
-    .opciones{
-        position: absolute;
-        width: 14em;
-        left: 5em;
-        font-size: 14px;
-    }
-
-    .search{
-        width: 15em;
     }
 
     .seleccion {
         background:rgba(255, 255, 255, 0.7);
         border: 2px solid rgba(255, 255, 255, 1);
-        font-size: 11px;
-        width: 180px;
-        position: relative;
-        left: 2em;
+        font-size: 13px;
+        width: 190px;
         margin: 0.5em ;
         border-radius: 0.5em;
         cursor: pointer;
         padding: 7px 7px;
         border-radius: 12px;
-        position: relative;
     }
 
     .icono{
         margin: -0.3em 0.4em;
     }
 
-    #limpiar{
-        align-items:center;
-        width: 15em;
+    button {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        background: #DD4040;
+        opacity: 0.73;
         border-radius: 5px;
-        background-color: #81ebeb;   
     }
     .wrap{
         display: -webkit-box;
@@ -676,16 +592,6 @@ button {
     .card-wrap:active .card{
         -webkit-transform: rotateY(180deg);
         transform: rotateY(180deg);
-    }
-
-    #limpiar{
-        margin-left: auto;
-        margin-right: auto;
-        align-content: center;
-        width: 12em;
-        padding: 9px 16px;
-        border-radius: 10px;
-        background-color: #81ebeb;
     }
 
 }
