@@ -74,9 +74,9 @@ function fnCargaGeneral(dataLimpia) {
                                     src="https://www.fiba.basketball/api/img/team/logoflag/0?sizeType=Medium&backgroundType=Light&patternType=default_medium&eventId=10628&iocCode=${element.noc}" alt="">
                                 </section>  
                             </section><!--Fin de class "cara"-->
-
                             <section class="contraCara">
                             <section class=contraCaraContent>
+                                <center><p class="name">${element.name}</p></center>
                                 <p>Disciplina: ${element.sport}</p>
                                 <p>Evento: ${element.events} </p>
                                 <p>Medalla: ${element.medals} </p>
@@ -96,7 +96,6 @@ function fnCargaGeneral(dataLimpia) {
     contenedor.innerHTML = mostrar;
 };
 mostrarData(data); 
-
 contarAtletas.innerHTML="Atletas: "+dataLimpia.length;
 }
 
@@ -187,6 +186,56 @@ const sumatoriaEdades = dataLimpia.reduce((acumulador, siguienteValor) => acumul
 const promedioEdad = Math.round(sumatoriaEdades / dataLimpia.length); 
 let radioBtnPromedio = document.getElementById("promedio"); 
 radioBtnPromedio.addEventListener('change', () => { 
-contenedor.innerHTML= "La edad promedio de todos los atletas es "+promedioEdad; });
+contenedor.innerHTML= 
+`<div class="mensajes">LA EDAD PROMEDIO DE NUESTROS ATLETAS ES DE ${promedioEdad} AÑOS</div>
+<img src="./images/wallpaper 2.png">` });
+
+
+//Paginación
+/*const pagination_element = document.getElementById('pagination');
+let paginaActual = 1;
+let cantidad = 80;
+
+function DisplayList (items, contenedor, rows_per_page, page) {
+	contenedor.innerHTML = "";
+	page--;
+	let inicio= rows_per_page * page;
+	let final = inicio+ rows_per_page;
+	let paginatedItems = items.slice(inicio, final);
+
+	for (let i = 0; i < paginatedItems.length; i++) {
+		let item = paginatedItems[i];
+		let item_element = document.createElement('div');
+		item_element.classList.add('item');
+		item_element.innerText = item;		
+		contenedor.appendChild(item_element);
+	}
+}
+
+function SetupPagination (items, contenedor, rows_per_page) {
+	contenedor.innerHTML = "";
+	let page_count = Math.ceil(items.length / rows_per_page);
+	for (let i = 1; i < page_count + 1; i++) {
+		let btn = PaginationButton(i, items);
+		contenedor.appendChild(btn);
+	}
+}
+
+function PaginationButton (page, items) {
+	let button = document.createElement('button');
+	button.innerText = page;
+
+	if (paginaActual == page) button.classList.add('active');
+	button.addEventListener('click', function () {
+		paginaActual = page;
+		DisplayList(items, contenedor, cantidad, paginaActual);
+		let current_btn = document.querySelector('.pagenumbers button.active');
+		current_btn.classList.remove('active');
+		button.classList.add('active');
+	});
+	return button;
+}
+DisplayList(dataLimpia, contenedor, cantidad, paginaActual);
+SetupPagination(dataLimpia, pagination_element, cantidad);*/
 
 
