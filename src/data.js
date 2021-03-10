@@ -152,13 +152,28 @@ export const countMedals = (data) => {
   for (let i = 0; i < data.length; i++) {
       let cantidadMedalla=data[i].medals; 
       for (let j = 0; j < cantidadMedalla.length; j++) {    
-          if (cantidadMedalla[j]=="Gold") {
+          /* if (cantidadMedalla[j]=="Gold") {
               oroMedalla = oroMedalla+1;
           } else if (cantidadMedalla[j]=="Silver") { 
               plataMedalla = plataMedalla+1;
           } else if (cantidadMedalla[j]=="Bronze") {
               bronceMedalla = bronceMedalla+1;
+          } */
+
+          switch (cantidadMedalla) {
+            case cantidadMedalla[j]=="Gold":
+              oroMedalla = oroMedalla+1;
+              break;
+            case cantidadMedalla[j]=="Silver":
+              plataMedalla = plataMedalla+1;
+              break;
+            case cantidadMedalla[j]=="Bronze":
+              bronceMedalla = bronceMedalla+1;
+              break;
           }
+
+
+
       }
   }
   return (oroMedalla.toString()+"-"+plataMedalla.toString()+"-"+bronceMedalla.toString());
