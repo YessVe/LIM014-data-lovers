@@ -187,7 +187,10 @@ necesidades serán detalladas líneas abajo.
         Así, el usuario podrá elegir uno de ellos y mostrará los atletas según su nacionalidad.
 
     --> Definición de lo terminado:
-      **(esto lo tendremos cuando corramos el test)**
+        -El filtro del seleccionador de países funciona tal como se esperaba.
+        -La función usada para el filtro recibió su testeo correspondiente.
+        -Se usó el Slint para las buenas prácticas.
+        -Fue subido al Github.
 
 * [ ] Usuario 6:
   **Yo como fan quiero** filtrar a los deportistas **para** conocerlos según las disciplinas.
