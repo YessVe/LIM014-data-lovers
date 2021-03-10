@@ -1,116 +1,114 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="./images/logo_rio.png">
-    <title>Juegos Olímpicos</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body >
-    
-    <header class="cabecera">
-      <section class="imagenes">
-        <ul>
-          <i><img src="./images/mujeres_atletas 1.png" alt=""></i>
-          <i><img src="./images/Rio wallpaper 1.png" alt=""></i>
-          <i><img src="./images/RIo wallpaper 2.png" alt=""></i>
-          <i><img src="./images/Rio wallpaper 3.png" alt=""></i>
-        </ul>
+<html lang="es">
+    <head>
+      <meta charset="utf-8">
+      <link rel="shortcut icon" href="./images/logo_rio.png">
+      <title>Juegos Olímpicos</title>
+      <link rel="stylesheet" href="style.css" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimun-scale=1.0">
+    </head>
+
+    <body>
+      
+      <header>
+        <section class="imagenes">
+          <ul>
+            <i><img src="./images/mujeres_atletas 1.png" alt=""></i>
+            <i><img src="./images/Rio wallpaper 1.png" alt=""></i>
+            <i><img src="./images/RIo wallpaper 2.png" alt=""></i>
+            <i><img src="./images/Rio wallpaper 3.png" alt=""></i>
+          </ul>
         </section>
-      <section class="contentHeader">
-      <img src="images/logo_rio.png" alt="Logo_Rio_2016" class= "rioImage">
-      <section class="conte">
-      <h1>Atletas de los Juegos Olímpicos</h1>
-      <p>Aquí, podrás encontrar a los atletas que ganaron una o más medallas en los Juegos Olímpicos en las distintas disciplinas.</p>
-      <a href="#">acerca de</a>
-      <a href="#">verlo online</a>
-    </section>
-    </section>
-    </header>
+        <section class="contentHeader">
+          <img src="images/logo_rio.png" alt="Logo_Rio_2016" class= "rioImage">
+          <section class="conte">
+            <h1>Atletas de los Juegos Olímpicos</h1>
+            <p>Aquí, podrás encontrar a los atletas que ganaron una o más medallas en los Juegos Olímpicos en las distintas disciplinas.</p>
+            <section>
+              <a href="https://es.wikipedia.org/wiki/Juegos_Ol%C3%ADmpicos_de_R%C3%ADo_de_Janeiro_2016" target="_blank">Acerca de</a>
+              <a href="https://www.youtube.com/watch?v=-qzVS4LkXpo" target="_blank">Verlo online</a>
+            </section>
+          </section>
+        </section>
+      </header>
 
-    <section id="contador">
-      <section id="contarAtletas"></section>
-      <section id="contarMedallas"></section>
-    </section>
-     
-    <button id="limpiar">Limpiar Filtros</button>
-
-    <article class="general">
-      <section id="contenedor" class="contenedor">
+      <section id="contador">
+        <section id="contarAtletas"></section>
+        <section id="contarMedallas"></section>
       </section>
 
-      <section class="box"> <!--contiene a todos los filtros-->     
-        <section class="boxBuscar">     
-          <h2>Buscador por nombre</h2>
-          <input type="search" id="search" class="search" placeholder="_Buscar atleta 🔍">
-          <select name="athletes" class="seleccion" id="ordenar">
-            <option value="">--Selecciona una opción--</option>
-            <option value="a-z">Ordena de la A - Z</option>
-            <option value="z-a">Ordena de la Z - A</option>
-          </select>  
-        </section>
-        
-        <section class="boxGenero">
-          <h2>Género</h2>
-          <img src="images/Ícono_género.png" alt="Ícono género" style="width: 70px;" class="iconoGender">
-          <form class="opciones">
-            <input type="radio" name="gender" value="F">
-            <label for="female">Femenino</label>
-            <input type="radio" name="gender" value="M">
-            <label for="male">Masculino</label>
-          </form>
+      <article class="general">
+        <section id="contenedor" class="contenedor">
         </section>
 
-        <section class="boxPais">
-          <h2>País</h2>
-          <img src="images/ícono_país.png" alt="Ícono País" class="icono">
-          <select name="athletes" class="seleccion" id="paises">
-            <option value="" disabled="" selected="">--Selecciona una opción--</option>
-          </select>  
-        </section>
+        <section class="box"> <!--contiene a todos los filtros-->
+          <button id="limpiar">Limpiar Filtros</button>     
+          <section class="boxBuscar">     
+            <h2>Buscador por nombre</h2>
+            <section>
+              <input type="search" id="search" class="search" placeholder="_Buscar atleta 🔍">
+              <select name="athletes" class="seleccion" id="ordenar">
+                <option value="">--Selecciona una opción--</option>
+                <option value="a-z">Ordena de la A - Z</option>
+                <option value="z-a">Ordena de la Z - A</option>
+              </select>
+            </section>  
+          </section>
+          
+          <section class="boxGenero">
+            <h2>Género</h2>
+            <section>
+              <img src="images/Ícono_género.png" alt="Ícono género" class="iconoGender">
+              <form>
+                <input type="radio" name="gender" value="F">
+                <label for="female">Femenino</label>
+                <input type="radio" name="gender" value="M">
+                <label for="male">Masculino</label>
+              </form>
+            </section>
+          </section>
 
-        <section class="boxDeporte">
-          <h2>Deporte</h2>
-          <img src="images/ícono_olimpiada.png" alt="Ícono olimpiada" class="icono">
-          <select name="athletes" class="seleccion" id="deportes">
-            <option value="" disabled="" selected="">--Selecciona una opción--</option>
-          </select>  
-        </section>
+          <section class="boxPais">
+            <h2>País</h2>
+            <img src="images/ícono_país.png" alt="Ícono País" class="icono">
+            <select name="athletes" class="seleccion" id="paises">
+              <option value="" disabled="" selected="">--Selecciona una opción--</option>
+            </select>  
+          </section>
 
-        <section class="boxMedallero"><!--cambiar nombre de class-->
-          <h2>Datos curiosos</h2>
-          <img src="images/ícono_medalla.png" alt="Ícono medalla" class="icono">
-          <form class="opciones">
-            <input type="radio" name="calculo" value="J">
-            <label for="masJoven">Los 5 Atletas más Jóvenes</label>
-            <input type="radio" name="calculo" value="L">
-            <label for="masViejo">Atleta más longevo</label>
-            <input type="radio" name="calculo" value="P">
-            <label for="masViejo">Edad promedio</label>
-          </form>
-        </section>
+          <section class="boxDeporte">
+            <h2>Deporte</h2>
+            <img src="images/ícono_olimpiada.png" alt="Ícono olimpiada" class="icono">
+            <select name="athletes" class="seleccion" id="deportes">
+              <option value="" disabled="" selected="">--Selecciona una opción--</option>
+            </select>  
+          </section>
 
-      </section> <!--fin de la sección que agrupa a todos los filtros-->
-    </article>
-  
-<!--   <div class="container-fluid">
-    <ul class="pagination">
-      <li><a href="#">«</a></li>
-      <li><a class="active" href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li><a href="#">6</a></li>
-      <li><a href="#">7</a></li>
-      <li><a href="#">»</a></li>
-    </ul>
-  </div> -->
+          <section class="boxDatos">
+            <h2>Datos curiosos</h2>
+            <section>
+              <img src="images/ícono_medalla.png" alt="Ícono medalla" class="icono">
+              <form>
+                <input type="radio" name="calculo" id="joven" value="J">
+                <label for="masJoven">Los 5 Atletas más Jóvenes</label>
+                <input type="radio" name="calculo" id="viejo" value="L">
+                <label for="masViejo">Los 5 Atletas más Longevos</label>
+                <input type="radio" name="calculo" id="promedio" value="P">
+                <label for="masViejo">Edad promedio</label>
+              </form>
+            </section>
+          </section>
 
-    <div id="root"></div>
-    <script src="main.js" type="module"></script>
-  <footer class="footer">
-    <p>&copy; 2021 <a href="">Olimpiadas Rio 2016</a></p>
-  </footer>
-  </body>
-</html>O
+        </section> <!--fin de la sección que agrupa a todos los filtros-->
+      
+      </article>
+    
+      <script src="main.js" type="module"></script>
+
+      <footer class="footer">
+        &copy; 2021 <a href="">Olimpiadas Rio 2016</a>
+      </footer>
+    
+    </body>
+
+</html>

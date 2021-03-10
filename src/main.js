@@ -1,27 +1,32 @@
 //Importaré la data
+import {unique, allNames, cleanData,filterName,alphabetOrder,filterGender,
+    allCountries,uniqueCountry, filterCountry,allSport, filterSport,countMedals,
+    ageOrder} from './data.js';
 
-import {unique, allNames, cleanData,filterName,alphabetOrder, filterGender,allCountries, filterCountry,allSport, filterSport, uniqueCountry, countMedals, /* ageOrder */} from './data.js';
 //import athletes from './data/athletes/athletes.js';
 import copyAthletes from './data/athletes/athletes.js';
 
 // creo la variable que va a llamar desde el archivo donde
 //está la info, la propiedad solo de 'athletes'
 const dataAthletes = (copyAthletes.athletes);
-const contarAtletas =document.getElementById('contarAtletas');
-const contarMedallas =document.getElementById('contarMedallas');
-const contenedor = document.getElementById ('contenedor');
+
+const contarAtletas =document.querySelector("#contarAtletas");
+const contarMedallas =document.querySelector("#contarMedallas");
+const selectOrdenar = document.getElementById('ordenar');
+const contenedor = document.getElementById ("contenedor");
 
 //FUNCIÓN PARA EL BOTÓN LIMPIAR
 const btnReset = document.getElementById('limpiar');
 btnReset.addEventListener('click',()=>{
-    fnCargaGeneral(dataLimpia);
     contarMedallas.innerHTML="";
+    fnCargaGeneral(dataLimpia);
     document.getElementById('search').value="";
     document.getElementById('ordenar').value="";//las tarjetas se quedan ordenadas
     document.getElementsByName('gender').value="";//el input se queda marcado
     selectPaises.value="";
     selectDeporte.value="";
-    //aquí faltaría agregar la limpieza del filtro DATOS CURISOS
+    document.getElementsByName('calculo').value="";
+    document.getElementById("promedio").value="";
 })
 
 //FUNCIÓN PARA OBTENER ATLETAS SIN DUPLICAR
@@ -31,7 +36,7 @@ btnReset.addEventListener('click',()=>{
      //2do voy a sacar los nombres sin que se repita
     const nombresUnicos= unique (todosLosNombres);
     //3ro voy a crear la data para los nombres de atletas que son únicos
-    const dataLimpia= cleanData(nombresUnicos,dataAthletes);
+    const dataLimpia= cleanData(nombresUnicos,dataAthletes)
 
 fnCargaGeneral(dataLimpia);
 
@@ -51,8 +56,7 @@ function fnCargaGeneral(dataLimpia) {
             const deportista =
             `   <div class=wrap>
                     <div class=card-wrap>
-                        <div class="card">
-                        
+                        <div class="card">        
                             <section class="cara">
                                 <div class="caraNombre">
                                     <h1>
@@ -69,9 +73,9 @@ function fnCargaGeneral(dataLimpia) {
                                     src="https://www.fiba.basketball/api/img/team/logoflag/0?sizeType=Medium&backgroundType=Light&patternType=default_medium&eventId=10628&iocCode=${element.noc}" alt="">
                                 </section>  
                             </section><!--Fin de class "cara"-->
-
                             <section class="contraCara">
                             <section class=contraCaraContent>
+                                <center><p class="name">${element.name}</p></center>
                                 <p>Disciplina: ${element.sport}</p>
                                 <p>Evento: ${element.events} </p>
                                 <p>Medalla: ${element.medals} </p>
@@ -94,6 +98,7 @@ mostrarData(data);
 contarAtletas.innerHTML="Atletas: "+dataLimpia.length;
 }
 
+
 //FUNCIÓN PARA BUSCAR POR NOMBRE DE ATLETA CON CLICK
 const txtBuscar= document.getElementById ('search'); 
 txtBuscar.addEventListener('keyup', ()=> {
@@ -106,24 +111,20 @@ txtBuscar.addEventListener('keyup', ()=> {
     }
 });
 
-//FUNCIÓN PARA ORDENAR ALFABÉTICAMENTE (A-Z / Z-A)
-const selectOrdenar = document.getElementById('ordenar');
 selectOrdenar.addEventListener('change', () => {
-    contenedor.innerHTML = '';
     const valueOrder = selectOrdenar.value;
     const showOrder = alphabetOrder(dataLimpia,valueOrder);
     fnCargaGeneral(showOrder)
-}); 
+});
 
-//FUNCIÓN PARA SELECCIONAR GÉNERO CON CLICK
+//FUNCIÓN PARA BUSCAR POR GÉNERO
 const radioBtnGenero = document.getElementsByName('gender');
 for (let i = 0; i < radioBtnGenero.length; i++) {
       radioBtnGenero[i].addEventListener('change', () => {  
         const valueGender = radioBtnGenero[i].value;
         const showGender = filterGender(valueGender,dataLimpia);
-        fnCargaGeneral(showGender);
-     
-        let showMedals = countMedals(showGender);
+        fnCargaGeneral(showGender); 
+        let showMedals = countMedals(showGender); 
         let x= showMedals.split("-");//busca el guión y lo parte convirtiéndolo en un array - "es poderoso"
         contarMedallas.innerHTML= "Medallas: "+"Oro 🥇: "+x[0]+", "+"Plata 🥈: "+x[1]+", "+"Bronce 🥉: "+x[2]+".";
     });
@@ -152,54 +153,47 @@ selectPaises.addEventListener('change', () => {
 
 //FUNCIÓN PARA FILTRAR POR DEPORTES
     //Creo el evento para cuando use el seleccionador de deportes
-const todosLosDeportes = allSport(dataAthletes);
-const deportesUnicos= unique(todosLosDeportes);
-
-deportesUnicos.sort();
-const selectDeporte = document.getElementById("deportes"); 
-for(let i=0; i < deportesUnicos.length; i++){ 
-    let option = document.createElement("option");
-    option.innerHTML = deportesUnicos[i]; 
-    selectDeporte.appendChild(option);
-    option.setAttribute('value', deportesUnicos[i])
-}
-    //Creo el evento para cuando use el seleccionador de paises
-selectDeporte.addEventListener('change', () => {
-    const valueSport = selectDeporte.value;
-    const showSport = filterSport(valueSport,dataLimpia);
-    fnCargaGeneral(showSport)
-}); 
-
+    const todosLosDeportes = allSport(dataAthletes);
+    const deportesUnicos= unique(todosLosDeportes);
+    deportesUnicos.sort();
+    const selectDeporte = document.getElementById("deportes"); 
+    for(let i=0; i < deportesUnicos.length; i++){ 
+        let option = document.createElement("option");
+        option.innerHTML = deportesUnicos[i]; 
+        selectDeporte.appendChild(option);
+        option.setAttribute('value', deportesUnicos[i])
+    }
+        //Creo el evento para cuando use el seleccionador de deportes
+    selectDeporte.addEventListener('change', () => {
+        const valueSport = selectDeporte.value;
+        const showSport = filterSport(valueSport,dataLimpia);
+        fnCargaGeneral(showSport)
+    }); 
+    
 //FUNCIÓN PARA TENER LOS 5 ATLETAS MÁS JÓVENES Y LOS 5 MÁS LONGEVOS
-const ordenarEdad = dataLimpia.sort((a,b) => (a.age < b.age ? -1 : 1));
-console.log(ordenarEdad);
-const atletas5Jovenes = ordenarEdad.slice(0,5); // el slice me saca elementos de mi array.
-//el 0 es mi inicio y el 5 es la última posición, pero no lo incluye en el array
-const atletas5Viejos = ordenarEdad.slice(ordenarEdad.length-5,ordenarEdad.length);
-console.log(atletas5Jovenes);
-console.log(atletas5Viejos); 
+const radioBtnEdades = document.getElementsByName('calculo');
+for (let i = 0; i < radioBtnEdades.length; i++) {
+    radioBtnEdades[i].addEventListener('change', () => { 
+        const valueAge = radioBtnEdades[i].value;
+        const edades = ageOrder(dataLimpia, valueAge) 
+        contarMedallas.innerHTML="";
+        fnCargaGeneral(edades);
+    });    
+}
 
-/* const top5 = ageOrder(dataLimpia);
-console.log(top5); *///experimento con el archivo data.js
+//FUNCIÓN PARA TENER EL PROMEDIO
+const sumatoriaEdades = dataLimpia.reduce((acumulador, siguienteValor) => acumulador+siguienteValor.age, 0); 
+//Si no hay nada, regresamos un objeto con edad = 0. No hay necesidad de devolver el nombre, pues no es necesario */ 
+const promedioEdad = Math.round(sumatoriaEdades / dataLimpia.length); 
+let radioBtnPromedio = document.getElementById("promedio"); 
+radioBtnPromedio.addEventListener('change', () => { 
+/* contenedor.innerHTML= "La edad promedio de todos los atletas es "+promedioEdad;  */
+contenedor.innerHTML= 
+`<div class="mensajes">La edad promedio de los atletas es ${promedioEdad} años</div>
+<img src="./images/wallpaper 2.png">`;
+contarAtletas.innerHTML="";
+contarMedallas.innerHTML="";
+});
 
-//FUNCIÓN PARA SABER EL ATLETA MÁS JOVEN Y MÁS LONGEVO
- function minMax(items) {
-    var minMaxArray = items.reduce(function (acumulador, currentValue) {
-            acumulador[0] = (!acumulador[0])? currentValue.age : Math.min(acumulador[0], currentValue.age);
-            acumulador[1] = (!acumulador[1])? currentValue.age : Math.max(acumulador[1], currentValue.age); 
-            return acumulador;
-        }, []);
 
-    return minMaxArray;
-} 
-//1er parámetro recibe como argumento una función... el 2do depende de lo que le estemos pasando: array vacío.
-//acumulador toma el valor del array vacío
-//
-console.log(minMax(dataLimpia)); 
 
-//FUNCIÓN PARA CONOCER LA EDAD PROMEDIO
- var sumatoriaEdades = dataLimpia.reduce((acumulador, siguienteValor) => acumulador+siguienteValor.age, 0); 
- //Si no hay nada, regresamos un objeto con edad = 0. No hay necesidad de devolver el nombre, pues no es necesario */
- var promedioEdad = Math.round(sumatoriaEdades / dataLimpia.length);
- console.log(sumatoriaEdades);
-console.log(promedioEdad); 

@@ -96,7 +96,7 @@ export const allCountries = (data) =>{
     todosLosPaises.push(data[i].team);
   }
   return todosLosPaises;
-}
+};
 
 //FUNCIÓN PARA FILTRAR PAÍSES
 export const uniqueCountry = (data) => {
@@ -127,6 +127,7 @@ export const filterCountry = (input, data) => {
   })
 };
 
+
 //FUNCIÓN PARA TENER LA LISTA DE DEPORTE
 export const allSport = (data) => { // data = []
   const todosLosDeportes = [];
@@ -140,7 +141,7 @@ export const allSport = (data) => { // data = []
 export const filterSport = (select,data) =>{
   return data.filter((el) => {
     return el.sport.indexOf(select) > -1;})
-}
+};
 
 //FUNCIÓN PARA CONTAR LA CANTIDAD DE MEDALLAS
 export const countMedals = (data) => {
@@ -150,28 +151,39 @@ export const countMedals = (data) => {
   //el acumulador por LEY se declara fuera del loop
   for (let i = 0; i < data.length; i++) {
       let cantidadMedalla=data[i].medals; 
-
       for (let j = 0; j < cantidadMedalla.length; j++) {    
-          if (cantidadMedalla[j]=="Gold") {
+          /* if (cantidadMedalla[j]=="Gold") {
               oroMedalla = oroMedalla+1;
           } else if (cantidadMedalla[j]=="Silver") { 
               plataMedalla = plataMedalla+1;
           } else if (cantidadMedalla[j]=="Bronze") {
               bronceMedalla = bronceMedalla+1;
+          } */
+
+          switch (cantidadMedalla[j]) {
+            case "Gold":
+              oroMedalla = oroMedalla+1;
+              break;
+            case "Silver":
+              plataMedalla = plataMedalla+1;
+              break;
+            case "Bronze":
+              bronceMedalla = bronceMedalla+1;
+              break;
           }
       }
   }
   return (oroMedalla.toString()+"-"+plataMedalla.toString()+"-"+bronceMedalla.toString());
 }
 
-//FUNCIÓN PARA TENER LOS 5 ATLETAS MÁS JÓVENES Y LOS 5 MÁS LONGEVOS
-/* export const ageOrder = (data,a,b) => {
-  let ordenarEdad= data.sort((a.age < b.age ? -1 : 1));
-  console.log(ordenarEdad);
-  const atletas5Jovenes = ordenarEdad.slice(0,5);
-  // el slice me saca elementos de mi array.
-  //el 0 es mi inicio y el 5 es la última posición, pero no lo incluye en el array
-  const atletas5Viejos = ordenarEdad.slice(ordenarEdad.length-5,ordenarEdad.length+1);
-  return (atletas5Jovenes+"-"+atletas5Viejos)
-}
- */
+//FUNCIÓN EDADES
+export const ageOrder = (data, condition) => {
+  //*La variable me servirá para ordenar las primeras letras del nombre del atleta  
+    const ordenarEdad = data.sort((a,b) => (a.age < b.age ? -1 : 1)) 
+    if (condition=="J") {
+      return ordenarEdad.slice(0,5);
+    } else if (condition=="L") {
+      return ordenarEdad.slice(ordenarEdad.length-5,ordenarEdad.length);
+    }
+}; 
+
