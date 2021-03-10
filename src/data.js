@@ -160,20 +160,17 @@ export const countMedals = (data) => {
               bronceMedalla = bronceMedalla+1;
           } */
 
-          switch (cantidadMedalla) {
-            case cantidadMedalla[j]=="Gold":
+          switch (cantidadMedalla[j]) {
+            case "Gold":
               oroMedalla = oroMedalla+1;
               break;
-            case cantidadMedalla[j]=="Silver":
+            case "Silver":
               plataMedalla = plataMedalla+1;
               break;
-            case cantidadMedalla[j]=="Bronze":
+            case "Bronze":
               bronceMedalla = bronceMedalla+1;
               break;
           }
-
-
-
       }
   }
   return (oroMedalla.toString()+"-"+plataMedalla.toString()+"-"+bronceMedalla.toString());

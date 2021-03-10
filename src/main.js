@@ -10,8 +10,8 @@ import copyAthletes from './data/athletes/athletes.js';
 //está la info, la propiedad solo de 'athletes'
 const dataAthletes = (copyAthletes.athletes);
 
-const contarAtletas =document.getElementById("contarAtletas");
-const contarMedallas =document.getElementById("contarMedallas");
+const contarAtletas =document.querySelector("#contarAtletas");
+const contarMedallas =document.querySelector("#contarMedallas");
 const selectOrdenar = document.getElementById('ordenar');
 const contenedor = document.getElementById ("contenedor");
 
@@ -176,8 +176,9 @@ for (let i = 0; i < radioBtnEdades.length; i++) {
     radioBtnEdades[i].addEventListener('change', () => { 
         const valueAge = radioBtnEdades[i].value;
         const edades = ageOrder(dataLimpia, valueAge) 
+        contarMedallas.innerHTML="";
         fnCargaGeneral(edades);
-    });
+    });    
 }
 
 //FUNCIÓN PARA TENER EL PROMEDIO
@@ -188,7 +189,7 @@ let radioBtnPromedio = document.getElementById("promedio");
 radioBtnPromedio.addEventListener('change', () => { 
 /* contenedor.innerHTML= "La edad promedio de todos los atletas es "+promedioEdad;  */
 contenedor.innerHTML= 
-`<div class="mensajes">LA EDAD PROMEDIO DE NUESTROS ATLETAS ES DE ${promedioEdad} AÑOS</div>
+`<div class="mensajes">La edad promedio de los atletas es ${promedioEdad} años</div>
 <img src="./images/wallpaper 2.png">`;
 contarAtletas.innerHTML="";
 contarMedallas.innerHTML="";
